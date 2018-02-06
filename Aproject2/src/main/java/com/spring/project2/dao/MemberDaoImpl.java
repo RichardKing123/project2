@@ -24,13 +24,15 @@ public class MemberDaoImpl implements MemberDao {
 		Member member = sqlSession.selectOne(NAME_SPACE + ".login", id);
 		int result = -1;
 		
+		//해당 유저가 없으면 null반
 		if (member == null) {
 			return result;
 		}
-		
+		//유저 있으면 1 반환 
 		if (member.getPassword().equals(password)) {
 			result = 1;
 		} else {
+			//유저 없으면 0 반환 
 			result = 0;
 		}
 		
