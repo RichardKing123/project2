@@ -33,7 +33,12 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );*/
 		
+<<<<<<< HEAD
 		return "index";
+=======
+		return "home";
+		//준혁 수정
+>>>>>>> branch 'project' of https://github.com/RichardKing123/project2.git
 	}
 	
 }
