@@ -2,7 +2,7 @@ package com.spring.project2.domain;
 
 public class Member {
 	
-	private String uniqueId, id, email, gender, name, password;
+	private String id, email, name, password;
 
 	
 	
@@ -12,14 +12,6 @@ public class Member {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	public String getUniqueId() {
-		return uniqueId;
-	}
-
-	public void setUniqueId(String uniqueId) {
-		this.uniqueId = uniqueId;
 	}
 
 	public String getId() {
@@ -36,14 +28,6 @@ public class Member {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public String getGender() {
-		return gender;
-	}
-
-	public void setGender(String gender) {
-		this.gender = gender;
 	}
 
 	public String getName() {

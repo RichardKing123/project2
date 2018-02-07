@@ -29,13 +29,12 @@
 	
 	<insert id="addMember" parameterType="Member" useGeneratedKeys="true">
 		insert into member 
-		values(#{uniqueId},#{id},#{password},#{email},#{gender},#{name}) 
+		values(#{id},#{password},#{email},#{name}) 
 	</insert>
 	
 	<update id="updateMember">
-		update member set uniqueId = #{uniqueId}, id = #{id},
-		password = #{password}, email = #{email}, gender = #{gender},
-		name = #{name}
+		update member set id = #{id},
+		password = #{password}, email = #{email}, name = #{name}
 	</update>
 </mapper>	
 
