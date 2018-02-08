@@ -53,12 +53,12 @@ public class MemberDaoImpl implements MemberDao {
 	}
 
 	@Override
-	public boolean memberPassCheck(String id, String pass) {
+	public boolean memberPassCheck(String id, String password) {
 		boolean result = false;
 		
 		//디비에서 해당 아이디에 상응하는 비밀번호 대
 		String dbPass = sqlSession.selectOne(NAME_SPACE + ".memberPassCheck", id);
-		if (dbPass.equals(pass)) {
+		if (dbPass.equals(password)) {
 			//맞으면 true 반환 
 			result = true;
 		}

@@ -14,7 +14,7 @@ public interface MemberDao {
 	public void addMember(Member member);
 	
 	//회원 정보 수정 시에 기존 비밀번호가 맞는지 확인하는 메소드 
-	public boolean memberPassCheck(String id, String pass);
+	public boolean memberPassCheck(String id, String password);
 	
 	//회원 정보를 테이블에서 수정하는 메소드
 	public void updateMember(Member member);
