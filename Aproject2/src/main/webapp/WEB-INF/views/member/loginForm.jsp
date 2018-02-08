@@ -11,7 +11,7 @@
 	<!-- //네이버아이디로로그인 버튼 노출 영역 -->
 	<script type="text/javascript">
 		var naver_id_login = new naver_id_login("1WiDgNpz9SVwwS4Cu_Au",
-				"http://127.0.0.1:8080/project2");
+				"http://localhost:8080/loginForm");
 		var state = naver_id_login.getUniqState();
 		naver_id_login.setButton("white", 2, 40);
 		naver_id_login.setDomain("YOUR_SERVICE_URL");
@@ -21,7 +21,7 @@
 	</script>
 	<script type="text/javascript">
 		var naver_id_login = new naver_id_login("1WiDgNpz9SVwwS4Cu_Au",
-				"http://127.0.0.1:8080/project2");
+				"http://localhost:8080/loginForm");
 		// 접근 토큰 값 출력
 		alert(naver_id_login.oauthParams.access_token);
 		// 네이버 사용자 프로필 조회
