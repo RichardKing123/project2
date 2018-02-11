@@ -19,6 +19,7 @@
 	SQL문의 조건에 사용할 파라미터는 아래와 같이 #{} 로 감싸서 지정하면 된다.
 -->
 <mapper namespace="com.springs.project2.mapper.MemberMapper" >
+	
 	<select id="login" resultType="Member">
 		select password from member where id = #{id}
 	</select>
@@ -36,6 +37,13 @@
 		update member set id = #{id},
 		password = #{password}, email = #{email}, name = #{name}
 	</update>
+	
+	<select id="memberPassCheck" resultType="String">
+		SELECT 
+			pass
+		FROM member
+		WHERE id = #{id}
+	</select>
 </mapper>	
 
 

@@ -3,9 +3,17 @@ package com.spring.project2.domain;
 public class Member {
 	
 	private String id, email, name, password;
+	private boolean emailGet;
+	
+	
+	public boolean isEmailGet() {
+		return emailGet;
+	}
 
-	
-	
+	public void setEmailGet(boolean emailGet) {
+		this.emailGet = emailGet;
+	}
+
 	public String getPassword() {
 		return password;
 	}

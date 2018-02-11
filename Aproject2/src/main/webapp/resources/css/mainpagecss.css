@@ -1,0 +1,25 @@
+footer {
+	bottom: 0;
+	width: 100%;
+	background-color: silver;
+	padding: 25px;
+	position: fixed;
+}
+
+.navbar {
+	margin-bottom: 0;
+	border-radius: 0;
+}
+
+/* Add a gray background color and some padding to the footer */
+.col-sm-6 {
+	margin: 10px, 10px, 10px, 10px;
+	height: 450px;
+	background-color: lightpink;
+	border: 1px solid black;
+	margin-bottom: 15px;
+}
+
+.body {
+	overflow: auto;
+}
