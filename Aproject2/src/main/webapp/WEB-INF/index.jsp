@@ -4,12 +4,17 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Spring MVC 게시판 01</title>
-<link rel="stylesheet" type="text/css" href="resources/css/mainpagecss.css" />
+<title>proeject2</title>
 <!-- 부트스트랩 + 구현용 기타 library -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!-- 내부 css, js -->
+<link rel="stylesheet" type="text/css" href="resources/css/mainpagecss.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/member.css" />
+<script type="text/javascript" src="resources/js/member.js"></script>
+
 
 </head>
 <body>

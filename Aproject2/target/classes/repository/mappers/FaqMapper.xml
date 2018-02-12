@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+	<mapper namespace="com.commercial.faq.mapper.FaqMapper">
+	
+	<select id="faqList" resultType="Faq" resultMap="faqResultMap">
+		SELECT * FROM faq
+		ORDER BY faqNo DESC
+	</select>
+	
+	<select id="getFaq" resultType="Faq" resultMap="faqResultMap">
+		SELECT * FROM faq
+		WHERE faqNo = #{faqNo}
+	</select>
+	
+	<insert id="insertFaq" parameterType="Faq"
+		useGeneratedKeys="true" keyProperty="faqNo">
+		INSERT INTO faq(faq_title, faq_content, faq_writer, 
+						faq_count, reg_date)
+		VALUES(#{faqTitle}, #{faqContent}, #{faqWriter},
+					SYSDATE(), #{faqCount})				
+	</insert>
+	
+	<select id="isAdminCheck" resultType="String">
+		SELECT id 
+		FROM member
+		WHERE id = admin
+	</select>
+	
+	
+	<update id="updateFaq" parameterType="Faq">
+		UPDATE faq
+			SET title = #{faqTitle}, content = #{faqContent},
+				reg_date = SYSDATE()
+		WHERE faq_no = #{faqNO}		
+	</update>
+	
+	<delete id="deleteFaq">
+		DELETE FROM faq
+		WHERE faq_no = #{faqNo}
+	</delete>
+	
+	<resultMap type="Faq" id="faqResultMap">
+		<id property = "faqNo" column = "faq_no"/>
+		<id property = "faqTitle" column = "faq_title"/>
+		<id property = "faqWriter" column = "faq_writer"/>
+		<id property = "faqContent" column = "faq_content"/>
+		<id property = "regDate" column = "reg_date"/>
+		<id property = "faqCount" column = "faq_count"/>
+		<id property = "adminId" column = "admin_id"/>
+		
+	</resultMap>
+	
+	
+	</mapper>
+	
+	
+	
+	
+	

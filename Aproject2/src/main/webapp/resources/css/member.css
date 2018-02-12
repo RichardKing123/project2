@@ -1,0 +1,25 @@
+.loginForm {
+	border: 2px dotted skyblue;
+	width: 40%;
+	margin: auto;
+	margin-top: 30%;
+}
+
+.form-group {
+	margin-top: 15px;
+}
+
+.col-sm-10 {
+	margin: 0 auto;
+}
+
+.form-control {
+	width: 80%;
+	display: inline-block;
+}
+.memberJoinForm {
+	margin-top:10%;
+}
+.memberInfoInput {
+	margin-left: 17%;
+}

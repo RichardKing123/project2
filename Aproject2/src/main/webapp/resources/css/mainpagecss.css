@@ -1,138 +1,25 @@
 footer {
-	position: absolute;
 	bottom: 0;
 	width: 100%;
 	background-color: silver;
-
+	padding: 25px;
+	position: fixed;
 }
 
-.visual-wrap {
-  clear: both;
-  width: 1000px;
-  height: 305px;
-  margin: 0 auto;
-  padding: 0;
+.navbar {
+	margin-bottom: 0;
+	border-radius: 0;
 }
 
-.visual-wrap .vbanner {
-  float: left;
-  width: 181px;
-  height: 270px;
-  margin-right: 12px;
-  background-color: #00b0f0;
-  padding: 35px 30px 0 30px;
-  color: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
-  position: relative;
+/* Add a gray background color and some padding to the footer */
+.col-sm-6 {
+	margin: 10px, 10px, 10px, 10px;
+	height: 450px;
+	background-color: lightpink;
+	border: 1px solid black;
+	margin-bottom: 15px;
 }
 
-.visual-wrap .vbanner.vbann1 {
-  background-color: #00b0f0;
-}
-
-.visual-wrap .vbanner.vbann2 {
-  background-color: #0088e8;
-}
-
-.visual-wrap .vbanner.vbann3 {
-  background-color: #2e70c2;
-}
-
-.visual-wrap .vbanner.vbann4 {
-  background-color: #0f4c97;
-  margin-right: 0px;
-}
-
-.visual-wrap .vbanner.vbann1:hover {
-  background-color: #37bcec;
-}
-
-.visual-wrap .vbanner.vbann2:hover {
-  background-color: #2198ec;
-}
-
-.visual-wrap .vbanner.vbann3:hover {
-  background-color: #2e70c2;
-}
-
-.visual-wrap .vbanner.vbann4:hover {
-  background-color: #205aa1;
-}
-
-.visual-wrap img {
-  margin: 15px 0;
-}
-
-.visual-wrap .vbanner-r {
-  float: right;
-  width: 655px;
-}
-
-.visual-wrap .vbanner-rt {
-  background-color: #0088e8;
-  padding: 35px 35px;
-  color: #fff;
-  height: 110px;
-  margin-bottom: 10px;
-  box-shadow: 0 4px 7px rgba(0, 0, 0, .2);
-  position: relative;
-}
-
-.visual-wrap .vbanner-rt:hover {
-  background-color: #3ca0e6;
-}
-
-.visual-wrap .vbanner-rb {
-  background-color: #2e70c2;
-  padding: 35px 35px;
-  color: #fff;
-  height: 110px;
-  margin-bottom: 10px;
-  box-shadow: 0 4px 7px rgba(0, 0, 0, .2);
-  position: relative;
-}
-
-.visual-wrap .vbanner-rb:hover {
-  background-color: #5a88c1;
-}
-
-.visual-wrap .vbanner-r img {
-  position: absolute;
-  top: 40px;
-  right: 160px;
-}
-
-.visual-wrap h2 {
-  font-size: 30px;
-  font-weight: 700;
-  margin: 0;
-  line-height: 30px;
-}
-
-.visual-wrap h2 small {
-  font-size: 13px;
-  font-weight: 400;
-  opacity: 0.7;
-  display: block;
-}
-
-.visual-wrap h6 {
-  font-size: 14px;
-  line-height: 23px;
-  margin: 0 0 0 0;
-  font-weight: 400;
-  height: 40px;
-}
-
-.visual-wrap p {
-  margin: 5px 0;
-  font-size: 14px;
-}
-
-.visual-wrap .btn {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  line-height: 14px;
-  padding: 7px 14px !important;
+.body {
+	overflow: auto;
 }
