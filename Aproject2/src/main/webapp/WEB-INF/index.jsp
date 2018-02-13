@@ -19,7 +19,6 @@
 <script src="resources/js/formcheck.js"></script>
 <script type="text/javascript" src="resources/js/member.js"></script>
 <script type="text/javascript" src="resources/js/search.js"></script>
-<script src="resources/js/jquery-3.2.1.min.js"></script>
 
 
 </head>
