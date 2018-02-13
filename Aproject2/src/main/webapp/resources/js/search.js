@@ -517,7 +517,7 @@ $(document).ready(function(){
 						+"</td>"
 						+"<td>"
 						+"<div>"
-						+"<span>"+data.gu+"</span>"
+						+'<span><a href="#" onClick="javascript:openDetail();" id="detailGo">'+data.gu+"</a></span>"
 						+"</div>"
 						+"</td>";
 					$("#resultTable").append(result);
@@ -527,5 +527,13 @@ $(document).ready(function(){
 		});
 		
 		
+		
 
 	});
+
+function openDetail(){
+	var gu = $("#detailGo").text();
+	var gu1 = encodeURI(gu);
+	url="searchDetail?gu="+gu1;
+	window.open(url,"searchDetail","toolbar=no,location=no,status=no,width="+screen.availWidth+",height="+screen.availHeight);
+}
