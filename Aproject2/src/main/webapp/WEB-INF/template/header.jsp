@@ -4,10 +4,10 @@
 <header>
 	<div class="container">
     <ul class="nav nav-tabs" role="tablist">
-      <li><a href="#" data-toggle="tab">상권분석</a></li>
+      <li><a href="search00">상권분석</a></li>
       <li><a href="#" data-toggle="tab">입지분석</a></li>
       <li><a href="#" data-toggle="tab">동향지표</a></li>
-      <li><a href="#" data-toggle="tab">자유게시판</a></li>
+      <li><a href="boardList">자유게시판</a></li>
       <li><a href="#" data-toggle="tab">FAQ</a></li>
     </ul>
   </div>
