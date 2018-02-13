@@ -6,4 +6,5 @@
 	<div>
 	<p>${gu1 }</p>
 	</div>
+	
 </article>
