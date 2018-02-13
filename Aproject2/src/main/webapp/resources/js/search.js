@@ -523,6 +523,7 @@ $(document).ready(function(){
 					$("#resultTable").append(result);
 				}
 			});
+			
 		});
 		
 		
