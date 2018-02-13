@@ -1,0 +1,180 @@
+.loginForm {
+	border: 2px dotted skyblue;
+	width: 40%;
+	margin: auto;
+	margin-top: 30%;
+}
+
+.form-group {
+	margin-top: 15px;
+}
+
+.col-sm-10 {
+	margin: 0 auto;
+}
+
+.form-control {
+	width: 80%;
+	display: inline-block;
+}
+.memberJoinForm {
+	margin-top:10%;
+}
+.memberInfoInput {
+	margin-left: 17%;
+}
+.selectpicker {
+	display: inline-block;
+	width: 18%;
+	height: 34px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555;
+	background-color: #fff;
+	background-image: none; 
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+.submitbutton {
+	margin-left: 40%;
+}
+
+.control-group {
+	display: inline-block;
+	padding: 30px;
+	margin-left:10%;
+	text-align: left;
+	vertical-align: top;
+	background: #fff;
+
+}
+.control {
+	font-size: 18px;
+	position: relative;
+	display: inline-block;
+	margin-bottom: 15px;
+	padding-left: 30px;
+	cursor: pointer;
+}
+
+.control input {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+}
+.control__indicator {
+	position: absolute;
+	top: 2px;
+	left: 0;
+	width: 20px;
+	height: 20px;
+	background: #e6e6e6;
+}
+
+.control--radio .control__indicator {
+	border-radius: 50%;
+}
+.control:hover input ~ .control__indicator,
+.control input:focus ~ .control__indicator {
+	background: #ccc;
+}
+
+/* Checked state */
+.control input:checked ~ .control__indicator {
+	background: #2aa1c0;
+}
+
+/* Hover state whilst checked */
+.control:hover input:not([disabled]):checked ~ .control__indicator,
+.control input:checked:focus ~ .control__indicator {
+	background: #0e647d;
+}
+
+/* Disabled state */
+.control input:disabled ~ .control__indicator {
+	pointer-events: none;
+	opacity: .6;
+	background: #e6e6e6;
+}
+
+/* Check mark */
+.control__indicator:after {
+	position: absolute;
+	display: none;
+	content: '';
+}
+
+/* Show check mark */
+.control input:checked ~ .control__indicator:after {
+	display: block;
+}
+
+/* Checkbox tick */
+.control--checkbox .control__indicator:after {
+	top: 4px;
+	left: 8px;
+	width: 3px;
+	height: 8px;
+	transform: rotate(45deg);
+	border: solid #fff;
+	border-width: 0 2px 2px 0;
+}
+
+/* Disabled tick colour */
+.control--checkbox input:disabled ~ .control__indicator:after {
+	border-color: #7b7b7b;
+}
+
+/* Radio button inner circle */
+.control--radio .control__indicator:after {
+	top: 7px;
+	left: 7px;
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+#memberInputDefault{	
+	margin: 5px auto;
+	padding: 10px;
+	width: 588px; 
+	background: #EBF3F9; 
+	border: 1px solid #3A96D6; 
+	border-radius: 5px;
+}
+#memberInputOption {
+	margin: 5px auto;
+	padding: 10px;
+	width: 588px;
+	border: 2px dotted #3A96D6; 
+	background: #EBF3F9; 
+	border-radius: 5px;
+}
+.memberInputText {
+	height: 30px;
+	line-height: 30px;
+}
+.memberSpan {
+	display: inline-block; 
+	width: 120px; 
+	text-align: right; 
+	margin-right: 10px;	
+}
+h3 {
+	text-align: center;
+}
+
