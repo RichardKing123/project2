@@ -18,9 +18,10 @@ import com.spring.project2.service.FaqService;
 @Controller
 public class FaqController {
 	
-	@Autowired
+	
 	private FaqService faqService;
 	
+	@Autowired
 	public void setFaqService(FaqService faqService) {
 		this.faqService = faqService;
 	}

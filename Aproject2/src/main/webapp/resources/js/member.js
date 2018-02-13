@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	//아이디 중복확인 클릭 시 새 창 띄워서 중복 확인하는 메소
+	//아이디 중복확인 클릭 시 새 창 띄워서 중복 확인하는 메소드
 	$("#overlapIdCheck").on("click", function() {
 		var id = $("#userId").val();
 		url="overlapIdCheck?id=" + id;
@@ -47,4 +47,78 @@ $(document).ready(function() {
 		 **/ 
 		return joinFormCheck();
 	});
+	
+	//회원가입 시 이메일 셀렉트 창 구현 쿼리
+	$("#selectDomain").on("change", function() {
+		var str = $(this).val();
+		
+		if(str == "직접입력") {	
+			$("#emailDomain").val("");
+			$("#emailDomain").prop("readonly", false);
+		} else if(str == "네이버"){	
+			$("#emailDomain").val("naver.com");			
+			$("#emailDomain").prop("readonly", true);
+			
+		} else if(str == "다음") {		
+			$("#emailDomain").val("daum.net");
+			$("#emailDomain").prop("readonly", true);
+			
+		} else if(str == "한메일"){	
+			$("#emailDomain").val("hanmail.net");
+			$("#emailDomain").prop("readonly", true);
+			
+		} else if(str == "구글") {		
+			$("#emailDomain").val("gmail.com");
+			$("#emailDomain").prop("readonly", true);
+		}
+	});
 });
+
+
+
+
+
+
+
+
+
+
+
+function joinFormCheck() {
+	var id = $("#userId").val();
+	var pass1 = $("#password1").val();
+	var pass2 = $("#password2").val();
+	var emailId = $("#emailId").val();
+	var emailDomain = $("#emailDomain").val();
+	var isIdCheck = $("#isIdCheck").val();
+	
+	if(id.length == 0) {		
+		alert("아이디가 입력되지 않았습니다.\n아이디를 입력해주세요");
+		return false;
+	}		
+	if(isIdCheck == 'false') {		
+		alert("아이디 중복 체크를 하지 않았습니다.\n아이디 중복 체크를 해주세요");
+		return false;
+	}	
+	if(pass1.length == 0) {		
+		alert("비밀번호가 입력되지 않았습니다.\n비밀번호를 입력해주세요");
+		return false;
+	}
+	
+	if(pass2.length == 0) {		
+		alert("비밀번호 확인이 입력되지 않았습니다.\n비밀번호 확인을 입력해주세요");
+		return false;
+	}
+	if(pass1 != pass2) {
+		alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+		return false;
+	}	
+	if(emailId.length == 0) {		
+		alert("이메일 아이디가 입력되지 않았습니다.\n이메일 아이디를 입력해주세요");
+		return false;
+	}	
+	if(emailDomain.length == 0) {		
+		alert("이메일 도메인이 입력되지 않았습니다.\n이메일 도메인을 입력해주세요");
+		return false;
+	}	
+}

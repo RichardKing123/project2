@@ -4,13 +4,15 @@ import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.spring.project2.domain.Faq;
 
+@Repository
 public class FaqDaqImpl implements FaqDao {
 	
 	
-	private final String NAME_SPACE = "com.commercial.faq.mapper.FaqMapper";
+	private final String NAME_SPACE = "com.springs.project2.mapper.FaqMapper";
     
 	
 	private SqlSessionTemplate sqlSession;	
@@ -38,6 +40,7 @@ public class FaqDaqImpl implements FaqDao {
 
 	}
 	
+	@Override
 	public boolean isAdminCheck(String adminId) {
 		
 		boolean result = false;

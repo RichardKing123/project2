@@ -3,45 +3,34 @@
 <article>
 	<div class="container">
 		<div id="memberJoinForm">
-			<h3 id="memberInfoInput">회원 정보 입력</h3>
-			<form class="form-horizontal" action="joinInfo" name="joinForm" method="post" id="joinForm">
-				<div class="form-group">
-					<label class="control-label col-sm-2" for="id">Id:</label>
-					<div class="col-sm-10">
-						<input type="text" class="form-control" id="id"
-							placeholder="Enter id" name="id"> <input type="button"
-							class="btn btn-default" id="overlapIdCheck" value="${sessionScope.member.id }" readonly/>
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label col-sm-2" for="pwd">Password:</label>
-					<div class="col-sm-10">
-						<input type="password" class="form-control" id="pwd"
-							placeholder="Enter password" name="pwd" value="${sessionScope.member.password }" readonly>
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label col-sm-2" for="email">Email:</label>
-					<div class="col-sm-10">
-						<input type="email" class="form-control" id="email"
-							placeholder="Enter email" name="email" value="${sessionScope.member.email }" readonly>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<div class="col-sm-offset-2 col-sm-10">
-						<div class="checkbox">
-							<label><input type="checkbox" name="emailGet">
-								Get a notification</label>
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
-					<div class="col-sm-offset-2 col-sm-10">
-						<button type="submit" class="btn btn-default">JOIN</button>
-					</div>
-				</div>
-			</form>
+		<h3 id="joinFormTitle">회원 정보 입력 확인</h3>
+		<div id="memberInputDefault">			
+			<div class="memberInputText">
+				<span class="memberSpan">* 아이디 : </span>
+				<span class="inputInfoSpan">${ sessionScope.member.id }</span>
+			</div>
+			<div class="memberInputText">
+				<span class="memberSpan">* 비밀번호 : </span>
+				<span class="inputInfoSpan">${ sessionScope.member.password }</span>
+			</div>
+			<div class="memberInputText">
+				<span class="memberSpan">* 이 메 일 : </span>
+				<span class="inputInfoSpan">${ sessionScope.member.email }</span>
+			</div>
 		</div>
+		<div id="memberInputOption">
+			<div class="memberInputText">
+				<span class="memberSpan">메일 수신여부 : </span>
+				<span class="inputInfoSpan">${ sessionScope.member.emailGet ? 
+					"메일 받음" : "메일 받지 않음" }</span>
+			</div>
+		</div>
+		<div class="submitbutton">
+			<input type="button" value="수정하기"
+				onclick="document.location.href='joinForm'" class="btn btn-default"/>
+			<input type="submit" value="가입완료" 
+				onclick="document.location.href='joinResult'" class="btn btn-default"/>
+		</div>			
+	</div>	
 	</div>
 </article>

@@ -13,9 +13,10 @@ import com.spring.project2.domain.Faq;
 public class FaqServiceImpl implements FaqService {
 	
 	
-	@Autowired
+	
 	private FaqDao faqDao;
 	
+	@Autowired
 	public void setFaqDao(FaqDao faqDao) {
 		this.faqDao = faqDao;
 	}
@@ -38,6 +39,7 @@ public class FaqServiceImpl implements FaqService {
 
 	}
 	
+	@Override
 	public boolean isAdminCheck(String adminId) {
 		
 		return faqDao.isAdminCheck(adminId);
