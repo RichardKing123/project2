@@ -153,7 +153,6 @@
 </div>
 
 
-
 <div><input type="button" id="search" value="검색"></div>
 
 <div id="result">
