@@ -3,12 +3,13 @@
 <article>
 <wrap id="search00">
 <div id="choiceWork1">
-	<a href="#" class="choiceWork1">관심업종을 선택하세요</a>
+	<a href="#" class="choiceWork1">관심업종을 선택하세요</a>&nbsp;&nbsp;<span id="selectWork"></span>
 </div>
+
 <br/>
 <form>
-<input type="text" id="selWork">
-<input type="text" id="gu">
+<input type="hidden" id="selWork">
+<input type="hidden" id="gu">
 </form>
 
 <div id="workTable" class="workTable">
@@ -28,7 +29,6 @@
 		<td><a href="#" class="japan">일식집</a></td>
 		<td><a href="#" class="bunsik">분식집</a></td>
 		<td><a href="#" class="chik">치킨집</a></td>
-
 		<td><a href="#" class="hof">호프간이주점</a></td>
 	</tr>
 	<tr>
@@ -105,8 +105,9 @@
   <br/>
 
 <div id="choiceRegion1">
-	<a href="#" class="choiceRegion1">관심지역을 선택하세요</a>
+	<a href="#" class="choiceRegion1">관심지역을 선택하세요</a>&nbsp;&nbsp;<span id="selectGu"></span>
 </div>
+
 <br/>
 <div id="regionTable" class="regionTable">
 
@@ -151,9 +152,9 @@
 	
 </div>
 
-<span id="selectWork"></span>
-<span id="selectGu"></span>
-<input type="button" id="search" value="검색">
+
+
+<div><input type="button" id="search" value="검색"></div>
 
 <div id="result">
 	<table id="resultTable"></table>

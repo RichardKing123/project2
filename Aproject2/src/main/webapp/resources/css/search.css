@@ -4,4 +4,5 @@ a{text-decoration:none;color:black;}
 .service{display:none;}
 .doso{display:none;}
 .workKind{list-style:none;margin:0;padding:0;}
-.workKind li{float:left;}	
+.workKind li{float:left;}
+#search{margin-top:10px;}	
