@@ -12,11 +12,11 @@ public class SearchAjaxController {
 
 	@RequestMapping("/search.ajax")
 	@ResponseBody
-	public Map<String, String> searchList(String work, String gu) {
+	public Map<String, String> searchList(String business_type, String district) {
 		
 		Map<String, String> map = new HashMap<String, String>();
-		map.put("work", work);
-		map.put("gu", gu);
+		map.put("work", business_type);
+		map.put("gu", district);
 		return map;
 	}
 	

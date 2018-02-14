@@ -501,7 +501,7 @@ $(document).ready(function(){
 			$.ajax({
 				url:"search.ajax",
 				type:"post",
-				data:{"work":selectWork, "gu":selectGu},
+				data:{"business_type":selectWork, "district":selectGu},
 				dataType:"json",
 				success:function(data){
 					$("#resultTable").empty();
