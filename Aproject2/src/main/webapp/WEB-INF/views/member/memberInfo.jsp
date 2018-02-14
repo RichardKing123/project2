@@ -14,6 +14,10 @@
 				<span class="inputInfoSpan">${ sessionScope.member.password }</span>
 			</div>
 			<div class="memberInputText">
+				<span class="memberSpan">* 이&nbsp;&nbsp;름 : </span>
+				<span class="inputInfoSpan">${ sessionScope.member.name }</span>
+			</div>
+			<div class="memberInputText">
 				<span class="memberSpan">* 이 메 일 : </span>
 				<span class="inputInfoSpan">${ sessionScope.member.email }</span>
 			</div>

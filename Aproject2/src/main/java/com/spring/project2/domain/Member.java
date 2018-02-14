@@ -1,11 +1,22 @@
 package com.spring.project2.domain;
 
+import java.sql.Timestamp;
+
 public class Member {
 	
 	private String id, email, name, password;
 	private boolean emailGet;
+	private Timestamp regDate;
 	
 	
+	public Timestamp getRegDate() {
+		return regDate;
+	}
+
+	public void setRegDate(Timestamp regDate) {
+		this.regDate = regDate;
+	}
+
 	public boolean isEmailGet() {
 		return emailGet;
 	}

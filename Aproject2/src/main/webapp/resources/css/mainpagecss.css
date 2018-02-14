@@ -4,6 +4,7 @@ article{
     align-items: center;
     min-height: 100%;
     z-index: -1;
+    margin-bottom:15%;
 }
 
 footer {
