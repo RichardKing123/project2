@@ -18,6 +18,7 @@ public class SearchAjaxController {
 		map.put("work", business_type);
 		map.put("gu", district);
 		return map;
+		
 	}
 	
 }
