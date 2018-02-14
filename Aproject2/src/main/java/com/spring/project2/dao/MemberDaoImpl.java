@@ -12,7 +12,7 @@ public class MemberDaoImpl implements MemberDao {
 	private SqlSessionTemplate sqlSession;
 	
 	//member mapper namespace
-	private final String NAME_SPACE = "com.springs.project2.mapper.MemberMapper";
+	private final String NAME_SPACE = "com.spring.project2.mapper.MemberMapper";
 	
 	@Autowired
 	public void setSqlSession(SqlSessionTemplate sqlSession) {

@@ -55,5 +55,6 @@
 			alert(naver_id_login.getProfileData('nickname'));
 			alert(naver_id_login.getProfileData('age'));
 		}
+		naver_id_login.get_naver_userprofile("naverSignInCallback()");
 	</script>
 </article>
