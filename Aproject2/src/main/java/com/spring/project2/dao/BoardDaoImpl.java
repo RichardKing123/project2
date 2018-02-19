@@ -10,7 +10,6 @@ import org.springframework.stereotype.Repository;
 
 import com.spring.project2.domain.Board;
 
-// 이 클래스가 데이터 액세스(데이터 저장소) 계층의 컴포넌트(Bean) 임을 선언한다.
 @Repository
 public class BoardDaoImpl implements BoardDao {
 
@@ -40,15 +39,15 @@ public class BoardDaoImpl implements BoardDao {
 	}
 	
 	@Override
-	public Board getBoard(int no, boolean isCount) {
+	public Board getBoard(int board_no, boolean isCount) {
 		
 		// 게시 글 상세보기 요청만 게시 글 읽은 횟수를 증가시킨다.
 		if(isCount) {
-			sqlSession.update(NAME_SPACE + ".incrementReadCount", no);
+			sqlSession.update(NAME_SPACE + ".incrementReadCount", board_no);
 		}
 		
 		// getBoard 맵핑 구문을 호출하면서 게시 글 번호인 no를 파라미터로 지정했다.		 
-		return sqlSession.selectOne(NAME_SPACE + ".getBoard", no);
+		return sqlSession.selectOne(NAME_SPACE + ".getBoard", board_no);
 	}
 
 	@Override
@@ -57,21 +56,7 @@ public class BoardDaoImpl implements BoardDao {
 		// insertBoard 맵핑 구문을 호출하면서 Board 객체를 파라미터로 지정했다.
 		sqlSession.insert(NAME_SPACE + ".insertBoard", board);
 	}
-	
-	public boolean isPassCheck(int no, String pass) {	
 
-		boolean result = false;
-		
-		// isPassCheck 맵핑 구문을 호출하면서 게시 글 번호인 no를 파라미터로 지정했다.
-		String dbPass = sqlSession.selectOne(
-				NAME_SPACE + ".isPassCheck",	no);
-
-		// 비밀번호가 맞으면 true가 반환된다.
-		if(dbPass.equals(pass)) {
-			result = true;		
-		}
-		return result;
-	}
 	
 	@Override
 	public void updateBoard(Board board) {
@@ -81,9 +66,9 @@ public class BoardDaoImpl implements BoardDao {
 	}
 
 	@Override
-	public void deleteBoard(int no) {
+	public void deleteBoard(int board_no) {
 		
 		// deleteBoard 맵핑 구문을 호출하면서 no를 파라미터로 지정했다.
-		sqlSession.delete(NAME_SPACE + ".deleteBoard", no);
+		sqlSession.delete(NAME_SPACE + ".deleteBoard", board_no);
 	}
 }

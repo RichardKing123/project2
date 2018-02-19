@@ -7,7 +7,11 @@
 <select id="search" resultType="Bd_Index">
 	select bd_code_name, business_type, overcrowding_index_level
 	from bd_index
+<<<<<<< HEAD
 	where business_type=#{business_type} and district = #{district} and bd_date = 201708
+=======
+	where business_type=#{business_type} and district = #{district} and date = 201708
+>>>>>>> branch 'project' of https://github.com/RichardKing123/project2.git
 </select>
 
 

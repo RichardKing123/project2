@@ -8,15 +8,13 @@ public interface BoardDao {
 	
 	public abstract List<Board> boardList(int startRow, int num);
 	
-	public abstract Board getBoard(int no, boolean isCount);
+	public abstract Board getBoard(int board_no, boolean isCount);
 	
 	public abstract void insertBoard(Board board);
 	
-	public boolean isPassCheck(int no, String pass);
-	
 	public abstract void updateBoard(Board board);
 	
-	public abstract void deleteBoard(int no);
+	public abstract void deleteBoard(int board_no);
 	
 	public abstract int getBoardCount();
 }

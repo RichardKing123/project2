@@ -20,7 +20,7 @@
 			<form name="searchForm" id="searchForm" action="#">
 				<select name="type">
 					<option value="titlle">제목</option>
-					<option value="writer">작성자</option>
+					<option value="writer">아이디</option>
 					<option value="content">내용</option>
 				</select>
 				<input type="text" name="keyword" />
@@ -41,9 +41,9 @@
 <c:if test="${ not empty boardList }">
 <c:forEach var="b" items="${ boardList }" varStatus="status">		
 	<tr class="listTr">
-		<td class="listTdNo">${ b.no  }</td>
+		<td class="listTdNo">${ b.board_no  }</td>
 		<td class="listTdTitle">
-			<a href="boardDetail?no=${ b.no }&pageNum=${currentPage}" >
+			<a href="boardDetail?board_no=${ b.board_no }&pageNum=${currentPage}" >
 				${ b.title }</a></td>
 		<td class="listTdWriter">${ b.writer }</td>
 		<td class="listTdRegDate"><fmt:formatDate value="${ b.regDate }" 
@@ -53,23 +53,11 @@
 </c:forEach>
 	<tr>
 		<td colspan="5" class="listPage">
-			<%--
-			/* 현재 페이지 그룹의 시작 페이지가 pageGroup보다 크다는 것은
-			 * 이전 페이지 그룹이 존재한다는 것으로 현재 페이지 그룹의 시작 페이지에
-			 * pageGroup을 마이너스 하여 링크를 설정하면 이전 페이지 그룹의
-			 * startPage로 이동할 수 있다.
-		 	 **/
-		 	 --%>
+			
 		 	<c:if test="${ startPage > pageGroup }"> 
 				<a href="boardList?pageNum=${ startPage - pageGroup }">
 					[이전]</a>
 			</c:if>	
-			<%--
-			/* 현재 페이지 그룹의 startPage 부터 endPage 만큼 반복하면서
-		 	 * 현재 페이지와 같은 그룹에 속한 페이지를 화면에 출력하고 링크를 설정한다.
-		 	 * 현재 페이지는 링크를 설정하지 않는다.
-		 	 **/
-		 	--%>
 			<c:forEach var="i" begin="${ startPage }" end="${ endPage }">
 				<c:if test="${ i == currentPage }">
 					[ ${ i } ]
@@ -78,13 +66,6 @@
 					<a href="boardList?pageNum=${ i }">[ ${ i } ]</a>
 				</c:if>			
 			</c:forEach>
-			<%-- 
-			/* 현재 페이지 그룹의 마지막 페이지가 전체 페이지 보다 작다는 것은
-			 * 다음 페이지 그룹이 존재한다는 것으로 현재 페이지 그룹의 시작 페이지에
-			 * pageGroup을 플러스 하여 링크를 설정하면 다음 페이지 그룹의
-			 * startPage로 이동할 수 있다.
-		 	 **/
-		 	 --%>
 			<c:if test="${ endPage < pageCount }">
 				<a href="boardList?pageNum=${ startPage + pageGroup }">
 					[다음]</a>
