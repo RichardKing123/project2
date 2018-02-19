@@ -8,4 +8,5 @@ public interface SearchDao {
 
 	public abstract List<Bd_Index> searchList(String business_type ,String district);
 	
+	
 }
