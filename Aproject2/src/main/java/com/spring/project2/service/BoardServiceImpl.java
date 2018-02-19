@@ -71,17 +71,14 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public Board getBoard(int no, boolean isCount) {
-		return boardDao.getBoard(no, isCount);
+	public Board getBoard(int board_no, boolean isCount) {
+		return boardDao.getBoard(board_no, isCount);
 	}
 
 	// BoardDao를 이용해 새로운 게시 글을 추가하는 메서드
 	@Override
 	public void insertBoard(Board board) {
 		boardDao.insertBoard(board);
-	}
-	public boolean isPassCheck(int no, String pass) {	
-		return boardDao.isPassCheck(no, pass);
 	}
 	
 	// BoardDao를 이용해 게시 글을 수정하는 메서드
@@ -92,7 +89,7 @@ public class BoardServiceImpl implements BoardService {
 
 	// BoardDao를 이용해 no에 해당하는 게시 글을 삭제하는 메서드
 	@Override
-	public void deleteBoard(int no) {
-		boardDao.deleteBoard(no);
+	public void deleteBoard(int board_no) {
+		boardDao.deleteBoard(board_no);
 	}
 }

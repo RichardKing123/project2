@@ -5,13 +5,13 @@ $(function() {
 	 **/
 	$("#detailUpdate").on("click", function() {
 			
-		var pass = $("#pass").val();
+/*		var pass = $("#pass").val();
 		if(pass.length <= 0) {
 			alert("게시 글을 수정하려면 비밀번호를 입력해주세요");
 			return false;
 		}		
 		
-		$("#rPass").val(pass);
+		$("#rPass").val(pass);*/
 		$("#checkForm").attr("action", "update");
 		$("#checkForm").submit();
 	});
