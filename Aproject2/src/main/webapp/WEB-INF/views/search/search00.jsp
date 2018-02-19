@@ -151,7 +151,7 @@
 </table>
 	
 </div>
-<p id="test12">${district }</p>
+<p id="test12">${district}</p>
 
 <div><input type="button" id="search" value="검색"></div>
 
