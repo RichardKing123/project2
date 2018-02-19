@@ -38,19 +38,19 @@ public class BoardController {
 			
 		model.addAllAttributes(modelMap);
 		
-		return "boardList";
+		return "board/boardList";
 	}
 	@RequestMapping("/boardDetail")
-	public String boardDetail(Model model, int no, 
+	public String boardDetail(Model model, int board_no, 
 			@RequestParam(value="pageNum", required=false, defaultValue="1") 
 			int pageNum) {
 		
-		Board board = boardService.getBoard(no, true);
+		Board board = boardService.getBoard(board_no, true);
 		
 		model.addAttribute("board", board);
 		model.addAttribute("pageNum", pageNum);
 		
-		return "boardDetail";
+		return "board/boardDetail";
 	}
 	@RequestMapping(value="/writeProcess", method=RequestMethod.POST)
 	public String insertBoard(Board board) {
@@ -62,30 +62,18 @@ public class BoardController {
 	
 	@RequestMapping(value="/update")
 	public String updateBoard(Model model, HttpServletResponse response, 
-			PrintWriter out, int no, String pass,
+			PrintWriter out, int board_no,
 			@RequestParam(value="pageNum", required=false, defaultValue="1") 
 			int pageNum) {
 		
 		// BoardService 클래스를 이용해 게시판 테이블에서 비밀번호가 맞는지 체크한다. 
-		boolean result = boardService.isPassCheck(no, pass);
-		
-		// 비밀번호가 맞지 않으면
-		if(! result) {
 
-			response.setContentType("text/html; charset=utf-8");				
-			out.println("<script>");
-			out.println("	alert('비밀번호가 맞지 않습니다.');");
-			out.println("	history.back();");
-			out.println("</script>");
-
-			return null;
-		}
-		Board board = boardService.getBoard(no, false);
+		Board board = boardService.getBoard(board_no, false);
 		
 		model.addAttribute("board", board);
 		model.addAttribute("pageNum", pageNum);
 		
-		return "updateForm";
+		return "board/updateForm";
 	}
 	
 	@RequestMapping(value="update", method=RequestMethod.POST)
@@ -95,56 +83,29 @@ public class BoardController {
 			@RequestParam(value="pageNum", required=false, defaultValue="1") 
 			int pageNum) {
 	
-		// BoardService 클래스를 이용해 게시판 테이블에서 비밀번호가 맞는지 체크한다. 
-		boolean result = boardService.isPassCheck(board.getNo(), board.getPass());
-		
-		// 비밀번호가 맞지 않으면
-		if(! result) {
-
-			response.setContentType("text/html; charset=utf-8");				
-			out.println("<script>");
-			out.println("	alert('비밀번호가 맞지 않습니다.');");
-			out.println("	history.back();");
-			out.println("</script>");
-
-			return null;
-		}
 		
 		// BoardService 클래스를 이용해 게시판 테이블에서 게시 글을 수정한다.
 		boardService.updateBoard(board);
 		
 		reAttrs.addAttribute("pageNum", pageNum);		
 		//reAttrs.addFlashAttribute("test", "1회용 파라미터 받음 - test");
-		return "redirect:boardList";
+		return "redirect:board/boardList";
 	}
 	
 	@RequestMapping({"/delete", "deleteBoard"})
 	public String deleteBoard(HttpServletResponse response, 
-			PrintWriter out, int no, String pass,
+			PrintWriter out, int board_no,
 			RedirectAttributes reAttrs, 
 			@RequestParam(value="pageNum", required=false, defaultValue="1") 
 			int pageNum) {
 		
 		// BoardService 클래스를 이용해 게시판 테이블에서 비밀번호가 맞는지 체크한다. 
-		boolean result = boardService.isPassCheck(no, pass);
-		
-		// 비밀번호가 맞지 않으면
-		if(! result) {
 
-			response.setContentType("text/html; charset=utf-8");				
-			out.println("<script>");
-			out.println("	alert('비밀번호가 맞지 않습니다.');");
-			out.println("	history.back();");
-			out.println("</script>");
-
-			return null;
-		}
-		
 		// BoardService 클래스를 이용해 게시판 테이블에서 게시 글을 수정한다.
-		boardService.deleteBoard(no);
+		boardService.deleteBoard(board_no);
 	
 		reAttrs.addAttribute("pageNum", pageNum);		
 		//reAttrs.addFlashAttribute("test", "1회용 파라미터 받음 - test");
-		return "redirect:boardList";
+		return "redirect:board/boardList";
 	}	
 }

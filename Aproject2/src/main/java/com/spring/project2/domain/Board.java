@@ -4,33 +4,30 @@ import java.sql.Timestamp;
 
 public class Board {
 	// no, title, content, writer, reg_date, read_count, pass, file1
-	private int no;
+	private int board_no;
 	private String title;
 	private String content;
 	private String writer;
 	private Timestamp regDate;
 	private int readCount;
-	private String pass;
-	private String file1;
 	
 	public Board() { }
-	public Board(int no, String title, String content, String writer,
-			Timestamp regDate, int readCount, String pass, String file1) {
-		this.no = no;
+	public Board(int board_no, String title, String content, String writer,
+			Timestamp regDate, int readCount) {
+		this.board_no = board_no;
 		this.title = title;
 		this.content = content;
 		this.writer = writer;
 		this.regDate = regDate;
 		this.readCount = readCount;
-		this.pass = pass;
-		this.file1 = file1;
 	}
 	
-	public int getNo() {
-		return no;
+
+	public int getBoard_no() {
+		return board_no;
 	}
-	public void setNo(int no) {
-		this.no = no;
+	public void setBoard_no(int board_no) {
+		this.board_no = board_no;
 	}
 	public String getTitle() {
 		return title;
@@ -62,16 +59,5 @@ public class Board {
 	public void setReadCount(int readCount) {
 		this.readCount = readCount;
 	}
-	public String getPass() {
-		return pass;
-	}
-	public void setPass(String pass) {
-		this.pass = pass;
-	}
-	public String getFile1() {
-		return file1;
-	}
-	public void setFile1(String file1) {
-		this.file1 = file1;
-	}
+
 }

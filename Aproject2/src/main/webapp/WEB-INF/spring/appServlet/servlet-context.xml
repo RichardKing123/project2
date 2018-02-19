@@ -35,10 +35,9 @@
 	
 
 		
-	<view-controller path="/writeForm" view-name="writeForm" />
-	<view-controller path="/boardWrite" view-name="writeForm" />
+	<view-controller path="/writeForm" view-name="board/writeForm" />
 
-	<view-controller path="/boardList" view-name="boardList"/>
+
 	
 	<beans:bean id="loginCheckInterceptor" class="com.spring.project2.interceptor.LoginCheckInterceptor"/>
 	<interceptors>
