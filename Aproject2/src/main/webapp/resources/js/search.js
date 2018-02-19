@@ -538,6 +538,8 @@ $(document).ready(function(){
 		
 		
 		
+		
+		
 
 	});
 
@@ -547,3 +549,5 @@ function openDetail(){
 	url="searchDetail?gu="+gu1;
 	window.open(url,"searchDetail","toolbar=no,location=no,status=no,width="+screen.availWidth+",height="+screen.availHeight);
 }
+
+
