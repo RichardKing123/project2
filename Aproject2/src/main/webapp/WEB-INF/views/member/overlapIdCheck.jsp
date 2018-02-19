@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <link type="text/css" href="resources/css/member.css" rel="stylesheet" />
-<script type="text/javascript" src="resources/js/jquery-3.2.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="resources/js/member.js"></script>
 <title>중복 아이디 체크</title>
 </head>

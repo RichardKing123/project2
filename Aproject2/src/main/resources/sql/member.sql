@@ -1,4 +1,6 @@
+CREATE DATABASE IF NOT EXISTS project2;
 use project2;
+
 
 DROP TABLE IF EXISTS member;
 CREATE TABLE IF NOT EXISTS member(
