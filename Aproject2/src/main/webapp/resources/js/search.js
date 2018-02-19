@@ -505,12 +505,13 @@ $(document).ready(function(){
 				dataType:"json",
 				success:function(data){
 					$("#resultTable").empty();
+					var header = "<tr>"
+						+"<td colspan='3'><h3>검색결과</h3></td>"
+						+"</tr>";
+					$("#resultTable").append(header);
 					$.each(data, function(index, value){
 						var result=
 							"<tr>"
-							+"<td colspan='3'><h3>검색결과</h3></td>"
-							+"</tr>"
-							+"<tr>"
 							+"<td>"
 							+"<div>"
 							+"<span>"+value.bd_code_name+"</span>"
