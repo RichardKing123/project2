@@ -28,11 +28,11 @@
 				<span class="inputInfoSpan">${ sessionScope.member.emailGet ? 
 					"메일 받음" : "메일 받지 않음" }</span>
 			</div>
-		</div>
+		</div><br><br><br><br>
 		<div class="submitbutton">
-			<input type="button" value="수정하기"
+			<input type="button" value="RETURN FORM"
 				onclick="document.location.href='joinForm'" class="btn btn-default"/>
-			<input type="submit" value="가입완료" 
+			<input type="submit" value="JOIN" 
 				onclick="document.location.href='joinResult'" class="btn btn-default"/>
 		</div>			
 	</div>	
