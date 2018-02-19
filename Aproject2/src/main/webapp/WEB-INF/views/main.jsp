@@ -71,11 +71,10 @@ var naver_id_login = new naver_id_login("1WiDgNpz9SVwwS4Cu_Au", "http://localhos
     </div>
     <div class="row">
       <div class="col-sm-6 well">
-        <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-        <p>지역별 창업 위험지수</p>
+        <div id='dangerChart' data-avg="riskIndex"><a class="zc-ref" href="https://www.zingchart.com/">Charts by ZingChart</a></div>
       </div>
       <div class="col-sm-6 well">
-        <div id='myChart'><a class="zc-ref" href="https://www.zingchart.com/">Charts by ZingChart</a></div>
+        <div id='pieChart'><a class="zc-ref" href="https://www.zingchart.com/">Charts by ZingChart</a></div>
       </div><br>
     </div>
   </div>

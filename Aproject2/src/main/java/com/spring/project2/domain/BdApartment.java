@@ -1,17 +1,19 @@
 package com.spring.project2.domain;
 
 public class BdApartment {
-	private int date, bdCode, noOfComplex, 
+	private int bdDate, bdCode, noOfComplex, 
 		areaLessThan66m, area66m, area99m, area132m, area165m,
 		priceLessThan100million, price100milloin, price200million,
 		price300million, price400million, price500million,
 		priceMoreThan600million, avgArea, avgPrice;
 	private String bdCodeName, district;
-	public int getDate() {
-		return date;
+	
+
+	public int getBdDate() {
+		return bdDate;
 	}
-	public void setDate(int date) {
-		this.date = date;
+	public void setBdDate(int bdDate) {
+		this.bdDate = bdDate;
 	}
 	public int getBdCode() {
 		return bdCode;

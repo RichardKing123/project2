@@ -1,7 +1,7 @@
 package com.spring.project2.domain;
 
 public class BdEstimatedSales {
-	private int date, bdCode,weekdaySalesVolume, weekendSalesVolume, monSalesVolume, tueSalesVolume,
+	private int bdDate, bdCode,weekdaySalesVolume, weekendSalesVolume, monSalesVolume, tueSalesVolume,
 		wedSalesVolume,thuSalesVolume,friSalesVolume,satSalesVolume,sunSalesVolume, salesVolume0to6,
 		salesVolume6to11, salesVolume11to14, salesVolume14to17, salesVolume17to21, salesVolume21to24,
 		maleSalesVolume, femaleSalesVolume, teenSalesVolume, twentySalesVolume, thirtySalesVolume,
@@ -22,12 +22,14 @@ public class BdEstimatedSales {
 		teenSalesRate, twentySalesRate, thirtySalesRate, fortySalesRate, fiftySalesRate, 
 		sixtySalesRate;
 
-	public int getDate() {
-		return date;
+
+
+	public int getBdDate() {
+		return bdDate;
 	}
 
-	public void setDate(int date) {
-		this.date = date;
+	public void setBdDate(int bdDate) {
+		this.bdDate = bdDate;
 	}
 
 	public int getBdCode() {
