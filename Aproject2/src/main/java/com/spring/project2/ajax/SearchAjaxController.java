@@ -22,6 +22,7 @@ public class SearchAjaxController {
 	@ResponseBody
 	public List<Bd_Index> searchList(Model model, String business_type, String district) {
 		
+		model.addAttribute("district", district);
 	
 		
 		return searchService.searchList(business_type, district);
