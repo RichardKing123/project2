@@ -26,7 +26,6 @@ public class SearchAjaxController {
 		
 		
 		return searchService.searchList(business_type, district);
-		
 	}
 	
 }
