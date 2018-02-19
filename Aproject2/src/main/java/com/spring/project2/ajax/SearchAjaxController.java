@@ -15,14 +15,22 @@ import com.spring.project2.service.SearchService;
 public class SearchAjaxController {
 	
 	@Autowired
-	SearchService searchService;
+	private SearchService searchService;
+	
+	
+
+	public void setSearchService(SearchService searchService) {
+		this.searchService = searchService;
+	}
+
+
 
 	//검색목록
 	@RequestMapping("/search.ajax")
 	@ResponseBody
 	public List<Bd_Index> searchList(Model model, String business_type, String district) {
 		
-		model.addAttribute("district", district);
+		
 	
 		
 		return searchService.searchList(business_type, district);

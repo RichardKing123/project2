@@ -3,18 +3,18 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.spring.project2.mapper.Bd_IndexMapper">
-
+<!-- 검색시 검색목록 -->
 <select id="search" resultType="Bd_Index">
 	select bd_code_name, business_type, overcrowding_index_level
 	from bd_index
-<<<<<<< HEAD
 	where business_type=#{business_type} and district = #{district} and bd_date = 201708
-=======
-	where business_type=#{business_type} and district = #{district} and date = 201708
->>>>>>> branch 'project' of https://github.com/RichardKing123/project2.git
 </select>
-
-
+<!-- 상세보기에서 개업_폐업 -->
+<select id="selectShop" resultType="Bd_Shop">
+	select no_of_shop, open_rate, no_of_open, close_rate, no_of_close
+	from bd_shop
+	where bd_code_name =#{bd_code_name} and business_type = #{business_type}
+</select>
 
 </mapper>	
 	
