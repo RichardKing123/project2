@@ -1,4 +1,25 @@
 $(document).ready(function() {
+	
+//	$("#bd_analyse").on("click", loginPls);
+//	$("#location_analyse").on("click", loginPls);
+//	$("#trend_index").on("click", loginPls);
+
+
+		
+	/* 회원 가입 폼, 회원정보 수정 폼에서 폼 컨트롤에서 키보드 입력을 체크해
+	 * 유효한 값을 입력 받을 수 있도록 keypress와 keyup 이벤트 처리를 했다. 
+	 **/
+	$("#userId").on("keypress", inputCheck);
+	$("#userId").on("keyup", inputCharReplace);
+	$("#password1").on("keypress", inputCheck);
+	$("#password1").on("keyup", inputCharReplace);
+	$("#password2").on("keypress", inputCheck);
+	$("#password2").on("keyup", inputCharReplace);
+	$("#emailId").on("keypress", inputCheck);
+	$("#emailId").on("keyup", inputCharReplace);
+	$("#emailDomain").on("keypress", inputEmailDomainCheck);
+	$("#emailDomain").on("keyup", inputEmailDomainReplace);
+	
 	//아이디 중복확인 클릭 시 새 창 띄워서 중복 확인하는 메소드
 	$("#overlapIdCheck").on("click", function() {
 		var id = $("#userId").val();
@@ -122,3 +143,59 @@ function joinFormCheck() {
 		return false;
 	}	
 }
+
+
+
+function inputCheck() {
+
+	if(! (event.keyCode >= 48 && event.keyCode <= 57 ||
+			event.keyCode >= 65 && event.keyCode <= 90 ||
+			event.keyCode >= 97 && event.keyCode <= 122)) {
+		
+		alert(this);
+		
+		alert("아이디는 영문 대소문자와 숫자만 사용할 수 있습니다.");
+		
+		return false;
+	}
+}
+
+//아이디, 비밀번호, 비밀번화 확인, 이메일 아이디 폼 컨트롤에 사용자가 입력한 값이 영문 대소문자, 숫자 만 입력되도록 수정하는 함수
+function inputCharReplace() {
+	var regExp = /[^A-Za-z0-9]/gi;	
+	if(regExp.test($(this).val())) {
+		alert("영문 대소문자, 숫자만 입력할 수 있습니다.");
+		$(this).val($(this).val().replace(regExp, ""));
+	}
+}
+
+//이 메일 도메인 입력 폼 컨트롤에 사용자가 입력한 값이 영문 대소문자, 숫자, 점(.)인지를 체크하는 함수 
+function inputEmailDomainCheck() {
+	if(! (event.keyCode >= 48 && event.keyCode <= 57 ||			
+			event.keyCode >= 97 && event.keyCode <= 122 ||
+			event.keyCode == 46)) {
+		alert("이메일 도메인은 영문 소문자, 숫자, 점(.)만 입력할 수 있습니다.");
+		
+
+		return false;
+	}
+}
+
+function inputEmailDomainReplace() {
+	var regExp = /[^a-z0-9\.]/gi;	
+	if(regExp.test($(this).val())) {
+		alert("이메일 도메인은 영문 소문자, 숫자, 점(.)만 입력할 수 있습니다.");
+		$(this).val($(this).val().replace(regExp, ""));
+	}
+}
+
+//로그인 안 했을 시 게시판 이용 제한하는 함
+function loginPls() {
+	var login = $("#login_property").attr("href");
+	if(login != "logout") {
+		alert("로그인 후 이용하여 주십시오");
+		return false;
+	}
+}
+
+

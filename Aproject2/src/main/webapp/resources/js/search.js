@@ -501,26 +501,36 @@ $(document).ready(function(){
 			$.ajax({
 				url:"search.ajax",
 				type:"post",
-				data:{"work":selectWork, "gu":selectGu},
+				data:{"business_type":selectWork, "district":selectGu},
 				dataType:"json",
 				success:function(data){
 					$("#resultTable").empty();
-					var result=
-						"<tr>"
-						+"<td colspan='2'><h3>검색결과</h3></td>"
-						+"</tr>"
-						+"<tr>"
-						+"<td>"
-						+"<div>"
-						+"<span>"+data.work+"</span>"
-						+"</div>"
-						+"</td>"
-						+"<td>"
-						+"<div>"
-						+'<span><a href="#" onClick="javascript:openDetail();" id="detailGo">'+data.gu+"</a></span>"
-						+"</div>"
-						+"</td>";
-					$("#resultTable").append(result);
+					var header = "<tr>"
+						+"<td colspan='3'><h3>검색결과</h3></td>"
+						+"</tr>";
+					$("#resultTable").append(header);
+					$.each(data, function(index, value){
+						var result=
+							"<tr>"
+							+"<td>"
+							+"<div>"
+							+"<span>"+value.bd_code_name+"</span>"
+							+"</div>"
+							+"</td>"
+							+"<td>"
+							+"<div>"
+							+"<span>"+value.business_type+"</span>"
+							+"</div>"
+							+"</td>"
+							+"<td>"
+							+"<div>"
+							+'<span><a href="#" onClick="javascript:openDetail();" id="detailGo">'+value.overcrowding_index_level+"</a></span>"
+							+"</div>"
+							+"</td>"
+							+"</tr>";
+						$("#resultTable").append(result);
+					});
+					
 				}
 			});
 			

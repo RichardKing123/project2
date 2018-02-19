@@ -14,7 +14,7 @@
 
 	<bean id="dataSourceJndi"
 		class="org.springframework.jndi.JndiObjectFactoryBean">
-		<property name="jndiName" value="jdbc/springDBPool" />
+		<property name="jndiName" value="jdbc/project2DBPool" />
 		<property name="resourceRef" value="true" />		
 	</bean>		
 </beans>

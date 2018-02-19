@@ -38,7 +38,7 @@
 					<label class="control-label col-sm-2" for="id">Name:</label>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" id="name"
-							placeholder="Enter name" name="name"> 
+							placeholder="Enter name" name="name" value="${sessionScope.member.name }"> 
 					</div>
 				</div>
 				<div class="form-group">
@@ -80,7 +80,7 @@
 				</div><br/><br/><br/>
 				
 				<div class="form-group">
-					<div class="col-sm-offset-2 col-sm-10">
+					<div class="col-sm-offset-2 col-sm-10 submitbutton">
 						<input type="reset" value="RESET" class="btn btn-default"/>
 						<input type="submit" value="MODIFY" class="btn btn-default"/>
 					</div>

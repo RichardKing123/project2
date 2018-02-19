@@ -20,6 +20,7 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public int login(String id, String password) {
 		
+		System.out.println("memberId : " + id + "password : " + password);
 		return memberDao.login(id, password);
 	}
 

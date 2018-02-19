@@ -1,4 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+<script type="text/javascript">
+var naver_id_login = new naver_id_login("1WiDgNpz9SVwwS4Cu_Au", "http://localhost:8080/project2/main");
+	  // 네이버 사용자 프로필 조회 이후 프로필 정보를 처리할 callback function
+	  function naverSignInCallback() {
+	    alert(naver_id_login.getProfileData('email'));
+	    alert(naver_id_login.getProfileData('id'));
+	    alert(naver_id_login.getProfileData('name'));
+	  }
+	  // 네이버 사용자 프로필 조회
+	  naver_id_login.get_naver_userprofile("naverSignInCallback()");
+</script>
+<script> zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
+	ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9","ee6b7db5b51705a13dc2339db3edaf6d"];</script>
 <article>
 <div class="body">
   <div class="jumbotron" style="background-color:white">
@@ -61,11 +75,11 @@
         <p>지역별 창업 위험지수</p>
       </div>
       <div class="col-sm-6 well">
-        <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-        <p>상권유동인구 top10</p>
+        <div id='myChart'><a class="zc-ref" href="https://www.zingchart.com/">Charts by ZingChart</a></div>
       </div><br>
     </div>
   </div>
 </div>
 <br><br><br>
+
 </article>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spring.project2.mapper.Bd_IndexMapper">
+
+<select id="search" resultType="Bd_Index">
+	select bd_code_name, business_type, overcrowding_index_level
+	from bd_index
+	where business_type=#{business_type} and district = #{district} and date = 201708
+</select>
+
+
+
+</mapper>	
+	
+	
