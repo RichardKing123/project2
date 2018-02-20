@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <article>
-<wrap id="search00">
+<wrap>
 <div id="choiceWork1">
 	<a href="#" class="choiceWork1">관심업종을 선택하세요</a>&nbsp;&nbsp;<span id="selectWork"></span>
 </div>
@@ -153,12 +154,15 @@
 </div>
 
 
+
 <div><input type="button" id="search" value="검색"></div>
 
 <div id="result">
 	<table id="resultTable"></table>
 </div>
 
-</wrap>
 
+
+
+</wrap>
 </article>    
