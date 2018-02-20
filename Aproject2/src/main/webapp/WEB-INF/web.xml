@@ -49,11 +49,6 @@
   	<filter-name>CharacterEncodingFilter</filter-name>
   	<url-pattern>/*</url-pattern>
   </filter-mapping>
-<<<<<<< HEAD
-  	
-=======
->>>>>>> branch 'project' of https://github.com/RichardKing123/project2.git
-
 	<resource-ref>
 		<description>DBCP Connection 정의</description>
 		<res-ref-name>jdbc/springDBPool</res-ref-name>
