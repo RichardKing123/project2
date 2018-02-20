@@ -34,7 +34,7 @@ public class ChartController {
 	public Model bdSettledPopulation(Model model) {
 		
 		BdSettledPopulation population = chartService.bdSettledPopulation();
-		
+	
 		return model.addAttribute("bdSettledPopulation", population); 
 	}
 	
