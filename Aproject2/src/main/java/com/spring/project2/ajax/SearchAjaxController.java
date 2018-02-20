@@ -24,7 +24,6 @@ public class SearchAjaxController {
 	}
 
 
-
 	//검색목록
 	@RequestMapping("/search.ajax")
 	@ResponseBody
