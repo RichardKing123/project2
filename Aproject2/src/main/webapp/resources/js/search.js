@@ -510,21 +510,22 @@ $(document).ready(function(){
 						+"</tr>";
 					$("#resultTable").append(header);
 					$.each(data, function(index, value){
+						
 						var result=
 							"<tr>"
 							+"<td>"
 							+"<div>"
-							+"<span id='bd_code_name'>"+value.bd_code_name+"</span>"
+							+"<span class='bd_code_name'>"+value.bd_code_name+"</span>"
 							+"</div>"
 							+"</td>"
 							+"<td>"
 							+"<div>"
-							+"<span id='business_type'>"+value.business_type+"</span>"
+							+"<span class='business_type'>"+value.business_type+"</span>"
 							+"</div>"
 							+"</td>"
 							+"<td>"
 							+"<div>"
-							+'<span><a href="#" onClick="javascript:openDetail();" id="detailGo">'+value.overcrowding_index_level+"</a></span>"
+							+'<span><a href="searchDetail?bd_code_name='+encodeURI(value.bd_code_name)+'&business_type='+encodeURI(value.business_type)+'" target="_blank">'+value.overcrowding_index_level+"</a></span>"
 							+"</div>"
 							+"</td>"
 							+"</tr>";
@@ -543,15 +544,6 @@ $(document).ready(function(){
 
 	});
 
-function openDetail(){
-	var code_name=$("#bd_code_name").text();
-	var code_name= encodeURI(code_name);
-	var business=$("#business_type").text();
-	var business=encodeURI(business);
-	var gu = $("#detailGo").text();
-	var gu1 = encodeURI(gu);
-	url="searchDetail?code_name="+code_name+"&business="+business;
-	window.open(url,"searchDetail","toolbar=no,location=no,status=no,width=1000,height=800");
-}
+
 
 
