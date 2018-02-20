@@ -86,13 +86,22 @@ $(function() {
 	
 	//위험도 차트
 	zingchart.THEME = "classic";
-	var avgRiskIndex = document.getElementById("dangerChart");
+	var avgRiskIndex = $("#dangerChart").data("avg");
 	var dangerChart = {
 		"graphset" : [ {
 			"type" : "gauge",
 			"background-color" : "#fff #eee",
 			"plot" : {
 				"background-color" : "#666"
+			},
+			// 차트의 title 정보
+			"title" : {
+				"fontColor" : "#fff",
+				"text" :'서울 전체 상권 위험지수',
+				"align" : "left",
+				"offsetX" : 10,
+				"fontFamily" : "Open Sans",
+				"fontSize" : 20,
 			},
 			"plotarea" : {
 				"margin" : "0 0 0 0"
@@ -203,7 +212,7 @@ $(function() {
 				}
 			} ],
 			"series" : [ {
-				"values" : [ avgRiskIndex.dataset.avg ],
+				"values" : [ avgRiskIndex ],
 				"animation" : {
 					"method" : 5,
 					"effect" : 2,
@@ -211,7 +220,7 @@ $(function() {
 				}
 			} ],
 			"alpha" : 1
-		} ]
+		} ] 
 	};
 
 	zingchart.render({
@@ -220,6 +229,6 @@ $(function() {
 		height : 410,
 		width : 545
 	});
-
+	
 })
 

@@ -3,7 +3,7 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.spring.project2.mapper.ChartMapper" >
-	<select id="riskIndex" parameterType="hashmap" resultType="FoundationRiskIndex">
+	<select id="riskIndex" resultType="double">
 		SELECT AVG(foundation_risk_index_value) 
 		FROM foundation_risk_index
 	</select>
