@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.spring.project2.dao.ChartDao;
 import com.spring.project2.domain.BdApartment;
+import com.spring.project2.domain.BdSettledPopulation;
 import com.spring.project2.domain.FoundationRiskIndex;
 
 @Service
@@ -32,6 +33,12 @@ public class ChartServiceImpl implements ChartService {
 		double riskIndex = chartDao.riskIndex();
 		System.out.println(riskIndex);
 		return riskIndex;
+	}
+
+	@Override
+	public BdSettledPopulation bdSettledPopulation() {
+		
+		return chartDao.bdSettledPopulation();
 	}
 
 }

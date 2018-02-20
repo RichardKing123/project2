@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.spring.project2.domain.BdApartment;
+import com.spring.project2.domain.BdSettledPopulation;
 import com.spring.project2.domain.FoundationRiskIndex;
 
 @Repository
@@ -30,6 +31,13 @@ public class ChartDaoImpl implements ChartDao {
 	public double riskIndex() {		
 		
 		return sqlSession.selectOne(NAME_SPACE + ".riskIndex");
+	}
+
+
+	@Override
+	public BdSettledPopulation bdSettledPopulation() {
+		
+		return sqlSession.selectOne(NAME_SPACE + ".bdSettledPopulation");
 	}
 
 }
