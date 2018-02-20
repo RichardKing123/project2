@@ -1,5 +1,8 @@
 package com.spring.project2.service;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,8 +27,11 @@ public class ChartServiceImpl implements ChartService {
 	}
 
 	@Override
-	public FoundationRiskIndex riskIndex() {
-		return chartDao.riskIndex();
+	public double riskIndex() {
+		
+		double riskIndex = chartDao.riskIndex();
+		System.out.println(riskIndex);
+		return riskIndex;
 	}
 
 }

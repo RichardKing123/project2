@@ -5,7 +5,7 @@ public class Bd_Index {
 	private String bd_code_name;
 	private String district;
 	private int bd_code;
-	private int date;
+	private int bd_date;
 	private String business_type;
 	private String overcrowding_index_level;
 	
@@ -31,12 +31,15 @@ public class Bd_Index {
 	public void setBd_code(int bd_code) {
 		this.bd_code = bd_code;
 	}
-	public int getDate() {
-		return date;
+	
+	public int getBd_date() {
+		return bd_date;
 	}
-	public void setDate(int date) {
-		this.date = date;
+
+	public void setBd_date(int bd_date) {
+		this.bd_date = bd_date;
 	}
+
 	public String getBusiness_type() {
 		return business_type;
 	}

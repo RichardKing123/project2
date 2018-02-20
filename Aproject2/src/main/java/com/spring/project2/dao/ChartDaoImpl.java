@@ -27,7 +27,7 @@ public class ChartDaoImpl implements ChartDao {
 	}
 
 	@Override
-	public FoundationRiskIndex riskIndex() {		
+	public double riskIndex() {		
 		
 		return sqlSession.selectOne(NAME_SPACE + ".riskIndex");
 	}

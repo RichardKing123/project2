@@ -1,5 +1,7 @@
 package com.spring.project2.service;
 
+import java.util.Map;
+
 import com.spring.project2.domain.BdApartment;
 import com.spring.project2.domain.FoundationRiskIndex;
 
@@ -9,5 +11,5 @@ public interface ChartService {
 	public BdApartment bdApartmentData();
 
 	// 지역별 위험지표를 반환하는 메소드
-	public FoundationRiskIndex riskIndex();
+	public double riskIndex();
 }
