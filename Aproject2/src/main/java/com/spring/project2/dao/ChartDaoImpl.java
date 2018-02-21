@@ -1,5 +1,7 @@
 package com.spring.project2.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -35,7 +37,7 @@ public class ChartDaoImpl implements ChartDao {
 
 
 	@Override
-	public BdSettledPopulation bdSettledPopulation() {
+	public List<BdSettledPopulation> bdSettledPopulation() {
 		
 		return sqlSession.selectOne(NAME_SPACE + ".bdSettledPopulation");
 	}
