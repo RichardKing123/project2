@@ -34,8 +34,11 @@ public class BoardDaoImpl implements BoardDao {
 	}
 
 	@Override
-	public int getBoardCount() {
-		return sqlSession.selectOne(NAME_SPACE + ".getBoardCount");
+	public int getBoardCount(String  type,  String  keyword) {
+		Map<String,  String>  params  =  new  HashMap<String,  String>();
+		params.put("type",  type);
+		params.put("keyword",  keyword);
+		return  sqlSession.selectOne(NAME_SPACE  +  ".getBoardCount",  params);
 	}
 	
 	@Override
@@ -71,4 +74,17 @@ public class BoardDaoImpl implements BoardDao {
 		// deleteBoard 맵핑 구문을 호출하면서 no를 파라미터로 지정했다.
 		sqlSession.delete(NAME_SPACE + ".deleteBoard", board_no);
 	}
+	
+	@Override
+	public  List<Board>  boardList(
+	int  startRow,  int  num,  String  type,  String  keyword)  {
+	//  SQL 파라미터가 여러 개일 경우 Map을 이용하여 지정한다.
+	Map<String,  Object>  params  =  new  HashMap<String,  Object>();
+	params.put("startRow",  startRow);
+	params.put("num",  num);
+	params.put("type",  type);
+	params.put("keyword",  keyword);
+	return  sqlSession.selectList(NAME_SPACE  +  ".boardList",  params);
+	}
+	
 }
