@@ -2,10 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.spring.project2." >
-
+<mapper namespace="com.spring.project2.mapper.ChartMapper" >
+	<select id="riskIndex" resultType="double">
+		SELECT AVG(foundation_risk_index_value) 
+		FROM foundation_risk_index
+	</select>
 	
-
+	<select id="bdSettledPopulation" resultType="BdSettledPopulation" parameterType="hashMap">
+		select * from bd_settled_population
+		<where>
+			district = #{district}
+		</where>
+	</select>
 
 </mapper>	
 

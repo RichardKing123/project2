@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.spring.project2.dao.SearchDao;
+import com.spring.project2.domain.BdEstimatedSales;
 import com.spring.project2.domain.Bd_Index;
+import com.spring.project2.domain.Bd_Shop;
 @Service
 public class SearchServiceImpl implements SearchService {
 
@@ -25,6 +27,20 @@ public class SearchServiceImpl implements SearchService {
 	public List<Bd_Index> searchList(String business_type, String district) {
 		
 		return searchDao.searchList(business_type, district);
+	}
+
+//상세보기 개업 폐업
+	@Override
+	public Bd_Shop searchDetail(String bd_code_name, String business_type) {
+		
+		return searchDao.searchDetail(bd_code_name, business_type);
+	}
+
+
+	@Override
+	public List<BdEstimatedSales> searchSales(String bd_code_name, String business_type) {
+		
+		return searchDao.searchSales(bd_code_name, business_type);
 	}
 
 }
