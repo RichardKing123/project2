@@ -2,10 +2,10 @@
     pageEncoding="UTF-8"%>
 
 <article>
-	<form name="faqWrite" action="faqWrite.mvc" id="faqWrite" method="post">
+	<form name="faqWrite" action="faqWrite" id="faqWriteForm" method="post">
 		<table class="readTable">
 			<tr>
-				<td colspan="2" class="faqTitle"><h2>FAQ 글쓰기</h2></td>
+				<td colspan="2" class="faqWrite"><h2>FAQ 글쓰기</h2></td>
 			</tr>
 			<tr>
 				<td colspan="2">&nbsp;</td>
@@ -13,13 +13,13 @@
 			<tr>
 				<td class="questionTh">질문글</td>
 				<td class="questionTd">
-					<input type="text" name="question" size="16" id="question"	maxlength="50"/> 		
+					<input type="text" name="faqTitle" size="16" id="faqTitle"	maxlength="100"/> 		
 				</td>	
 			</tr>
 			<tr>
 				<td class="answerTh">답글</td>
 				<td class="answerTd">
-					<textarea rows="4" cols="50" name="answer" form="answer">
+					<textarea rows="4" cols="50" name="faqContent"  id="faqContent">
 				    </textarea>
 				</td>    
 			</tr>
@@ -33,7 +33,7 @@
 				<input type="submit" value="등록하기" />
 				&nbsp;&nbsp;
 				<input type="button" value="목록보기" 
-					onclick="javascript:window.location.href='faqList.jsp'"/></td>
+					onclick="javascript:window.location.href='faq/faqList'"/></td>
 		</tr>
 			
 		</table>
