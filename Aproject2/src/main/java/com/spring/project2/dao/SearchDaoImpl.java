@@ -8,6 +8,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.spring.project2.domain.BdEstimatedSales;
 import com.spring.project2.domain.Bd_Index;
 import com.spring.project2.domain.Bd_Shop;
 @Repository
@@ -43,6 +44,15 @@ public class SearchDaoImpl implements SearchDao {
 		params.put("bd_code_name", bd_code_name);
 		params.put("business_type", business_type);
 		return sqlSession.selectOne(NAME_SPACE+".selectShop",params);
+	}
+
+//상세보기 매출분석
+	@Override
+	public List<BdEstimatedSales> searchSales(String bd_code_name, String business_type) {
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("bd_code_name", bd_code_name);
+		params.put("business_type", business_type);
+		return sqlSession.selectList(NAME_SPACE+".selectSales", params);
 	}
 
 }
