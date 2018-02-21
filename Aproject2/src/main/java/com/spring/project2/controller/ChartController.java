@@ -1,5 +1,8 @@
 package com.spring.project2.controller;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,28 +17,27 @@ import com.spring.project2.service.ChartService;
 public class ChartController {
 
 	private ChartService chartService;
+	private Map<String, Object> result;
 	
 	@Autowired
 	public void setChartService(ChartService chartService) {
 		this.chartService = chartService;
 	}
-	
+
 	@ResponseBody
 	@RequestMapping("main")
-	public Model riskIndex(Model model) {
+	public Map<String, Object> mainChart(Model model) {
 		
 		double riskIndex = chartService.riskIndex();
+		Map<String, Object> bdSettledPopulation = chartService.bdSettledPopulation();
+
+		result.put("riskIndex", model.addAttribute(riskIndex));
+		result.put("bdSettledPopulation", model.addAllAttributes(bdSettledPopulation));
 		
-		return model.addAttribute("riskIndex", riskIndex);
+		return result;
 	} 
+
 	
-	@ResponseBody
-	@RequestMapping("main")
-	public Model bdSettledPopulation(Model model) {
-		
-		BdSettledPopulation population = chartService.bdSettledPopulation();
 	
-		return model.addAttribute("bdSettledPopulation", population); 
-	}
 	
 }
