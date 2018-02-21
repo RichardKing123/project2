@@ -19,7 +19,7 @@
 <select id="selectSales" resultType="BdEstimatedSales">
 	select bd_date, maleSalesVolume, femaleSalesVolume
 	from bd_estimated_sales
-	where business_type=#{business_type} and district = #{district} and bd_date = 201708
+	where business_type=#{business_type} and bd_code_name = #{bd_code_name}
 </select>
 
 </mapper>	

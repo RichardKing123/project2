@@ -2,6 +2,7 @@ package com.spring.project2.dao;
 
 import java.util.List;
 
+import com.spring.project2.domain.BdEstimatedSales;
 import com.spring.project2.domain.Bd_Index;
 import com.spring.project2.domain.Bd_Shop;
 
@@ -11,5 +12,7 @@ public interface SearchDao {
 	public abstract List<Bd_Index> searchList(String business_type ,String district);
 	//상세보기시 개업 폐업
 	public abstract Bd_Shop searchDetail(String bd_code_name, String business_type);
+	//상세보기시 매출분석
+	public abstract List<BdEstimatedSales> searchSales(String bd_code_name, String business_type);
 	
 }
