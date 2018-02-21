@@ -26,15 +26,16 @@ public class ChartController {
 
 	@ResponseBody
 	@RequestMapping("main")
-	public Map<String, Object> mainChart(Model model) {
+	public Model mainChart(Model model) {
 		
 		double riskIndex = chartService.riskIndex();
 		Map<String, Object> bdSettledPopulation = chartService.bdSettledPopulation();
 
-		result.put("riskIndex", model.addAttribute(riskIndex));
-		result.put("bdSettledPopulation", model.addAllAttributes(bdSettledPopulation));
+		result.put("riskIndex", riskIndex);
+		result.put("bdSettledPopulation", bdSettledPopulation);
 		
-		return result;
+		
+		return model.addAllAttributes(result);
 	} 
 
 	

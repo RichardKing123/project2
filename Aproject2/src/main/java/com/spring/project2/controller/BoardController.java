@@ -29,7 +29,8 @@ public class BoardController {
 	
 	@RequestMapping(value= {"/boardList", "/list"}, method=RequestMethod.GET)
 	public String boardList(Model model, 
-			@RequestParam(value="pageNum", required=false, 
+			@RequestParam(
+					 value="pageNum", required=false, 
 			defaultValue="1") int pageNum) {
 		
 
