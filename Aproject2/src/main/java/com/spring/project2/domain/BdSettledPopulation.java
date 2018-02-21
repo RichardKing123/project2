@@ -11,7 +11,6 @@ public class BdSettledPopulation {
 	private int[] bdDate, totalPopulation, totalMale, totalFemale;
 	private String[] district;
 	
-	
 	public int getBdCode() {
 		return bdCode;
 	}
