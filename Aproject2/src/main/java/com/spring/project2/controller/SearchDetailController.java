@@ -36,6 +36,7 @@ public class SearchDetailController {
 		model.addAttribute("bd_code_name",bd_code_name);
 		model.addAttribute("business_type",business_type);
 		
+		
 		return "forward:WEB-INF/views/search/searchDetail.jsp";
 	}
 }
