@@ -6,7 +6,7 @@ import com.spring.project2.domain.Board;
 
 public interface BoardService {
 	
-	public abstract Map<String, Object> boardList(int pageNum);
+	public abstract Map<String, Object> boardList(int pageNum,  String  type,  String  keyword);
 	
 	public abstract Board getBoard(int board_no, boolean isCount);
 	

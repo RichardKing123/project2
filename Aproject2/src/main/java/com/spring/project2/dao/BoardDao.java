@@ -16,5 +16,10 @@ public interface BoardDao {
 	
 	public abstract void deleteBoard(int board_no);
 	
-	public abstract int getBoardCount();
+	public abstract int getBoardCount(String  type,  String  keyword);
+	
+	public abstract List<Board> boardList(
+			int startRow, int num, String type, String keyword);
+	
+	
 }
