@@ -18,7 +18,7 @@
 			<a href="#home" aria-controls="home" role="tab" data-toggle="tab">개업률/폐업률</a>
 			</li>
 			<li role="presentation">
-			<a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a>
+			<a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">매출분석</a>
 			</li>
 		</ul>
 		<!-- 개업률 폐업률 -->
@@ -69,8 +69,27 @@
 					</tr>
 				</table>
 			</div>
-			
-			<div role="tabpanel" class="tab-pane" id="profile">${business_type }</div>
+			<!-- 상세보기 매출분석 -->
+			<div role="tabpanel" class="tab-pane" id="profile">
+				<h2>${bd_code_name }/${business_type }</h2>
+				<h1>월 성별 매출건수 추이 분석</h1>
+				<table id="genderTable">
+					<tr>
+						<th>년월</th>
+						<th>남성</th>
+						<th>여성</th>
+					</tr>
+					<c:if test="${not empty sales }">
+					<c:forEach var="s" items="${sales }">
+					<tr>
+						<td>${s.bdDate }</td>
+						<td>${s.maleSalesVolume }</td>
+						<td>${s.femaleSalesVolume }</td>
+					</tr>
+					</c:forEach>
+					</c:if>
+				</table>
+			</div>
 		
 		</div>
 	</div>
