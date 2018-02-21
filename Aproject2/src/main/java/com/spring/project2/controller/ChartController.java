@@ -34,7 +34,6 @@ public class ChartController {
 		result.put("riskIndex", riskIndex);
 		result.put("bdSettledPopulation", bdSettledPopulation);
 		
-		
 		return model.addAllAttributes(result);
 	} 
 
