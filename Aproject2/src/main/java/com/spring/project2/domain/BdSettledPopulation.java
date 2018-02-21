@@ -12,7 +12,6 @@ public class BdSettledPopulation {
 	private String[] district;
 	
 	
-	
 	public int getBdCode() {
 		return bdCode;
 	}
