@@ -12,12 +12,12 @@
 			</td>
 		</tr>
 		<tr>
-			<td colspan="4">&nbsp;</td>
+			<td colspan="6">&nbsp;</td>
 		</tr>
 		<tr>
 			<td class="readTh">글쓴이</td>
 			<td class="readTd">
-				<input type="text" name="writer" size="30" id="writer" maxlength="10"/>
+				<input type="text" style="border:0px" name="writer" value="${sessionScope.member.id }" readonly size="10" id="writer" maxlength="10"/> 
 			</td>
 		</tr>		
 		<tr>
@@ -29,7 +29,7 @@
 		<tr>
 			<td class="readTh">내&nbsp;&nbsp;&nbsp;&nbsp;용</td>
 			<td class="readTd" colspan="3">
-				<textarea name="content" id="content" rows="20" cols="80"></textarea>
+				<textarea name="content" id="content" rows="20" cols="92"></textarea>
 			</td>
 		</tr>		
 		<tr>

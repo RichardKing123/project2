@@ -233,6 +233,7 @@ $(function() {
 	
 	//상권 상주인구 차트
 	zingchart.THEME="classic";
+	var population = $("#bdSettledPopulation").data("bdSettledPopulation");
 	var bdSettledPopulation = 
 	        {
 	            "type": "line",
@@ -396,7 +397,7 @@ $(function() {
 	                        114.4,
 	                        137.4
 	                    ],
-	                    "text": "Pricing",
+	                    "text": "total population",
 	                    "line-color": "#007790",
 	                    "legend-marker": {
 	                        "type": "circle",
@@ -456,7 +457,7 @@ $(function() {
 	                        694.2,
 	                        690.5
 	                    ],
-	                    "text": "Documentation",
+	                    "text": "Male",
 	                    "line-color": "#009872",
 	                    "legend-marker": {
 	                        "type": "circle",
@@ -516,7 +517,7 @@ $(function() {
 	                        445.9,
 	                        441.5
 	                    ],
-	                    "text": "Support",
+	                    "text": "Female",
 	                    "line-color": "#da534d",
 	                    "legend-marker": {
 	                        "type": "circle",
@@ -539,8 +540,8 @@ $(function() {
 	zingchart.render({ 
 		id : 'bdSettledPopulation', 
 		data : bdSettledPopulation, 
-		height: 500, 
-		width: 725 
+		height: 410, 
+		width: 545 
 	});
 	
 	

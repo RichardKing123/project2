@@ -4,6 +4,7 @@ import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,17 +28,15 @@ public class FaqController {
 	}
 	
 	@RequestMapping(value= {"/faqList"}, method=RequestMethod.GET)
-	public String faqList(Model model, String adminId) {
+	public String faqList(Model model) {
 		
 		List<Faq> faqList = faqService.faqList();
 		
 		model.addAttribute("faqList", faqList);
 		
-		boolean result = faqService.isAdminCheck(adminId);
 		
 		
-		
-		return "faqList";
+		return "faq/faqList";
 		
 	}
 	
@@ -48,14 +47,14 @@ public class FaqController {
 		
 		model.addAttribute("faq", faq);
 		
-		return "faqDetail";
+		return "faq/faqDetail";
 	}
 	
 	@RequestMapping(value="/faqWrite", method=RequestMethod.POST)
 	public String insertFaq(Faq faq) {
 		faqService.insertFaq(faq);
 		
-		return "redirect:faqList";
+		return "redirect:faq/faqList";
 	}
 	
 	@RequestMapping(value="/faqUpdate")
@@ -66,7 +65,7 @@ public class FaqController {
 		
 		model.addAttribute("faq", faq);
 		
-		return "faqUpdateForm";
+		return "faq/faqUpdateForm";
 	}
 	
 	@RequestMapping(value="faqUpdate", method=RequestMethod.POST)
@@ -75,7 +74,7 @@ public class FaqController {
 		
 		faqService.updateFaq(faq);
 		
-		return "redirect:faqList";
+		return "redirect:faq/faqList";
 		
 	}
 	
@@ -85,7 +84,7 @@ public class FaqController {
 		
 	faqService.deleteFaq(faqNo);
 	
-	return "redirect:faqList";
+	return "redirect:faq/faqList";
 	}
 	
 	

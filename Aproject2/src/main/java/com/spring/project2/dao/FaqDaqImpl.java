@@ -48,7 +48,7 @@ public class FaqDaqImpl implements FaqDao {
 		String admin = sqlSession.selectOne(
 				NAME_SPACE + ".isAdminCheck", adminId);
 		
-		if(admin.equals(admin)) {
+		if(admin != null && admin.equals(admin)) {
 			result = true;
 		}
 		return result;

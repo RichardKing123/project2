@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+   <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <article>
-	<form action="updateFaq.mvc" name="updateForm" id="updateForm" method="post">
+	<form action="faqUpdate" name="faqUpdateForm" id="faqUpdateForm" method="post">
 		
 		<input type="hidden" name="no" value="${faq.faqNo }"/>
 			
@@ -14,13 +14,14 @@
 	    <tr>
 				<td class="questionTh">질문글</td>
 				<td class="questionTd">
-					<input type="text" name="question" size="16" id="question"	maxlength="50" value="${faq.faqTitle }"/> 		
+					<input type="text" name="faqTitle" size="16" id="faqTitle"	
+					maxlength="100" value="${faq.faqTitle }"/> 		
 				</td>	
 			</tr>
 			<tr>
 				<td class="answerTh">답글</td>
 				<td class="answerTd">
-					<textarea rows="5" cols="50" name="answer" id="answer">
+					<textarea rows="5" cols="50" name="faqContent" id="faqContent">
 				    ${faq.faqContent }</textarea>
 				 </td>   
 			</tr>
@@ -29,12 +30,12 @@
 			</tr>
 			<tr>
 			<td colspan="2" class="tdSpan">
-			<input type="reset" value="다시쓰기"/>
+				<input type="submit" id="updateFaq" value="수정하기" />
 				&nbsp;&nbsp;
-				<input type="submit" value="수정하기" />
+				<input type="button" id="deleteFaq" value="삭제하기" />
 				&nbsp;&nbsp;
 				<input type="button" value="목록보기" 
-					onclick="javascript:window.location.href='faqList.jsp'"/></td>
+					onclick="javascript:window.location.href='faq/faqList'"/></td>
 		</tr>
 	</table>	
 		

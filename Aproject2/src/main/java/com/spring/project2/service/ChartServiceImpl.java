@@ -28,17 +28,6 @@ public class ChartServiceImpl implements ChartService {
 		return null;
 	}
 
-/*	@Override
-	public Map<String, Object> riskIndex() {
-		
-		Map<String, Object> modelMap = new HashMap<String,Object>();
-		
-		double riskIndex = chartDao.riskIndex();
-		System.out.println(riskIndex);
-		modelMap.put("riskIndex", riskIndex);
-		return modelMap;
-	}*/
-	
 	@Override
 	public double riskIndex() {
 		
@@ -56,5 +45,4 @@ public class ChartServiceImpl implements ChartService {
 		modelMap.put("bdSettledPopulation", bdSettledPopulations);
 		return modelMap;
 	}
-
 }
