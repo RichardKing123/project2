@@ -65,8 +65,7 @@ var naver_id_login = new naver_id_login("1WiDgNpz9SVwwS4Cu_Au", "http://localhos
         <p>서울 전역 지도</p>
       </div>
       <div class="col-sm-6 well">
-        <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-        <p>서울 전체 업종 지수지표</p>
+        <div id="bdSettledPopulation"><a class="zc-ref" href="https://www.zingchart.com">Powered by ZingChart</a></div>
       </div>
     </div>
     <div class="row">
