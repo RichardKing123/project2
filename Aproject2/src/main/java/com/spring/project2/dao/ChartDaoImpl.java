@@ -37,7 +37,7 @@ public class ChartDaoImpl implements ChartDao {
 
 
 	@Override
-	public List<BdSettledPopulation> bdSettledPopulation() {
+	public BdSettledPopulation bdSettledPopulation() {
 		
 		return sqlSession.selectOne(NAME_SPACE + ".bdSettledPopulation");
 	}

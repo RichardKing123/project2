@@ -37,12 +37,8 @@ public class ChartServiceImpl implements ChartService {
 	}
 
 	@Override
-	public Map<String, Object> bdSettledPopulation() {
+	public BdSettledPopulation bdSettledPopulation() {
 		
-		List<BdSettledPopulation> bdSettledPopulations = chartDao.bdSettledPopulation();
-		Map<String, Object> modelMap = new HashMap<String,Object>();
-		
-		modelMap.put("bdSettledPopulation", bdSettledPopulations);
-		return modelMap;
+		return chartDao.bdSettledPopulation();
 	}
 }

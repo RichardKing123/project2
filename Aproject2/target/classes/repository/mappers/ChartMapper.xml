@@ -8,11 +8,8 @@
 		FROM foundation_risk_index
 	</select>
 	
-	<select id="bdSettledPopulation" resultType="BdSettledPopulation" parameterType="hashMap">
+	<select id="bdSettledPopulation" resultType="BdSettledPopulation">
 		select * from bd_settled_population
-		<where>
-			district = #{district}
-		</where>
 	</select>
 
 </mapper>	
