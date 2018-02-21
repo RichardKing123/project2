@@ -46,7 +46,7 @@
 			<td colspan="6" class="tdSpan">
 			<c:if	test="${sessionScope.member.id == board.writer}">
 					<input type="button" id="detailUpdate" value="수정하기" />
-			&nbsp;&nbsp;<input type="button" id="detailDelete" value="삭제하기" />
+				&nbsp;&nbsp;<input type="button" id="detailDelete" value="삭제하기" />
 						&nbsp;&nbsp;<input type="button" value="목록보기"
 						onclick="javascript:window.location.href='boardList?pageNum=${pageNum}'" />
 				</c:if> <c:if test="${ sessionScope.member.id ne board.writer }">			
