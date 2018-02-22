@@ -29,6 +29,8 @@ $(function() {
 	 var fortyVolume=[];
 	 var fiftyVolume=[];
 	 var sixtyVolume=[];
+	 var maleNo=[];
+	 var femaleNo=[];
 	$(salesData).each(function(index, value){
 		salesDate.push(value.bdDate);
 		maleVolume.push(value.maleSalesVolume);
@@ -39,6 +41,8 @@ $(function() {
 		fortyVolume.push(value.fortySalesVolume);
 		fiftyVolume.push(value.fiftySalesVolume);
 		sixtyVolume.push(value.sixtySalesVolume);
+		maleNo.push(value.maleSalesNo);
+		femaleNo.push(value.femaleSlaesNo);
 	});
 	
 	
@@ -490,6 +494,147 @@ $(function() {
 				height: 500, 
 				width: 800 
 			});
+			
+			//매출분석 월 성별 매출건수
+			var genderNo = {
+				    "background-color":"#ecf2f6",
+				    "graphset":[
+				        {	// 세로 바 차트
+				            "type":"bar",
+				            
+				           /*  "background-color":"#fff",
+				            "border-color":"#dae5ec",
+				            "border-width":"1px",
+				            "height":"30%",
+				            "width":"96%",
+				            "x":"2%",
+				            "y":"3%", */
+				            "title":{
+				               /*  "margin-top":"7px",
+				                "margin-left":"9px",
+				                "font-family":"Arial", */
+				                "text":"월 성별 매출건수",
+				                /* "background-color":"none",
+				                "shadow":0,
+				                "text-align":"left",
+				                "font-size":"11px",
+				                "font-weight":"bold",
+				                "font-color":"#707d94" */
+				            },
+				            "scale-y":{
+				                "values":"0:5000:1000",
+				               // "max-ticks":4,
+				                "max-items":5,
+				                "line-color":"none",
+				                "tick":{
+				                    "visible":false
+				                },
+				                "item":{
+				                    "font-color":"#8391a5",
+				                    "font-family":"Arial",
+				                    "font-size":"10px",
+				                    "padding-right":"5px"
+				                },
+				                "guide":{
+				                    "rules":[
+				                        {
+				                          "rule":"%i == 0",
+				                          "line-width":0
+				                        },
+				                        {
+				                          "rule":"%i > 0",
+				                          "line-style":"solid",
+				                          "line-width":"1px",
+				                          "line-color":"#d2dae2",
+				                          "alpha":0.4 
+				                        }
+				                    
+				                    ]
+				                }
+				            },
+				            "scale-x":{
+				                "items-overlap":true,
+				                "max-items":9999,	// 세로 바 차트 라벨
+				                "values":salesDate,
+				                "offset-y":"1px",
+				                "line-color":"#d2dae2",
+				                "item":{
+				                    "font-color":"#8391a5",
+				                    "font-family":"Arial",
+				                    "font-size":"11px",
+				                    "padding-top":"2px"
+				                },
+				                "tick":{
+				                    "visible":false,
+				                    "line-color":"#d2dae2"
+				                },
+				                "guide":{
+				                    "visible":false
+				                }
+				            },
+				            /*  "plotarea":{
+				                "margin":"45px 20px 38px 45px"
+				            },  */
+				            "plot":{
+				                "bar-width":"33px",
+				                
+				                "value-box":{
+				                	"text":"%v"
+				                },
+				                "hover-state":{
+				                    "visible":false
+				                },
+				                "animation":{
+				                    "delay":500,
+				                    "effect":"ANIMATION_SLIDE_BOTTOM"
+				                },
+				                "tooltip":{
+				                    "font-color":"#fff",
+				                    "font-family":"Arial",
+				                    "font-size":"11px",
+				                    "border-radius":"6px",
+				                    "shadow":false,
+				                    "padding":"5px 10px",
+				                    "background-color":"#707e94",
+				                    "text":"%t:%v"
+				                }
+				            },
+				            "legend":{
+				            	"toggle-action":"hide",
+				            	/* "header": {
+				            		"text":"Legend Header"
+				            	}, */
+				            	"item":{
+				            		"cursor":"pointer"
+				            	},
+				            	"draggable":true,
+				            	"drag-handler":"icon"
+				            },
+				            "series":[
+				                {
+				                    "values": maleNo,// 세로 바 차트 데이터
+				                    "text":"남성"
+				                    
+				                },
+				                {
+				                	"values":femaleNo,
+				                	"text":"여성"
+				                	
+				                	
+				                }
+				            ]
+				        }
+				        
+				        
+				    ]
+				};
+
+				zingchart.render({ 
+					id : 'genderNoChart', 
+					data : genderNo, 
+					height: 500, 
+					width: 800 
+				});
 		
 });
 </script>			
@@ -627,6 +772,8 @@ $(function() {
 				</table>
 				<br/>
 				<h4>-월 성별 매출건수 추이 분석 / (단위:건)</h4>
+				<div id="genderNoChart"></div>
+				<br/>
 				<table id="genderTableNo">
 					<tr>
 						<th>년월&nbsp;&nbsp;</th>
