@@ -1,6 +1,8 @@
 package com.spring.project2.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,9 +39,10 @@ public class ChartDaoImpl implements ChartDao {
 
 
 	@Override
-	public List<BdSettledPopulation> bdSettledPopulation() {
-		
-		return sqlSession.selectOne(NAME_SPACE + ".bdSettledPopulation");
+	public List<Integer> bdSettledPopulation(int[] bdDate) {
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("bdDate", bdDate);
+		return sqlSession.selectList(NAME_SPACE + ".bdSettledPopulation", params);
 	}
 
 }

@@ -20,7 +20,7 @@ import com.spring.project2.service.ChartService;
 public class ChartController {
 
 	private ChartService chartService;
-	private Map<String, Object> result;
+
 	
 	@Autowired
 	public void setChartService(ChartService chartService) {
@@ -28,16 +28,16 @@ public class ChartController {
 	}
 
 	@RequestMapping("main")
-	public String mainChart(Model model) throws JsonProcessingException {
+	public String mainChart(Model model, int[] bdDate) throws Exception {
 		
 		double riskIndex = chartService.riskIndex();
-		Map<String, Object> bdSettledPopulation = chartService.bdSettledPopulation();
+		Map<String, Object> bdSettledPopulation = chartService.bdSettledPopulation(bdDate);
 		
 		ObjectMapper map = new ObjectMapper();
-		map.writeValueAsString(bdSettledPopulation);
+		String bdSettledPopulationData = map.writeValueAsString(bdSettledPopulation);
 		
-		//model.addAllAttributes(bdSettledPopulation);
-		model.addAttribute("bdSettledPopulation", map.writeValueAsString(bdSettledPopulation));
+		
+		model.addAttribute("bdSettledPopulation", bdSettledPopulationData);
 		model.addAttribute("riskIndex", riskIndex);
 		return "main";
 	} 

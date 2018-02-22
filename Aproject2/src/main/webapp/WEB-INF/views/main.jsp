@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
 <script type="text/javascript">
-var naver_id_login = new naver_id_login("1WiDgNpz9SVwwS4Cu_Au", "http://localhost:8080/project2/main");
+/* var naver_id_login = new naver_id_login("1WiDgNpz9SVwwS4Cu_Au", "http://localhost:8080/project2/main");
 	  // 네이버 사용자 프로필 조회 이후 프로필 정보를 처리할 callback function
 	  function naverSignInCallback() {
 	    alert(naver_id_login.getProfileData('email'));
@@ -9,10 +9,13 @@ var naver_id_login = new naver_id_login("1WiDgNpz9SVwwS4Cu_Au", "http://localhos
 	    alert(naver_id_login.getProfileData('name'));
 	  }
 	  // 네이버 사용자 프로필 조회
-	  naver_id_login.get_naver_userprofile("naverSignInCallback()");
+	  naver_id_login.get_naver_userprofile("naverSignInCallback()"); */
 </script>
 <script> zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
-	ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9","ee6b7db5b51705a13dc2339db3edaf6d"];</script>
+	ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9","ee6b7db5b51705a13dc2339db3edaf6d"];
+	var populationDates = ${bdSettledPopulation};
+</script>
+<script type="text/javascript" src="resources/js/chart.js"></script>
 <article>
 <div class="body">
   <div class="jumbotron" style="background-color:white">
@@ -65,7 +68,7 @@ var naver_id_login = new naver_id_login("1WiDgNpz9SVwwS4Cu_Au", "http://localhos
         <p>서울 전역 지도</p>
       </div>
       <div class="col-sm-6 well">
-        <div id="bdSettledPopulation" data-bd-settled-population="${bdSettledPopulation }"><a class="zc-ref" href="https://www.zingchart.com">Powered by ZingChart</a></div>
+        <!-- <div id="bdSettledPopulation"><a class="zc-ref" href="https://www.zingchart.com">Powered by ZingChart</a></div>-->
       </div>
     </div>
     <div class="row">

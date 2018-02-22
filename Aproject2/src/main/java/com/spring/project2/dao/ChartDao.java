@@ -14,5 +14,5 @@ public interface ChartDao {
 	//지역별 위험지표를 반환하는 메소드
 	public double riskIndex();
 	
-	public List<BdSettledPopulation> bdSettledPopulation();
+	public List<Integer> bdSettledPopulation(int[] bdDate);
 }

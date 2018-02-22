@@ -231,10 +231,21 @@ $(function() {
 	});
 	
 	
-	//상권 상주인구 차트
+	/*//상권 상주인구 차트
 	zingchart.THEME="classic";
-	var population = $("#bdSettledPopulation").data("bdSettledPopulation");
-	var bdSettledPopulation = 
+	var bdDates =  [];
+	var totalpopulations = [];
+	var malepopulations = [];
+	var femalepopulations = [];
+	$(populationDates).each(function(index, value) {
+		bdDates.push(value.bdDate);
+		$(populationDates.bdSettledPopulation).each(function(index, value) {
+			totalpopulations.push(value.totalpopulation);
+			malepopulations.push(value.totalmale);
+			femalepopulations.push(value.totalfemale);
+		});
+	});
+	var bdSettledPopulationChart = 
 	        {
 	            "type": "line",
 	            "background-color": "#003849",
@@ -267,13 +278,7 @@ $(function() {
 	            },
 	            "scale-x": {
 	                "values": [
-	                	201401,201402,201403,201404,
-	                    201405,201406,201407,201408,201409,201410,
-	                    201411,201412,201501,201502,201503,201504,201505,
-	                    201506,201507,201508,201509,201510,201511,201512,
-	                    201601,201602,201603,201604,201605,201606,201607,
-	                    201608,201609,201610,201611,201612,201701,201702,
-	                    201703,201704,201705,201706,201707,201708
+	                		bdDates
 	                ],
 	                "shadow": 0,
 	                "step": 1,
@@ -301,7 +306,7 @@ $(function() {
 	                "minor-ticks": 0
 	            },
 	            "scale-y": {
-	                "values": "0:9000:3000",
+	                "values": "0:1500000:300000",
 	                "line-color": "#f6f7f8",
 	                "shadow": 0,
 	                "tick": {
@@ -356,48 +361,9 @@ $(function() {
 	            "series": [
 	                {
 	                    "values": [
-	                        149.2,
-	                        174.3,
-	                        187.7,
-	                        147.1,
-	                        129.6,
-	                        189.6,
-	                        230,
-	                        164.5,
-	                        171.7,
-	                        163.4,
-	                        194.5,
-	                        200.1,
-	                        193.4,
-	                        254.4,
-	                        287.8,
-	                        246,
-	                        199.9,
-	                        218.3,
-	                        244,
-	                        312.2,
-	                        284.5,
-	                        249.2,
-	                        305.2,
-	                        286.1,
-	                        347.7,
-	                        278,
-	                        240.3,
-	                        212.4,
-	                        237.1,
-	                        253.2,
-	                        186.1,
-	                        153.6,
-	                        168.5,
-	                        140.9,
-	                        86.9,
-	                        49.4,
-	                        24.7,
-	                        64.8,
-	                        114.4,
-	                        137.4
+	                    		totalpopulations
 	                    ],
-	                    "text": "total population",
+	                    "text": "Total Population",
 	                    "line-color": "#007790",
 	                    "legend-marker": {
 	                        "type": "circle",
@@ -416,48 +382,9 @@ $(function() {
 	                },
 	                {
 	                    "values": [
-	                        714.6,
-	                        656.3,
-	                        660.6,
-	                        729.8,
-	                        731.6,
-	                        682.3,
-	                        654.6,
-	                        673.5,
-	                        700.6,
-	                        755.2,
-	                        817.8,
-	                        809.1,
-	                        815.2,
-	                        836.6,
-	                        897.3,
-	                        896.9,
-	                        866.5,
-	                        835.8,
-	                        797.9,
-	                        784.7,
-	                        802.8,
-	                        749.3,
-	                        722.1,
-	                        688.1,
-	                        730.4,
-	                        661.5,
-	                        609.7,
-	                        630.2,
-	                        633,
-	                        604.2,
-	                        558.1,
-	                        581.4,
-	                        511.5,
-	                        556.5,
-	                        542.1,
-	                        599.7,
-	                        664.8,
-	                        725.3,
-	                        694.2,
-	                        690.5
+	                       malepopulations
 	                    ],
-	                    "text": "Male",
+	                    "text": "Total Male",
 	                    "line-color": "#009872",
 	                    "legend-marker": {
 	                        "type": "circle",
@@ -476,48 +403,9 @@ $(function() {
 	                },
 	                {
 	                    "values": [
-	                        536.9,
-	                        576.4,
-	                        639.3,
-	                        669.4,
-	                        708.7,
-	                        691.5,
-	                        681.7,
-	                        673,
-	                        701.8,
-	                        636.4,
-	                        637.8,
-	                        640.5,
-	                        653.1,
-	                        613.7,
-	                        583.4,
-	                        538,
-	                        506.7,
-	                        563.1,
-	                        541.4,
-	                        489.3,
-	                        434.7,
-	                        442.1,
-	                        482.3,
-	                        495.4,
-	                        556.1,
-	                        505.4,
-	                        463.8,
-	                        434.7,
-	                        377.4,
-	                        325.4,
-	                        351.7,
-	                        343.5,
-	                        333.2,
-	                        332,
-	                        378.9,
-	                        415.4,
-	                        385,
-	                        412.6,
-	                        445.9,
-	                        441.5
+	                    		femalepopulations
 	                    ],
-	                    "text": "Female",
+	                    "text": "Total Female",
 	                    "line-color": "#da534d",
 	                    "legend-marker": {
 	                        "type": "circle",
@@ -539,10 +427,10 @@ $(function() {
 
 	zingchart.render({ 
 		id : 'bdSettledPopulation', 
-		data : bdSettledPopulation, 
+		data : bdSettledPopulationChart, 
 		height: 410, 
 		width: 545 
-	});
+	}); */
 	
 	
 })
