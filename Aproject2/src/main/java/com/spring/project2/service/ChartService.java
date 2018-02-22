@@ -15,5 +15,5 @@ public interface ChartService {
 	// 지역별 위험지표를 반환하는 메소드
 	public double riskIndex();
 	
-	public BdSettledPopulation bdSettledPopulation();
+	public Map<String, Object> bdSettledPopulation(int[] bdDate);
 }

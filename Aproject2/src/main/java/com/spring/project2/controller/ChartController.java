@@ -27,13 +27,14 @@ public class ChartController {
 	}
 
 	@RequestMapping("main")
-	public String mainChart(Model model, String district) throws Exception {
+	public String mainChart(Model model, int[] bdDate) throws Exception {
 		
 		double riskIndex = chartService.riskIndex();
-		BdSettledPopulation bdSettledPopulation = chartService.bdSettledPopulation();
+		Map<String, Object> bdSettledPopulation = chartService.bdSettledPopulation(bdDate);
 		
 		ObjectMapper map = new ObjectMapper();
 		String bdSettledPopulationData = map.writeValueAsString(bdSettledPopulation);
+		
 		
 		model.addAttribute("bdSettledPopulation", bdSettledPopulationData);
 		model.addAttribute("riskIndex", riskIndex);

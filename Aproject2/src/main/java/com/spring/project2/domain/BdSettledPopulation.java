@@ -8,8 +8,9 @@ public class BdSettledPopulation {
 		femaleFifty, femaleSixty, totalHousehold, aptHousehold, noneAptHousehold;
 	String bdCodeName;
 	
-	private int[] bdDate, totalPopulation, totalMale, totalFemale;
-	private String[] district;
+	private int bdDate, totalPopulation, totalMale, totalFemale;
+	private String district;
+	
 	
 	public int getBdCode() {
 		return bdCode;
@@ -149,34 +150,34 @@ public class BdSettledPopulation {
 	public void setBdCodeName(String bdCodeName) {
 		this.bdCodeName = bdCodeName;
 	}
-	public int[] getBdDate() {
+	public int getBdDate() {
 		return bdDate;
 	}
-	public void setBdDate(int[] bdDate) {
+	public void setBdDate(int bdDate) {
 		this.bdDate = bdDate;
 	}
-	public int[] getTotalPopulation() {
+	public int getTotalPopulation() {
 		return totalPopulation;
 	}
-	public void setTotalPopulation(int[] totalPopulation) {
+	public void setTotalPopulation(int totalPopulation) {
 		this.totalPopulation = totalPopulation;
 	}
-	public int[] getTotalMale() {
+	public int getTotalMale() {
 		return totalMale;
 	}
-	public void setTotalMale(int[] totalMale) {
+	public void setTotalMale(int totalMale) {
 		this.totalMale = totalMale;
 	}
-	public int[] getTotalFemale() {
+	public int getTotalFemale() {
 		return totalFemale;
 	}
-	public void setTotalFemale(int[] totalFemale) {
+	public void setTotalFemale(int totalFemale) {
 		this.totalFemale = totalFemale;
 	}
-	public String[] getDistrict() {
+	public String getDistrict() {
 		return district;
 	}
-	public void setDistrict(String[] district) {
+	public void setDistrict(String district) {
 		this.district = district;
 	}
 	

@@ -231,11 +231,21 @@ $(function() {
 	});
 	
 	
-	//상권 상주인구 차트
+	/*//상권 상주인구 차트
 	zingchart.THEME="classic";
-	var bdSettledPopulationData = $("#bdSettledPopulation").data("bdSettledPopulation");
-	console.log(bdSettledPopulationData.total_population);
-	var bdSettledPopulation = 
+	var bdDates =  [];
+	var totalpopulations = [];
+	var malepopulations = [];
+	var femalepopulations = [];
+	$(populationDates).each(function(index, value) {
+		bdDates.push(value.bdDate);
+		$(populationDates.bdSettledPopulation).each(function(index, value) {
+			totalpopulations.push(value.totalpopulation);
+			malepopulations.push(value.totalmale);
+			femalepopulations.push(value.totalfemale);
+		});
+	});
+	var bdSettledPopulationChart = 
 	        {
 	            "type": "line",
 	            "background-color": "#003849",
@@ -268,13 +278,7 @@ $(function() {
 	            },
 	            "scale-x": {
 	                "values": [
-	                	201401,201402,201403,201404,
-	                    201405,201406,201407,201408,201409,201410,
-	                    201411,201412,201501,201502,201503,201504,201505,
-	                    201506,201507,201508,201509,201510,201511,201512,
-	                    201601,201602,201603,201604,201605,201606,201607,
-	                    201608,201609,201610,201611,201612,201701,201702,
-	                    201703,201704,201705,201706,201707,201708
+	                		bdDates
 	                ],
 	                "shadow": 0,
 	                "step": 1,
@@ -302,7 +306,7 @@ $(function() {
 	                "minor-ticks": 0
 	            },
 	            "scale-y": {
-	                "values": "0:9000:3000",
+	                "values": "0:1500000:300000",
 	                "line-color": "#f6f7f8",
 	                "shadow": 0,
 	                "tick": {
@@ -357,7 +361,7 @@ $(function() {
 	            "series": [
 	                {
 	                    "values": [
-	                        bdSettledPopulation.totalPopulation
+	                    		totalpopulations
 	                    ],
 	                    "text": "Total Population",
 	                    "line-color": "#007790",
@@ -378,7 +382,7 @@ $(function() {
 	                },
 	                {
 	                    "values": [
-	                       bdSettledPopulation.totalMale
+	                       malepopulations
 	                    ],
 	                    "text": "Total Male",
 	                    "line-color": "#009872",
@@ -399,7 +403,7 @@ $(function() {
 	                },
 	                {
 	                    "values": [
-	                    		bdSettledPopulation.totalFemale
+	                    		femalepopulations
 	                    ],
 	                    "text": "Total Female",
 	                    "line-color": "#da534d",
@@ -423,10 +427,10 @@ $(function() {
 
 	zingchart.render({ 
 		id : 'bdSettledPopulation', 
-		data : bdSettledPopulation, 
+		data : bdSettledPopulationChart, 
 		height: 410, 
 		width: 545 
-	});
+	}); */
 	
 	
 })
