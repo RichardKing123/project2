@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.spring.project2.domain.BdEstimatedSales;
+import com.spring.project2.domain.BdFloatingPopulation;
+import com.spring.project2.domain.BdSettledPopulation;
 import com.spring.project2.domain.Bd_Index;
 import com.spring.project2.domain.Bd_Shop;
 @Repository
@@ -53,6 +55,20 @@ public class SearchDaoImpl implements SearchDao {
 		params.put("bd_code_name", bd_code_name);
 		params.put("business_type", business_type);
 		return sqlSession.selectList(NAME_SPACE+".selectSales", params);
+	}
+
+//상세보기시 유동인구
+	@Override
+	public List<BdFloatingPopulation> searchFloating(String bd_code_name) {
+		
+		return sqlSession.selectList(NAME_SPACE+".selectFloating", bd_code_name);
+	}
+
+//상세보기시 상주인구
+	@Override
+	public List<BdSettledPopulation> searchSettled(String bd_code_name) {
+		
+		return sqlSession.selectList(NAME_SPACE+".selectSettled", bd_code_name);
 	}
 
 }
