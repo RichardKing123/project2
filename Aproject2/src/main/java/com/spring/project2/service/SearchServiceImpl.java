@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.spring.project2.dao.SearchDao;
 import com.spring.project2.domain.BdEstimatedSales;
+import com.spring.project2.domain.BdFloatingPopulation;
+import com.spring.project2.domain.BdSettledPopulation;
 import com.spring.project2.domain.Bd_Index;
 import com.spring.project2.domain.Bd_Shop;
 @Service
@@ -36,11 +38,25 @@ public class SearchServiceImpl implements SearchService {
 		return searchDao.searchDetail(bd_code_name, business_type);
 	}
 
-
+//상세보기 매출분석
 	@Override
 	public List<BdEstimatedSales> searchSales(String bd_code_name, String business_type) {
 		
 		return searchDao.searchSales(bd_code_name, business_type);
+	}
+
+//상세보기 유동인구분석
+	@Override
+	public List<BdFloatingPopulation> searchFloating(String bd_code_name) {
+	
+		return searchDao.searchFloating(bd_code_name);
+	}
+
+//상세보기 상주인구 분석
+	@Override
+	public List<BdSettledPopulation> searchSettled(String bd_code_name) {
+		
+		return searchDao.searchSettled(bd_code_name);
 	}
 
 }
