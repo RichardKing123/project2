@@ -65,7 +65,7 @@ var naver_id_login = new naver_id_login("1WiDgNpz9SVwwS4Cu_Au", "http://localhos
         <p>서울 전역 지도</p>
       </div>
       <div class="col-sm-6 well">
-        <div id="bdSettledPopulation"><a class="zc-ref" href="https://www.zingchart.com">Powered by ZingChart</a></div>
+        <div id="bdSettledPopulation" data-bd-settled-population="${bdSettledPopulation }"><a class="zc-ref" href="https://www.zingchart.com">Powered by ZingChart</a></div>
       </div>
     </div>
     <div class="row">

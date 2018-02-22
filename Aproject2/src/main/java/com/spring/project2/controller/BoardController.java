@@ -4,6 +4,7 @@ import java.io.PrintWriter;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,13 +12,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.spring.project2.domain.Board;
+import com.spring.project2.domain.Member;
 import com.spring.project2.service.BoardService;
 
 //스프링 MVC의 컨트롤러임을 선언하고 있다.
 @Controller
+@SessionAttributes("board")
 public class BoardController {
 	
 	@Autowired
@@ -30,11 +34,14 @@ public class BoardController {
 	@RequestMapping(value= {"/boardList", "/list"}, method=RequestMethod.GET)
 	public String boardList(Model model, 
 			@RequestParam(value="pageNum", required=false, 
-			defaultValue="1") int pageNum) {
+			defaultValue="1") int pageNum,@RequestParam(value="type",  required=false,  
+			defaultValue="null")  String  type,
+			@RequestParam(value="keyword",  required=false,
+			defaultValue="null")  String  keyword) {
 		
 
 		// Service 클래스를 이용해 게시 글 리스트를 가져온다.
-		Map<String, Object> modelMap = boardService.boardList(pageNum);
+		Map<String, Object> modelMap = boardService.boardList(pageNum,type,keyword);
 			
 		model.addAllAttributes(modelMap);
 		
@@ -46,6 +53,7 @@ public class BoardController {
 			int pageNum) {
 		
 		Board board = boardService.getBoard(board_no, true);
+
 		
 		model.addAttribute("board", board);
 		model.addAttribute("pageNum", pageNum);
@@ -89,7 +97,7 @@ public class BoardController {
 		
 		reAttrs.addAttribute("pageNum", pageNum);		
 		//reAttrs.addFlashAttribute("test", "1회용 파라미터 받음 - test");
-		return "redirect:board/boardList";
+		return "redirect:boardList";
 	}
 	
 	@RequestMapping({"/delete", "deleteBoard"})
@@ -106,6 +114,6 @@ public class BoardController {
 	
 		reAttrs.addAttribute("pageNum", pageNum);		
 		//reAttrs.addFlashAttribute("test", "1회용 파라미터 받음 - test");
-		return "redirect:board/boardList";
+		return "redirect:boardList";
 	}	
 }

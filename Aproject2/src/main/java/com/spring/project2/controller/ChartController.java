@@ -8,6 +8,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+<<<<<<< HEAD
+=======
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.spring.project2.domain.BdSettledPopulation;
+>>>>>>> branch 'project' of https://github.com/RichardKing123/project2.git
 import com.spring.project2.service.ChartService;
 
 @Controller
@@ -21,17 +27,19 @@ public class ChartController {
 		this.chartService = chartService;
 	}
 
-	@ResponseBody
 	@RequestMapping("main")
-	public Map<String, Object> mainChart(Model model) {
+	public String mainChart(Model model) throws JsonProcessingException {
 		
 		double riskIndex = chartService.riskIndex();
 		Map<String, Object> bdSettledPopulation = chartService.bdSettledPopulation();
-
-		result.put("riskIndex", model.addAttribute(riskIndex));
-		result.put("bdSettledPopulation", model.addAllAttributes(bdSettledPopulation));
 		
-		return result;
+		ObjectMapper map = new ObjectMapper();
+		map.writeValueAsString(bdSettledPopulation);
+		
+		//model.addAllAttributes(bdSettledPopulation);
+		model.addAttribute("bdSettledPopulation", map.writeValueAsString(bdSettledPopulation));
+		model.addAttribute("riskIndex", riskIndex);
+		return "main";
 	} 
 
 	

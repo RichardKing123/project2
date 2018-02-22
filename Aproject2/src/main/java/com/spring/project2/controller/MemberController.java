@@ -64,7 +64,11 @@ public class MemberController {
 		}		
 		
 		Member member = memberService.getMember(id);
-		session.setAttribute("isLogin", true);		
+		session.setAttribute("isLogin", true);	
+		
+		if(member.getId().equals("admin")) {
+			session.setAttribute("isAdmin", true);
+		}
 
 		model.addAttribute("member", member);
 		System.out.println("member.name : " + member.getName());

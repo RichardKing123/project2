@@ -1,5 +1,7 @@
 package com.spring.project2.service;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,19 +29,23 @@ public class BoardServiceImpl implements BoardService {
 	}
 	
 	@Override
-	public Map<String, Object> boardList(int pageNum) {
+	public Map<String, Object> boardList(int pageNum,  String  type,  String  keyword) {
 		
 		// 요청 파라미터의 pageNum을 현재 페이지로 설정
 		int currentPage = pageNum;
 				
 		int startRow = (currentPage - 1) * PAGE_SIZE;
+		int listCount=0;
+		
+		boolean  searchOption  =  (type.equals("null") 
+				||  keyword.equals("null"))  ?  false  :  true; 
 		
 		// BoardDao를 이용해 전체 게시 글 수를 얻어온다.		
-		int listCount = boardDao.getBoardCount();		
+		listCount = boardDao.getBoardCount(type,keyword);		
 		
 		if(listCount > 0) {
 			
-			List<Board> boardList = boardDao.boardList(startRow, PAGE_SIZE);
+			List<Board> boardList = boardDao.boardList(startRow, PAGE_SIZE,type,keyword);
 			
 			int pageCount = 
 					listCount / PAGE_SIZE + (listCount % PAGE_SIZE == 0 ? 0 : 1);
@@ -63,7 +69,17 @@ public class BoardServiceImpl implements BoardService {
 			modelMap.put("currentPage", currentPage);
 			modelMap.put("listCount", listCount);
 			modelMap.put("PAGE_GROUP", PAGE_GROUP);
+			modelMap.put("searchOption",  searchOption);
 			
+			if(searchOption) {
+				try  {
+					modelMap.put("keyword",  URLEncoder.encode(keyword,  "utf-8"));
+					}  catch  (UnsupportedEncodingException  e)  {
+					e.printStackTrace();
+					}
+					modelMap.put("word",  keyword);
+					modelMap.put("type",  type);
+			}
 			return modelMap;			
 		} else {
 			return null;

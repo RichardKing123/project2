@@ -5,7 +5,7 @@
 <article>
 <form name="updateForm" id="updateForm" action="update"
 	method="post">
-	<input type="hidden" name="no" value="${ board.board_no }" />
+	<input type="hidden" name="board_no" value="${ board.board_no }" />
 	<input type="hidden" name="pageNum" value="${ pageNum }" />
 <table class="readTable">
 	<tr>
@@ -42,6 +42,7 @@
 	<tr>		
 		<td class="tdSpan" colspan="4">
 			<input type="reset" value="다시쓰기" />
+			
 			&nbsp;&nbsp;<input type="submit" value="수정하기" />
 			&nbsp;&nbsp;<input type="button" value="목록보기" onclick=
 				"javascript:window.location.href='boardList?pageNum=${pageNum}'"/>			
