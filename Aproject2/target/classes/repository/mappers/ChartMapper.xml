@@ -16,13 +16,7 @@
 		from bd_settled_population where bd_date = #{bdDate[]} group by bd_date;
 	</select>
 
-<<<<<<< HEAD
 </mapper>	 
-=======
-	
-
-</mapper>	
->>>>>>> branch 'project' of https://github.com/RichardKing123/project2.git
 
 
 
