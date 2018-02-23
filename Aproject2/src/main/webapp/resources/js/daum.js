@@ -24,7 +24,7 @@ $(document).ready(function(){
 		customOverlay = new daum.maps.CustomOverlay({}),
 		infowindow = new daum.maps.InfoWindow({removable: true});
 	
-	
+
 	
 	//다각형을 생상하고 이벤트를 등록하는 함수입니다
 	function displayArea(area) {
