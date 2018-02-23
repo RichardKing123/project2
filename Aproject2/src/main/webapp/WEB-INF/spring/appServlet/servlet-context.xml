@@ -36,6 +36,7 @@
 
 		
 	<view-controller path="/writeForm" view-name="board/writeForm" />
+	<view-controller path="/faqWriteForm" view-name="faq/faqWriteForm"/>
 
 
 	
