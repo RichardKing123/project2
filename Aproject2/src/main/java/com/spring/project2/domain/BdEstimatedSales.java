@@ -22,7 +22,9 @@ public class BdEstimatedSales {
 		teenSalesRate, twentySalesRate, thirtySalesRate, fortySalesRate, fiftySalesRate, 
 		sixtySalesRate;
 
-
+public BdEstimatedSales() {
+	// TODO Auto-generated constructor stub
+}
 
 	public int getBdDate() {
 		return bdDate;

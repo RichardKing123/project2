@@ -8,14 +8,21 @@
 		FROM foundation_risk_index
 	</select>
 	
-	<select id="bdSettledPopulation" resultType="BdSettledPopulation" parameterType="hashMap">
-		select * from bd_settled_population
-		<where>
-			district = #{district}
-		</where>
+	<select id="bdSettledPopulation" resultType="hashmap" parameterType="hashmap">
+		select 
+			sum(total_population) totalpopulation, 
+			sum(total_male) totalmale, 
+			sum(total_female) totalfemale 
+		from bd_settled_population where bd_date = #{bdDate[]} group by bd_date;
 	</select>
 
+<<<<<<< HEAD
+</mapper>	 
+=======
+	
+
 </mapper>	
+>>>>>>> branch 'project' of https://github.com/RichardKing123/project2.git
 
 
 

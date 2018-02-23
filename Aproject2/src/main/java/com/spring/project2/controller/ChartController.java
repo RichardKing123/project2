@@ -1,25 +1,26 @@
-package com.spring.project2.controller;
+/*package com.spring.project2.controller;
 
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+<<<<<<< HEAD
+=======
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.spring.project2.domain.BdSettledPopulation;
+>>>>>>> branch 'project' of https://github.com/RichardKing123/project2.git
 import com.spring.project2.service.ChartService;
 
 @Controller
 public class ChartController {
 
 	private ChartService chartService;
-	private Map<String, Object> result;
+
 	
 	@Autowired
 	public void setChartService(ChartService chartService) {
@@ -27,16 +28,16 @@ public class ChartController {
 	}
 
 	@RequestMapping("main")
-	public String mainChart(Model model) throws JsonProcessingException {
+	public String mainChart(Model model, int[] bdDate) throws Exception {
 		
 		double riskIndex = chartService.riskIndex();
-		Map<String, Object> bdSettledPopulation = chartService.bdSettledPopulation();
+		Map<String, Object> bdSettledPopulation = chartService.bdSettledPopulation(bdDate);
 		
 		ObjectMapper map = new ObjectMapper();
-		map.writeValueAsString(bdSettledPopulation);
+		String bdSettledPopulationData = map.writeValueAsString(bdSettledPopulation);
 		
-		//model.addAllAttributes(bdSettledPopulation);
-		model.addAttribute("bdSettledPopulation", map.writeValueAsString(bdSettledPopulation));
+		
+		model.addAttribute("bdSettledPopulation", bdSettledPopulationData);
 		model.addAttribute("riskIndex", riskIndex);
 		return "main";
 	} 
@@ -44,4 +45,4 @@ public class ChartController {
 	
 	
 	
-}
+}*/

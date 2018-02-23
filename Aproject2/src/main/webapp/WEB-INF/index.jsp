@@ -19,7 +19,7 @@
 <script src="resources/js/formcheck.js"></script>
 <script type="text/javascript" src="resources/js/member.js"></script>
 <script type="text/javascript" src="resources/js/search.js"></script>
-<script type="text/javascript" src="resources/js/chart.js"></script>
+
 
 <!-- zingChart js -->
 <script src= "https://cdn.zingchart.com/zingchart.min.js"></script>

@@ -1,42 +1,22 @@
 package com.spring.project2.domain;
 
 public class BdSettledPopulation {
-	int bdDate, bdCode, totalPopulation, totalMale, totalFemale, 
+	int bdCode, 
 		totalTeen, totalTwenty, totalThirty, totalForty, totalFifty,
 		totalSixty, maleTeen, maleTwenty, maleThirty, maleForty, maleFifty,
 		maleSixty, femaleTeen, femaleTwenty, femaleThirty, femaleForty, 
 		femaleFifty, femaleSixty, totalHousehold, aptHousehold, noneAptHousehold;
-	String bdCodeName, district;
+	String bdCodeName;
 	
-	public int getBdDate() {
-		return bdDate;
-	}
-	public void setBdDate(int bdDate) {
-		this.bdDate = bdDate;
-	}
+	private int bdDate, totalPopulation, totalMale, totalFemale;
+	private String district;
+	
+	
 	public int getBdCode() {
 		return bdCode;
 	}
 	public void setBdCode(int bdCode) {
 		this.bdCode = bdCode;
-	}
-	public int getTotalPopulation() {
-		return totalPopulation;
-	}
-	public void setTotalPopulation(int totalPopulation) {
-		this.totalPopulation = totalPopulation;
-	}
-	public int getTotalMale() {
-		return totalMale;
-	}
-	public void setTotalMale(int totalMale) {
-		this.totalMale = totalMale;
-	}
-	public int getTotalFemale() {
-		return totalFemale;
-	}
-	public void setTotalFemale(int totalFemale) {
-		this.totalFemale = totalFemale;
 	}
 	public int getTotalTeen() {
 		return totalTeen;
@@ -170,12 +150,37 @@ public class BdSettledPopulation {
 	public void setBdCodeName(String bdCodeName) {
 		this.bdCodeName = bdCodeName;
 	}
+	public int getBdDate() {
+		return bdDate;
+	}
+	public void setBdDate(int bdDate) {
+		this.bdDate = bdDate;
+	}
+	public int getTotalPopulation() {
+		return totalPopulation;
+	}
+	public void setTotalPopulation(int totalPopulation) {
+		this.totalPopulation = totalPopulation;
+	}
+	public int getTotalMale() {
+		return totalMale;
+	}
+	public void setTotalMale(int totalMale) {
+		this.totalMale = totalMale;
+	}
+	public int getTotalFemale() {
+		return totalFemale;
+	}
+	public void setTotalFemale(int totalFemale) {
+		this.totalFemale = totalFemale;
+	}
 	public String getDistrict() {
 		return district;
 	}
 	public void setDistrict(String district) {
 		this.district = district;
 	}
+	
 	
 	
 }

@@ -17,9 +17,24 @@
 </select>
 <!-- 상세보기에서 매출분석 -->
 <select id="selectSales" resultType="BdEstimatedSales">
-	select bd_date, maleSalesVolume, femaleSalesVolume
+	select bd_date as bdDate, male_sales_volume as maleSalesVolume, female_sales_volume as femaleSalesVolume, teen_sales_volume as teenSalesVolume, twenty_sales_volume as twentySalesVolume, thirty_sales_volume as thirtySalesVolume, forty_sales_volume as fortySalesVolume, fifty_sales_volume as fiftySalesVolume, sixty_sales_volume as sixtySalesVolume, male_sales_no as maleSalesNo, female_sales_no as femaleSalesNo, teen_sales_no as teenSalesNo, twenty_sales_no as twentySalesNo, thirty_sales_no as thirtySalesNo, forty_sales_no as fortySalesNo, fifty_sales_no as fiftySalesNo, sixty_sales_no as sixtySalesNo
 	from bd_estimated_sales
 	where business_type=#{business_type} and bd_code_name = #{bd_code_name}
+	order by bd_date asc
+</select>
+<!-- 상세보기 유동인구분석 -->
+<select id="selectFloating" resultType="BdFloatingPopulation">
+	select bd_date as bdDate, total_floating_population as totalFloatingPopulation, total_male as totalMale, total_female as totalFemale, total_teen as totalTeen, total_twenty as totalTwenty, total_thirty as totalThirty, total_forty as totalForty, total_fifty as totalFifty, total_sixty as totalSixty
+	from bd_floating_population
+	where bd_code_name = #{bd_code_name}
+	order by bd_date asc
+</select>
+<!-- 상세보기 상주인구 -->
+<select id="selectSettled" resultType="BdSettledPopulation">
+	select bd_date as bdDate, total_population as totalPopulation, total_male as totalMale, total_female as totalFemale, total_teen as totalTeen,total_twenty as totalTwenty,total_thirty as totalThirty,total_forty as totalForty,total_fifty as totalFifty,total_sixty as totalSixty
+	from bd_settled_population
+	where bd_code_name = #{bd_code_name}
+	order by bd_date asc
 </select>
 
 </mapper>	
