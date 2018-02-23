@@ -662,6 +662,16 @@ $(function() {
 			<div role="tabpanel" class="tab-pane active" id="home">
 			<h2>-${bd_code_name }/${business_type }</h2>
 			<br/>
+			<div>
+			<script> 
+	var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+    mapOption = { 
+        center: new daum.maps.LatLng(37.509525, 126.981482), // 지도의 중심좌표
+        level: 9 // 지도의 확대 레벨
+    };	
+	</script>
+	</div>
+			<br/>
 			<h4>-개업률 및 폐업률</h4>
 			<div id="shopChart"></div>
 			<br/>
