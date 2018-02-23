@@ -24,29 +24,30 @@ public class FaqDaqImpl implements FaqDao {
 			
 	@Override
 	public List<Faq> faqList() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return sqlSession.selectList(NAME_SPACE + ".faqList");
 	}
 
 	@Override
 	public Faq getFaq(int faqNo) {
-		// TODO Auto-generated method stub
-		return null;
+
+		return sqlSession.selectOne(NAME_SPACE + ".getFaq", faqNo);
 	}
 
 	@Override
 	public void insertFaq(Faq faq) {
-		// TODO Auto-generated method stub
+
+		sqlSession.insert(NAME_SPACE + ".insertFaq", faq);
 
 	}
 	
 	@Override
-	public boolean isAdminCheck(String adminId) {
+	public boolean isAdminCheck(String id) {
 		
 		boolean result = false;
 		
 		String admin = sqlSession.selectOne(
-				NAME_SPACE + ".isAdminCheck", adminId);
+				NAME_SPACE + ".isAdminCheck", id);
 		
 		if(admin != null && admin.equals(admin)) {
 			result = true;
@@ -56,13 +57,14 @@ public class FaqDaqImpl implements FaqDao {
 
 	@Override
 	public void updateFaq(Faq faq) {
-		// TODO Auto-generated method stub
 
+		sqlSession.update(NAME_SPACE + ".updateFaq", faq);
 	}
 
 	@Override
 	public void deleteFaq(int faqNo) {
-		// TODO Auto-generated method stub
+
+		sqlSession.delete(NAME_SPACE + ".deleteFaq", faqNo);
 
 	}
 

@@ -32,6 +32,7 @@ public class FaqController {
 		
 		List<Faq> faqList = faqService.faqList();
 		
+		System.out.println("faqList : " + faqList);		
 		model.addAttribute("faqList", faqList);
 		
 		
@@ -40,25 +41,17 @@ public class FaqController {
 		
 	}
 	
-	@RequestMapping("/faqDetail")
-	public String faqDetail(Model model, int faqNo) {
-		
-		Faq faq = faqService.getFaq(faqNo);
-		
-		model.addAttribute("faq", faq);
-		
-		return "faq/faqDetail";
-	}
 	
 	@RequestMapping(value="/faqWrite", method=RequestMethod.POST)
 	public String insertFaq(Faq faq) {
+		
 		faqService.insertFaq(faq);
 		
-		return "redirect:faq/faqList";
+		return "redirect:faqList";
 	}
 	
-	@RequestMapping(value="/faqUpdate")
-	public String updateBoard(Model model, HttpServletResponse response,
+	@RequestMapping(value="/faqUpdateForm")
+	public String updateFaq(Model model, HttpServletResponse response,
 			PrintWriter out, int faqNo) {
 		
 		Faq faq = faqService.getFaq(faqNo);
@@ -68,13 +61,13 @@ public class FaqController {
 		return "faq/faqUpdateForm";
 	}
 	
-	@RequestMapping(value="faqUpdate", method=RequestMethod.POST)
+	@RequestMapping(value="updateFaq", method=RequestMethod.POST)
 	public String updateFaq(HttpServletResponse response,
 			PrintWriter out, Faq faq) {
 		
 		faqService.updateFaq(faq);
 		
-		return "redirect:faq/faqList";
+		return "redirect:faqList";
 		
 	}
 	
@@ -84,7 +77,7 @@ public class FaqController {
 		
 	faqService.deleteFaq(faqNo);
 	
-	return "redirect:faq/faqList";
+	return "redirect:faqList";
 	}
 	
 	
