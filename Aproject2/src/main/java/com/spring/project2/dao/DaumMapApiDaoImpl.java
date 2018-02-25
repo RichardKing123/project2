@@ -16,7 +16,6 @@ public class DaumMapApiDaoImpl implements DaumMapApiDao {
 	
 	private final static String NAME_SPACE = "com.daum.api.mapper.DaumMapper";
 	
-	
 	private SqlSessionTemplate SqlSession;
 	
 	
