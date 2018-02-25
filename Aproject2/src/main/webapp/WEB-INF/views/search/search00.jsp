@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
 <article>
-<wrap>
+<wrap class="DG">
 <div id="choiceWork1">
-	<a href="#" class="choiceWork1">관심업종을 선택하세요</a>&nbsp;&nbsp;<span id="selectWork"></span>
+	<a href="#" class="choiceWork1">-관심업종을 선택하세요</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="selectWork" class="selectWork"></span>
 </div>
 
 <br/>
@@ -16,14 +18,14 @@
   
   <ul class="workKind">
 	
-		<li><a href="#" id="food">외식업</a></li>
-		<li><a href="#" id="service">서비스업</a></li>
-		<li><a href="#" id="doso">도소매업</a></li>
-		<li><a href="#" id="allWork">전체업종</a></li>
+		<li><a href="#" id="food" class="btn btn-primary btn-sm" role="button">외식업</a></li>
+		<li><a href="#" id="service" class="btn btn-primary btn-sm" role="button">서비스업</a></li>
+		<li><a href="#" id="doso" class="btn btn-primary btn-sm" role="button">도소매업</a></li>
+		<!-- <li><a href="#" id="allWork">전체업종</a></li> -->
 	
   </ul>
 	<br/>
-  <table class="food">
+  <table class="table table-bordered" id="resFood">
 	<tr>
 		<td><a href="#" class="korea">한식음식점</a></td>
 		<td><a href="#" class="japan">일식집</a></td>
@@ -40,7 +42,7 @@
 	</tr>
   </table>
 
-  <table class="service">
+  <table class="table table-bordered" id="resService">
   <tr>
 	<td><a href="#" class="singing">노래방</a></td>
 	<td><a href="#" class="cutter">미용실</a></td>
@@ -77,7 +79,7 @@
 	</tr>
   </table>
 
-  <table class="doso">
+  <table class="table table-bordered" id="resDoso">
   <tr>
 	<td><a href="#" class="super">슈퍼마켓</a></td>
 	<td><a href="#" class="cu">편의점</a></td>
@@ -105,13 +107,13 @@
   <br/>
 
 <div id="choiceRegion1">
-	<a href="#" class="choiceRegion1">관심지역을 선택하세요</a>&nbsp;&nbsp;<span id="selectGu"></span>
+	<a href="#" class="choiceRegion1">-관심지역을 선택하세요</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="selectGu"></span>
 </div>
 
 <br/>
 <div id="regionTable" class="regionTable">
 
-<table class="region">
+<table class="table table-bordered" id="resRegion">
 <tr>
 	<td><a href="#" class="gangnam">강남구</a></td>
 	<td><a href="#" class="gangdong">강동구</a></td>
@@ -154,7 +156,7 @@
 
 
 
-<div><input type="button" id="search" value="검색"></div>
+<div><!-- <input type="button" id="search" value="검색"> --><button type="button" id="myButton" data-loading-text="loading..." autocomplete="off" class="btn btn-primary">검색</button></div>
 
 <div id="result">
 	<table id="resultTable"></table>

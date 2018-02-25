@@ -8,6 +8,9 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="resources/css/search.css">
+
+
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b1be91db11f8253de94c8895a7e92d8d"></script>
 <script src="resources/js/daum.js"></script> 
 
@@ -2098,7 +2101,7 @@ $(function() {
 <title>검색 상세페이지</title>
 </head>
 <body>
-<div id="container">
+<div id="container" class="searchDetailDG">
 	<div role="tabpanel">
 		<ul class="nav nav-tabs" role="tablist"> 
 			<li role="presentation" class="active">
@@ -2117,14 +2120,14 @@ $(function() {
 		<!-- 개업률 폐업률 -->
 		<div class="tab-content">
 			<div role="tabpanel" class="tab-pane active" id="home">
-			<h2>-${bd_code_name }/${business_type }</h2>
+			<h2>${bd_code_name } <small>${business_type }</small></h2>
 			<br/>
 			<div id="map2"></div>
 			<br/>
 			<h4>-개업률 및 폐업률</h4>
 			<div id="shopChart"></div>
 			<br/>
-				<table id="shop_number">
+				<table id="shop_number" class="table table-bordered">
 					<tr>
 						<th>기준년&nbsp;&nbsp;</th>
 						<th>점포수&nbsp;&nbsp;</th>
@@ -2170,13 +2173,13 @@ $(function() {
 			</div>
 			<!-- 상세보기 매출분석 -->
 			<div role="tabpanel" class="tab-pane" id="profile">
-				<h2>-${bd_code_name }/${business_type }</h2>
+				<h2>${bd_code_name } <small>${business_type }</small></h2>
 				<br/>
-				<h4>-월 성별 매출금액 추이 분석 / (단위:천원)</h4>
+				<h4>-월 성별 매출금액 추이 분석 / (단위:원)</h4>
 				<div id="genderVolumeChart"></div>
 				<br/>
 				
-				<table id="genderTableVolume">
+				<table id="genderTableVolume" class="table table-bordered">
 					<tr>
 						<th>년월&nbsp;&nbsp;</th>
 						<th>남성&nbsp;&nbsp;</th>
@@ -2198,10 +2201,10 @@ $(function() {
 					</c:if>
 				</table>
 				<br/>
-				<h4>-월 연령별 매출금액 추이 분석 / (단위:천원)</h4>
+				<h4>-월 연령별 매출금액 추이 분석 / (단위:원)</h4>
 				<div id="ageVolumeChart"></div>
 				<br/>
-				<table id="ageTableVolume">
+				<table id="ageTableVolume" class="table table-bordered">
 					<tr>
 						<th>년월&nbsp;&nbsp;</th>
 						<th>10대&nbsp;&nbsp;</th>
@@ -2234,7 +2237,7 @@ $(function() {
 				<h4>-월 성별 매출건수 추이 분석 / (단위:건)</h4>
 				<div id="genderNoChart"></div>
 				<br/>
-				<table id="genderTableNo">
+				<table id="genderTableNo" class="table table-bordered">
 					<tr>
 						<th>년월&nbsp;&nbsp;</th>
 						<th>남성&nbsp;&nbsp;</th>
@@ -2259,7 +2262,7 @@ $(function() {
 				<h4>-월 연령별 매출건수 추이 분석 / (단위:건)</h4>
 				<div id="ageNoChart"></div>
 				<br/>
-				<table id="ageTableNo">
+				<table id="ageTableNo" class="table table-bordered">
 					<tr>
 						<th>년월&nbsp;&nbsp;</th>
 						<th>10대&nbsp;&nbsp;</th>
@@ -2291,12 +2294,12 @@ $(function() {
 			</div>
 		<!-- 상세보기 인구분석 -->
 		<div role="tabpanel" class="tab-pane" id="population">
-			<h2>-${bd_code_name }/${business_type }</h2>
+			<h2>${bd_code_name } <small>${business_type }</small></h2>
 			<br/>
 			<h4>-월별 총 유동인구 추이 / (단위:명)</h4>
 			<div id="totalPeopleChart"></div>
 			<br/>
-			<table id="totalTableFolating">
+			<table id="totalTableFolating" class="table table-bordered">
 				<tr>
 					<th>년월&nbsp;&nbsp;</th>
 					<th>총 유동인구</th>
@@ -2312,7 +2315,7 @@ $(function() {
 			<h4>-월 성별 유동인구 추이 / (단위:명)</h4>
 			<div id="genderFloatChart"></div>
 			<br/>
-			<table id="genderFloating">
+			<table id="genderFloating" class="table table-bordered">
 				<tr>
 					<th>년월&nbsp;&nbsp;</th>
 						<th>남성&nbsp;&nbsp;</th>
@@ -2330,7 +2333,7 @@ $(function() {
 			<h4>-월 연령별 유동인구 추이 / (단위:명)</h4>
 			<div id="ageFloatChart"></div>
 			<br/>
-			<table id="ageTableFloating">
+			<table id="ageTableFloating" class="table table-bordered">
 				<tr>
 					<th>년월&nbsp;&nbsp;</th>
 						<th>10대&nbsp;&nbsp;</th>
@@ -2356,7 +2359,7 @@ $(function() {
 			<h4>-월별 총 상주인구 추이 / (단위:명)</h4>
 			<div id="totalSettledChart"></div>
 			<br/>
-			<table id="totalTableSettled">
+			<table id="totalTableSettled" class="table table-bordered">
 				<tr>
 					<th>년월&nbsp;&nbsp;</th>
 					<th>총 상주인구</th>
@@ -2372,7 +2375,7 @@ $(function() {
 			<h4>-월 성별 상주인구 추이 / (단위:명)</h4>
 			<div id="genderSettledChart"></div>
 			<br/>
-			<table id="genderTableSettled">
+			<table id="genderTableSettled" class="table table-bordered">
 				<tr>
 					<th>년월&nbsp;&nbsp;</th>
 						<th>남성&nbsp;&nbsp;</th>
@@ -2390,7 +2393,7 @@ $(function() {
 			<h4>-월 연령별 상주인구 추이 / (단위:명)</h4>
 			<div id="ageSettledChart"></div>
 			<br/>
-			<table id="ageTableSettled">
+			<table id="ageTableSettled" class="table table-bordered">
 			<tr>
 				<th>년월&nbsp;&nbsp;</th>
 						<th>10대&nbsp;&nbsp;</th>
@@ -2417,12 +2420,12 @@ $(function() {
 		
 		<!-- 상세보기 소득소비 -->
 		<div role="tabpanel" class="tab-pane" id="io">
-			<h2>-${bd_code_name }/${business_type }</h2>
+			<h2>${bd_code_name } <small>${business_type }</small></h2>
 			<br/>
-			<h4>-월 평균소득금액 및 지출총금액</h4>
+			<h4>-월 평균소득금액 및 지출총금액 / (단위:원)</h4>
 			<div id="avgIncomeChart"></div>
 			<br/>
-			<table id="avgIncomeTable">
+			<table id="avgIncomeTable" class="table table-bordered">
 				<tr>
 					<th>년월&nbsp;&nbsp;</th>
 					<th>평균소득금액&nbsp;&nbsp;</th>
@@ -2444,10 +2447,10 @@ $(function() {
 				</c:if>
 			</table>
 			<br/>
-			<h4>-월 지출소비성향</h4>
+			<h4>-월 지출소비성향 / (단위:원)</h4>
 			<div id="outcomeChart"></div>
 			<br/>
-			<table id="outcomeTable">
+			<table id="outcomeTable" class="table table-bordered">
 				<tr>
 					<th>년월&nbsp;&nbsp;</th>
 					<th>식료품 지출 총 금액&nbsp;&nbsp;</th>

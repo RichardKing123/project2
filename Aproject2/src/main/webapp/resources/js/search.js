@@ -315,17 +315,17 @@ $(document).ready(function(){
 		//메뉴마다 누를때 다른 테이블 불러오기
 		$("#food").on("click",function(){
 			$("#workTable table:visible").hide();
-			$(".food").show();
+			$("#resFood").show();
 			return false;
 		});
 		$("#service").on("click",function(){
 			$("#workTable table:visible").hide();
-			$(".service").show();
+			$("#resService").show();
 			return false;
 		});
 		$("#doso").on("click",function(){
 			$("#workTable table:visible").hide();
-			$(".doso").show();
+			$("#resDoso").show();
 			return false;
 		});
 		$("#allWork").on("click",function(){
@@ -487,7 +487,9 @@ $(document).ready(function(){
 		});
 		
 		//검색시
-		$("#search").on("click",function(){
+		$('#myButton').on('click',function(){
+			var $btn = $(this).button('loading')
+			
 			var selectWork = $("#selWork").val();
 			var selectGu = $("#gu").val();
 			if(selectWork.length <= 0){
@@ -506,7 +508,7 @@ $(document).ready(function(){
 				success:function(data){
 					$("#resultTable").empty();
 					var header = "<tr>"
-						+"<td colspan='3'><h3>검색결과</h3></td>"
+						+"<td colspan='4'><h3>검색결과</h3></td>"
 						+"</tr>";
 					$("#resultTable").append(header);
 					$.each(data, function(index, value){
@@ -514,19 +516,24 @@ $(document).ready(function(){
 						var result=
 							"<tr>"
 							+"<td>"
-							+"<div>"
-							+"<span class='bd_code_name'>"+value.bd_code_name+"</span>"
-							+"</div>"
+							
+							+value.bd_code_name
+							
 							+"</td>"
 							+"<td>"
-							+"<div>"
-							+"<span class='business_type'>"+value.business_type+"</span>"
-							+"</div>"
+							
+							+value.business_type
+							
 							+"</td>"
 							+"<td>"
-							+"<div>"
-							+'<span><a href="searchDetail?bd_code_name='+encodeURI(value.bd_code_name)+'&business_type='+encodeURI(value.business_type)+'" target="_blank">'+value.overcrowding_index_level+"</a></span>"
-							+"</div>"
+							
+							+value.overcrowding_index_level
+							
+							+"</td>"
+							+"<td>"
+						
+							+'<a href="searchDetail?bd_code_name='+encodeURI(value.bd_code_name)+'&business_type='+encodeURI(value.business_type)+'" target="_blank" class="btn btn-primary btn-xs" role="button">상세보기</a>'
+							
 							+"</td>"
 							+"</tr>";
 						$("#resultTable").append(result);
@@ -534,7 +541,7 @@ $(document).ready(function(){
 					
 				}
 			});
-			
+			$btn.button('reset')
 		});
 		
 		
