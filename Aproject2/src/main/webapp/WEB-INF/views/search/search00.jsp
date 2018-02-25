@@ -155,7 +155,6 @@
 </div>
 
 
-
 <div><!-- <input type="button" id="search" value="검색"> --><button type="button" id="myButton" data-loading-text="loading..." autocomplete="off" class="btn btn-primary">검색</button></div>
 
 <div id="result">
