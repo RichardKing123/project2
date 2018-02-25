@@ -33,7 +33,14 @@
 <select id="selectSettled" resultType="BdSettledPopulation">
 	select bd_date as bdDate, total_population as totalPopulation, total_male as totalMale, total_female as totalFemale, total_teen as totalTeen,total_twenty as totalTwenty,total_thirty as totalThirty,total_forty as totalForty,total_fifty as totalFifty,total_sixty as totalSixty
 	from bd_settled_population
-	where bd_code_name = #{bd_code_name}
+	where bd_code_name = #{bd_code_name} and bd_date >=201704
+	order by bd_date asc
+</select>
+<!-- 상세보기 소득소비 -->
+<select id="selectIo" resultType="BdIo">
+	select bd_date as bdDate, month_avg_income as monthAvgIncome, total_outcome as totalOutcome, grocery_outcome as groceryOutcome,garment_outcome as garmentOutcome,necessaries_outcome as necessariesOutcome,medical_outcome as medicalOutcome,transportation_outcome as transportationOutcome,leisure_outcome as leisureOutcome,cultural_outcome as culturalOutcome,education_outcome as educationOutcome,entertaining_outcome as entertainingOutcome 
+	from bd_io
+	where bd_code_name = #{bd_code_name} and bd_date >=201701
 	order by bd_date asc
 </select>
 

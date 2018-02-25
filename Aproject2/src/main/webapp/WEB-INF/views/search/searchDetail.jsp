@@ -8,6 +8,8 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b1be91db11f8253de94c8895a7e92d8d"></script>
+<script src="resources/js/daum.js"></script>
 
 <script src= "https://cdn.zingchart.com/zingchart.min.js"></script>
 <script> zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
@@ -31,6 +33,12 @@ $(function() {
 	 var sixtyVolume=[];
 	 var maleNo=[];
 	 var femaleNo=[];
+	 var teenNo=[];
+	 var twentyNo=[];
+	 var thirtyNo=[];
+	 var fortyNo=[];
+	 var fiftyNo=[];
+	 var sixtyNo=[];
 	$(salesData).each(function(index, value){
 		salesDate.push(value.bdDate);
 		maleVolume.push(value.maleSalesVolume);
@@ -42,11 +50,98 @@ $(function() {
 		fiftyVolume.push(value.fiftySalesVolume);
 		sixtyVolume.push(value.sixtySalesVolume);
 		maleNo.push(value.maleSalesNo);
-		femaleNo.push(value.femaleSlaesNo);
+		femaleNo.push(value.femaleSalesNo);
+		teenNo.push(value.teenSalesNo);
+		twentyNo.push(value.twentySalesNo);
+		thirtyNo.push(value.thirtySalesNo);
+		fortyNo.push(value.fortySalesNo);
+		fiftyNo.push(value.fiftySalesNo);
+		sixtyNo.push(value.sixtySalesNo);
 	});
-	
-	
-	
+	//유동인구
+	var floatingData = ${floatingData}
+	var floatDate=[];
+	var floatTotal=[];
+	var maleFloat=[];
+	var femaleFloat=[];
+	var teenFloat=[];
+	var twentyFloat=[];
+	var thirtyFloat=[];
+	var fortyFloat=[];
+	var fiftyFloat=[];
+	var sixtyFloat=[];
+	$(floatingData).each(function(index,value){
+		floatDate.push(value.bdDate);
+		floatTotal.push(value.totalFloatingPopulation);
+		maleFloat.push(value.totalMale);
+		femaleFloat.push(value.totalFemale);
+		teenFloat.push(value.totalTeen);
+		twentyFloat.push(value.totalTwenty);
+		thirtyFloat.push(value.totalThirty);
+		fortyFloat.push(value.totalForty);
+		fiftyFloat.push(value.totalFifty);
+		sixtyFloat.push(value.totalSixty);
+	});
+	//상주인구
+	var settledData = ${settledData};
+	var settledDate = [];
+	var settledTotal = [];
+	var settledMale = [];
+	var settledFemale = [];
+	var settledTeen = [];
+	var settledTwenty = [];
+	var settledThirty = [];
+	var settledForty = [];
+	var settledFifty = [];
+	var settledSixty = [];
+	var settledDate1=[];
+	$(settledData).each(function(index,value){
+		settledDate.push(value.bdDate);
+		settledTotal.push(value.totalPopulation);
+		settledMale.push(value.totalMale);
+		settledFemale.push(value.totalFemale);
+		settledTeen.push(value.totalTeen);
+		settledTwenty.push(value.totalTwenty);
+		settledThirty.push(value.totalThirty);
+		settledForty.push(value.totalForty);
+		settledFifty.push(value.totalFifty);
+		settledSixty.push(value.totalSixty);
+		if(index>=2){
+			settledDate1.push(value.bdDate);
+		}
+	});
+	//소득소비분석
+	var ioData = ${ioData};
+	var ioDate = [];
+	var ioAvgIncome=[];
+	var ioOutcome=[];
+	var ioGrocery=[];
+	var ioGarment=[];
+	var ioNecessaries=[];
+	var ioMedical=[];
+	var ioTransportation=[];
+	var ioLeisure=[];
+	var ioCultural=[];
+	var ioEducation=[];
+	var ioEntertaining=[];
+	var ioDate1=[];
+	$(ioData).each(function(index,value){
+		ioDate.push(value.bdDate);
+		ioAvgIncome.push(value.monthAvgIncome);
+		ioOutcome.push(value.totalOutcome);
+		ioGrocery.push(value.groceryOutcome);
+		ioGarment.push(value.garmentOutcome);
+		ioNecessaries.push(value.necessariesOutcome);
+		ioMedical.push(value.medicalOutcome);
+		ioTransportation.push(value.transportationOutcome);
+		ioLeisure.push(value.leisureOutcome);
+		ioCultural.push(value.culturalOutcome);
+		ioEducation.push(value.educationOutcome);
+		ioEntertaining.push(value.entertainingOutcome);
+		if(index>=8){
+			ioDate1.push(value.bdDate);
+		}
+	});
 	
 	zingchart.THEME="classic";
 	//점포수_개업수_폐업수
@@ -636,6 +731,1366 @@ $(function() {
 					height: 500, 
 					width: 800 
 				});
+				
+				//매출분석 월 연령별 매출건수
+				var ageNo = {
+					    "background-color":"#ecf2f6",
+					    "graphset":[
+					        {	// 세로 바 차트
+					            "type":"bar",
+					            
+					           /*  "background-color":"#fff",
+					            "border-color":"#dae5ec",
+					            "border-width":"1px",
+					            "height":"30%",
+					            "width":"96%",
+					            "x":"2%",
+					            "y":"3%", */
+					            "title":{
+					               /*  "margin-top":"7px",
+					                "margin-left":"9px",
+					                "font-family":"Arial", */
+					                "text":"월 연령별 매출건수",
+					                /* "background-color":"none",
+					                "shadow":0,
+					                "text-align":"left",
+					                "font-size":"11px",
+					                "font-weight":"bold",
+					                "font-color":"#707d94" */
+					            },
+					            "scale-y":{
+					                "values":"0:5000:1000",
+					               // "max-ticks":4,
+					                "max-items":5,
+					                "line-color":"none",
+					                "tick":{
+					                    "visible":false
+					                },
+					                "item":{
+					                    "font-color":"#8391a5",
+					                    "font-family":"Arial",
+					                    "font-size":"10px",
+					                    "padding-right":"5px"
+					                },
+					                "guide":{
+					                    "rules":[
+					                        {
+					                          "rule":"%i == 0",
+					                          "line-width":0
+					                        },
+					                        {
+					                          "rule":"%i > 0",
+					                          "line-style":"solid",
+					                          "line-width":"1px",
+					                          "line-color":"#d2dae2",
+					                          "alpha":0.4 
+					                        }
+					                    
+					                    ]
+					                }
+					            },
+					            "scale-x":{
+					                "items-overlap":true,
+					                "max-items":9999,	// 세로 바 차트 라벨
+					                "values":salesDate,
+					                "offset-y":"1px",
+					                "line-color":"#d2dae2",
+					                "item":{
+					                    "font-color":"#8391a5",
+					                    "font-family":"Arial",
+					                    "font-size":"11px",
+					                    "padding-top":"2px"
+					                },
+					                "tick":{
+					                    "visible":false,
+					                    "line-color":"#d2dae2"
+					                },
+					                "guide":{
+					                    "visible":false
+					                }
+					            },
+					            /*  "plotarea":{
+					                "margin":"45px 20px 38px 45px"
+					            },  */
+					            "plot":{
+					                "bar-width":"33px",
+					                
+					                "value-box":{
+					                	"text":"%v"
+					                },
+					                "hover-state":{
+					                    "visible":false
+					                },
+					                "animation":{
+					                    "delay":500,
+					                    "effect":"ANIMATION_SLIDE_BOTTOM"
+					                },
+					                "tooltip":{
+					                    "font-color":"#fff",
+					                    "font-family":"Arial",
+					                    "font-size":"11px",
+					                    "border-radius":"6px",
+					                    "shadow":false,
+					                    "padding":"5px 10px",
+					                    "background-color":"#707e94",
+					                    "text":"%t:%v"
+					                }
+					            },
+					            "legend":{
+					            	"toggle-action":"hide",
+					            	/* "header": {
+					            		"text":"Legend Header"
+					            	}, */
+					            	"item":{
+					            		"cursor":"pointer"
+					            	},
+					            	"draggable":true,
+					            	"drag-handler":"icon"
+					            },
+					            "series":[
+					                {
+					                    "values": teenNo,// 세로 바 차트 데이터
+					                    "text":"10대"
+					                    
+					                },
+					                {
+					                	"values":twentyNo,
+					                	"text":"20대"
+					                	
+					                	
+					                },
+					                {
+					                    "values": thirtyNo,// 세로 바 차트 데이터
+					                    "text":"30대"
+					                    
+					                },
+					                {
+					                    "values": fortyNo,// 세로 바 차트 데이터
+					                    "text":"40대"
+					                    
+					                },
+					                {
+					                    "values": fiftyNo,// 세로 바 차트 데이터
+					                    "text":"50대"
+					                    
+					                },
+					                {
+					                    "values": sixtyNo,// 세로 바 차트 데이터
+					                    "text":"60대"
+					                    
+					                }
+					            ]
+					        }
+					        
+					        
+					    ]
+					};
+
+					zingchart.render({ 
+						id : 'ageNoChart', 
+						data : ageNo, 
+						height: 500, 
+						width: 800 
+					});
+					//총 유동인구
+					var totalPeople = {
+					    "background-color":"#ecf2f6",
+					    "graphset":[
+					        {	// 세로 바 차트
+					            "type":"bar",
+					            
+					           /*  "background-color":"#fff",
+					            "border-color":"#dae5ec",
+					            "border-width":"1px",
+					            "height":"30%",
+					            "width":"96%",
+					            "x":"2%",
+					            "y":"3%", */
+					            "title":{
+					               /*  "margin-top":"7px",
+					                "margin-left":"9px",
+					                "font-family":"Arial", */
+					                "text":"총 유동인구",
+					                /* "background-color":"none",
+					                "shadow":0,
+					                "text-align":"left",
+					                "font-size":"11px",
+					                "font-weight":"bold",
+					                "font-color":"#707d94" */
+					            },
+					            "scale-y":{
+					                "values":"0:10000:2000",
+					               // "max-ticks":4,
+					                "max-items":5,
+					                "line-color":"none",
+					                "tick":{
+					                    "visible":false
+					                },
+					                "item":{
+					                    "font-color":"#8391a5",
+					                    "font-family":"Arial",
+					                    "font-size":"10px",
+					                    "padding-right":"5px"
+					                },
+					                "guide":{
+					                    "rules":[
+					                        {
+					                          "rule":"%i == 0",
+					                          "line-width":0
+					                        },
+					                        {
+					                          "rule":"%i > 0",
+					                          "line-style":"solid",
+					                          "line-width":"1px",
+					                          "line-color":"#d2dae2",
+					                          "alpha":0.4 
+					                        }
+					                    
+					                    ]
+					                }
+					            },
+					            "scale-x":{
+					                "items-overlap":true,
+					                "max-items":9999,	// 세로 바 차트 라벨
+					                "values":floatDate,
+					                "offset-y":"1px",
+					                "line-color":"#d2dae2",
+					                "item":{
+					                    "font-color":"#8391a5",
+					                    "font-family":"Arial",
+					                    "font-size":"11px",
+					                    "padding-top":"2px"
+					                },
+					                "tick":{
+					                    "visible":false,
+					                    "line-color":"#d2dae2"
+					                },
+					                "guide":{
+					                    "visible":false
+					                }
+					            },
+					            /*  "plotarea":{
+					                "margin":"45px 20px 38px 45px"
+					            },  */
+					            "plot":{
+					                "bar-width":"33px",
+					                
+					                "value-box":{
+					                	"text":"%v"
+					                },
+					                "hover-state":{
+					                    "visible":false
+					                },
+					                "animation":{
+					                    "delay":500,
+					                    "effect":"ANIMATION_SLIDE_BOTTOM"
+					                },
+					                "tooltip":{
+					                    "font-color":"#fff",
+					                    "font-family":"Arial",
+					                    "font-size":"11px",
+					                    "border-radius":"6px",
+					                    "shadow":false,
+					                    "padding":"5px 10px",
+					                    "background-color":"#707e94",
+					                    "text":"%t:%v"
+					                }
+					            },
+					            "legend":{
+					            	"toggle-action":"hide",
+					            	/* "header": {
+					            		"text":"Legend Header"
+					            	}, */
+					            	"item":{
+					            		"cursor":"pointer"
+					            	},
+					            	"draggable":true,
+					            	"drag-handler":"icon"
+					            },
+					            "series":[
+					                {
+					                    "values": floatTotal,// 세로 바 차트 데이터
+					                    "text":"총 유동인구"
+					                    
+					                }
+					                
+					            ]
+					        }
+					        
+					        
+					    ]
+					};
+
+					zingchart.render({ 
+						id : 'totalPeopleChart', 
+						data : totalPeople, 
+						height: 500, 
+						width: 800 
+					});
+					
+					//월 성별 유동인구
+					var genderFloat = {
+						    "background-color":"#ecf2f6",
+						    "graphset":[
+						        {	// 세로 바 차트
+						            "type":"bar",
+						            
+						           /*  "background-color":"#fff",
+						            "border-color":"#dae5ec",
+						            "border-width":"1px",
+						            "height":"30%",
+						            "width":"96%",
+						            "x":"2%",
+						            "y":"3%", */
+						            "title":{
+						               /*  "margin-top":"7px",
+						                "margin-left":"9px",
+						                "font-family":"Arial", */
+						                "text":"월 성별 유동인구",
+						                /* "background-color":"none",
+						                "shadow":0,
+						                "text-align":"left",
+						                "font-size":"11px",
+						                "font-weight":"bold",
+						                "font-color":"#707d94" */
+						            },
+						            "scale-y":{
+						                "values":"0:5000:1000",
+						               // "max-ticks":4,
+						                "max-items":5,
+						                "line-color":"none",
+						                "tick":{
+						                    "visible":false
+						                },
+						                "item":{
+						                    "font-color":"#8391a5",
+						                    "font-family":"Arial",
+						                    "font-size":"10px",
+						                    "padding-right":"5px"
+						                },
+						                "guide":{
+						                    "rules":[
+						                        {
+						                          "rule":"%i == 0",
+						                          "line-width":0
+						                        },
+						                        {
+						                          "rule":"%i > 0",
+						                          "line-style":"solid",
+						                          "line-width":"1px",
+						                          "line-color":"#d2dae2",
+						                          "alpha":0.4 
+						                        }
+						                    
+						                    ]
+						                }
+						            },
+						            "scale-x":{
+						                "items-overlap":true,
+						                "max-items":9999,	// 세로 바 차트 라벨
+						                "values":salesDate,
+						                "offset-y":"1px",
+						                "line-color":"#d2dae2",
+						                "item":{
+						                    "font-color":"#8391a5",
+						                    "font-family":"Arial",
+						                    "font-size":"11px",
+						                    "padding-top":"2px"
+						                },
+						                "tick":{
+						                    "visible":false,
+						                    "line-color":"#d2dae2"
+						                },
+						                "guide":{
+						                    "visible":false
+						                }
+						            },
+						            /*  "plotarea":{
+						                "margin":"45px 20px 38px 45px"
+						            },  */
+						            "plot":{
+						                "bar-width":"33px",
+						                
+						                "value-box":{
+						                	"text":"%v"
+						                },
+						                "hover-state":{
+						                    "visible":false
+						                },
+						                "animation":{
+						                    "delay":500,
+						                    "effect":"ANIMATION_SLIDE_BOTTOM"
+						                },
+						                "tooltip":{
+						                    "font-color":"#fff",
+						                    "font-family":"Arial",
+						                    "font-size":"11px",
+						                    "border-radius":"6px",
+						                    "shadow":false,
+						                    "padding":"5px 10px",
+						                    "background-color":"#707e94",
+						                    "text":"%t:%v"
+						                }
+						            },
+						            "legend":{
+						            	"toggle-action":"hide",
+						            	/* "header": {
+						            		"text":"Legend Header"
+						            	}, */
+						            	"item":{
+						            		"cursor":"pointer"
+						            	},
+						            	"draggable":true,
+						            	"drag-handler":"icon"
+						            },
+						            "series":[
+						                {
+						                    "values": maleFloat,// 세로 바 차트 데이터
+						                    "text":"남성"
+						                    
+						                },
+						                {
+						                	"values":femaleFloat,
+						                	"text":"여성"
+						                	
+						                	
+						                
+						                }
+						            ]
+						        }
+						        
+						        
+						    ]
+						};
+
+						zingchart.render({ 
+							id : 'genderFloatChart', 
+							data : genderFloat, 
+							height: 500, 
+							width: 800 
+						});
+						
+						//월 연령별 유동인구
+						var ageFloat = {
+							    "background-color":"#ecf2f6",
+							    "graphset":[
+							        {	// 세로 바 차트
+							            "type":"bar",
+							            
+							           /*  "background-color":"#fff",
+							            "border-color":"#dae5ec",
+							            "border-width":"1px",
+							            "height":"30%",
+							            "width":"96%",
+							            "x":"2%",
+							            "y":"3%", */
+							            "title":{
+							               /*  "margin-top":"7px",
+							                "margin-left":"9px",
+							                "font-family":"Arial", */
+							                "text":"월 연령별 유동인구",
+							                /* "background-color":"none",
+							                "shadow":0,
+							                "text-align":"left",
+							                "font-size":"11px",
+							                "font-weight":"bold",
+							                "font-color":"#707d94" */
+							            },
+							            "scale-y":{
+							                "values":"0:3000:1000",
+							               // "max-ticks":4,
+							                "max-items":3,
+							                "line-color":"none",
+							                "tick":{
+							                    "visible":false
+							                },
+							                "item":{
+							                    "font-color":"#8391a5",
+							                    "font-family":"Arial",
+							                    "font-size":"10px",
+							                    "padding-right":"5px"
+							                },
+							                "guide":{
+							                    "rules":[
+							                        {
+							                          "rule":"%i == 0",
+							                          "line-width":0
+							                        },
+							                        {
+							                          "rule":"%i > 0",
+							                          "line-style":"solid",
+							                          "line-width":"1px",
+							                          "line-color":"#d2dae2",
+							                          "alpha":0.4 
+							                        }
+							                    
+							                    ]
+							                }
+							            },
+							            "scale-x":{
+							                "items-overlap":true,
+							                "max-items":9999,	// 세로 바 차트 라벨
+							                "values":salesDate,
+							                "offset-y":"1px",
+							                "line-color":"#d2dae2",
+							                "item":{
+							                    "font-color":"#8391a5",
+							                    "font-family":"Arial",
+							                    "font-size":"11px",
+							                    "padding-top":"2px"
+							                },
+							                "tick":{
+							                    "visible":false,
+							                    "line-color":"#d2dae2"
+							                },
+							                "guide":{
+							                    "visible":false
+							                }
+							            },
+							            /*  "plotarea":{
+							                "margin":"45px 20px 38px 45px"
+							            },  */
+							            "plot":{
+							                "bar-width":"33px",
+							                
+							                "value-box":{
+							                	"text":"%v"
+							                },
+							                "hover-state":{
+							                    "visible":false
+							                },
+							                "animation":{
+							                    "delay":500,
+							                    "effect":"ANIMATION_SLIDE_BOTTOM"
+							                },
+							                "tooltip":{
+							                    "font-color":"#fff",
+							                    "font-family":"Arial",
+							                    "font-size":"11px",
+							                    "border-radius":"6px",
+							                    "shadow":false,
+							                    "padding":"5px 10px",
+							                    "background-color":"#707e94",
+							                    "text":"%t:%v"
+							                }
+							            },
+							            "legend":{
+							            	"toggle-action":"hide",
+							            	/* "header": {
+							            		"text":"Legend Header"
+							            	}, */
+							            	"item":{
+							            		"cursor":"pointer"
+							            	},
+							            	"draggable":true,
+							            	"drag-handler":"icon"
+							            },
+							            "series":[
+							                {
+							                    "values": teenFloat,// 세로 바 차트 데이터
+							                    "text":"10대"
+							                    
+							                },
+							                {
+							                	"values":twentyFloat,
+							                	"text":"20대"
+							                	
+							                	
+							                },
+							                {
+							                    "values": thirtyFloat,// 세로 바 차트 데이터
+							                    "text":"30대"
+							                    
+							                },
+							                {
+							                    "values": fortyFloat,// 세로 바 차트 데이터
+							                    "text":"40대"
+							                    
+							                },
+							                {
+							                    "values": fiftyFloat,// 세로 바 차트 데이터
+							                    "text":"50대"
+							                    
+							                },
+							                {
+							                    "values": sixtyFloat,// 세로 바 차트 데이터
+							                    "text":"60대"
+							                    
+							                }
+							            ]
+							        }
+							        
+							        
+							    ]
+							};
+
+							zingchart.render({ 
+								id : 'ageFloatChart', 
+								data : ageFloat, 
+								height: 500, 
+								width: 800 
+							});
+							
+							//총 상주인구
+							var totalSettled = {
+							    "background-color":"#ecf2f6",
+							    "graphset":[
+							        {	// 세로 바 차트
+							            "type":"bar",
+							            
+							           /*  "background-color":"#fff",
+							            "border-color":"#dae5ec",
+							            "border-width":"1px",
+							            "height":"30%",
+							            "width":"96%",
+							            "x":"2%",
+							            "y":"3%", */
+							            "title":{
+							               /*  "margin-top":"7px",
+							                "margin-left":"9px",
+							                "font-family":"Arial", */
+							                "text":"총 상주인구",
+							                /* "background-color":"none",
+							                "shadow":0,
+							                "text-align":"left",
+							                "font-size":"11px",
+							                "font-weight":"bold",
+							                "font-color":"#707d94" */
+							            },
+							            "scale-y":{
+							                "values":"0:3000:600",
+							               // "max-ticks":4,
+							                "max-items":5,
+							                "line-color":"none",
+							                "tick":{
+							                    "visible":false
+							                },
+							                "item":{
+							                    "font-color":"#8391a5",
+							                    "font-family":"Arial",
+							                    "font-size":"10px",
+							                    "padding-right":"5px"
+							                },
+							                "guide":{
+							                    "rules":[
+							                        {
+							                          "rule":"%i == 0",
+							                          "line-width":0
+							                        },
+							                        {
+							                          "rule":"%i > 0",
+							                          "line-style":"solid",
+							                          "line-width":"1px",
+							                          "line-color":"#d2dae2",
+							                          "alpha":0.4 
+							                        }
+							                    
+							                    ]
+							                }
+							            },
+							            "scale-x":{
+							                "items-overlap":true,
+							                "max-items":9999,	// 세로 바 차트 라벨
+							                "values":settledDate,
+							                "offset-y":"1px",
+							                "line-color":"#d2dae2",
+							                "item":{
+							                    "font-color":"#8391a5",
+							                    "font-family":"Arial",
+							                    "font-size":"11px",
+							                    "padding-top":"2px"
+							                },
+							                "tick":{
+							                    "visible":false,
+							                    "line-color":"#d2dae2"
+							                },
+							                "guide":{
+							                    "visible":false
+							                }
+							            },
+							            /*  "plotarea":{
+							                "margin":"45px 20px 38px 45px"
+							            },  */
+							            "plot":{
+							                "bar-width":"33px",
+							                
+							                "value-box":{
+							                	"text":"%v"
+							                },
+							                "hover-state":{
+							                    "visible":false
+							                },
+							                "animation":{
+							                    "delay":500,
+							                    "effect":"ANIMATION_SLIDE_BOTTOM"
+							                },
+							                "tooltip":{
+							                    "font-color":"#fff",
+							                    "font-family":"Arial",
+							                    "font-size":"11px",
+							                    "border-radius":"6px",
+							                    "shadow":false,
+							                    "padding":"5px 10px",
+							                    "background-color":"#707e94",
+							                    "text":"%t:%v"
+							                }
+							            },
+							            "legend":{
+							            	"toggle-action":"hide",
+							            	/* "header": {
+							            		"text":"Legend Header"
+							            	}, */
+							            	"item":{
+							            		"cursor":"pointer"
+							            	},
+							            	"draggable":true,
+							            	"drag-handler":"icon"
+							            },
+							            "series":[
+							                {
+							                    "values": settledTotal,// 세로 바 차트 데이터
+							                    "text":"총 상주인구"
+							                    
+							                }
+							                
+							            ]
+							        }
+							        
+							        
+							    ]
+							};
+
+							zingchart.render({ 
+								id : 'totalSettledChart', 
+								data : totalSettled, 
+								height: 500, 
+								width: 800 
+							});
+							
+							// 월 성별 상주인구
+							var genderSettled = {
+								    "background-color":"#ecf2f6",
+								    "graphset":[
+								        {	// 세로 바 차트
+								            "type":"bar",
+								            
+								           /*  "background-color":"#fff",
+								            "border-color":"#dae5ec",
+								            "border-width":"1px",
+								            "height":"30%",
+								            "width":"96%",
+								            "x":"2%",
+								            "y":"3%", */
+								            "title":{
+								               /*  "margin-top":"7px",
+								                "margin-left":"9px",
+								                "font-family":"Arial", */
+								                "text":"월 성별 상주인구",
+								                /* "background-color":"none",
+								                "shadow":0,
+								                "text-align":"left",
+								                "font-size":"11px",
+								                "font-weight":"bold",
+								                "font-color":"#707d94" */
+								            },
+								            "scale-y":{
+								                "values":"0:3000:600",
+								               // "max-ticks":4,
+								                "max-items":5,
+								                "line-color":"none",
+								                "tick":{
+								                    "visible":false
+								                },
+								                "item":{
+								                    "font-color":"#8391a5",
+								                    "font-family":"Arial",
+								                    "font-size":"10px",
+								                    "padding-right":"5px"
+								                },
+								                "guide":{
+								                    "rules":[
+								                        {
+								                          "rule":"%i == 0",
+								                          "line-width":0
+								                        },
+								                        {
+								                          "rule":"%i > 0",
+								                          "line-style":"solid",
+								                          "line-width":"1px",
+								                          "line-color":"#d2dae2",
+								                          "alpha":0.4 
+								                        }
+								                    
+								                    ]
+								                }
+								            },
+								            "scale-x":{
+								                "items-overlap":true,
+								                "max-items":9999,	// 세로 바 차트 라벨
+								                "values":settledDate,
+								                "offset-y":"1px",
+								                "line-color":"#d2dae2",
+								                "item":{
+								                    "font-color":"#8391a5",
+								                    "font-family":"Arial",
+								                    "font-size":"11px",
+								                    "padding-top":"2px"
+								                },
+								                "tick":{
+								                    "visible":false,
+								                    "line-color":"#d2dae2"
+								                },
+								                "guide":{
+								                    "visible":false
+								                }
+								            },
+								            /*  "plotarea":{
+								                "margin":"45px 20px 38px 45px"
+								            },  */
+								            "plot":{
+								                "bar-width":"33px",
+								                
+								                "value-box":{
+								                	"text":"%v"
+								                },
+								                "hover-state":{
+								                    "visible":false
+								                },
+								                "animation":{
+								                    "delay":500,
+								                    "effect":"ANIMATION_SLIDE_BOTTOM"
+								                },
+								                "tooltip":{
+								                    "font-color":"#fff",
+								                    "font-family":"Arial",
+								                    "font-size":"11px",
+								                    "border-radius":"6px",
+								                    "shadow":false,
+								                    "padding":"5px 10px",
+								                    "background-color":"#707e94",
+								                    "text":"%t:%v"
+								                }
+								            },
+								            "legend":{
+								            	"toggle-action":"hide",
+								            	/* "header": {
+								            		"text":"Legend Header"
+								            	}, */
+								            	"item":{
+								            		"cursor":"pointer"
+								            	},
+								            	"draggable":true,
+								            	"drag-handler":"icon"
+								            },
+								            "series":[
+								                {
+								                    "values": settledMale,// 세로 바 차트 데이터
+								                    "text":"남성"
+								                    
+								                },
+								                {
+								                	"values":settledFemale,
+								                	"text":"여성"
+								                	
+								                	
+								                }
+								            ]
+								        }
+								        
+								        
+								    ]
+								};
+
+								zingchart.render({ 
+									id : 'genderSettledChart', 
+									data : genderSettled, 
+									height: 500, 
+									width: 800 
+								});
+								
+								//월 연령별 상주인구
+								var ageSettled = {
+									    "background-color":"#ecf2f6",
+									    "graphset":[
+									        {	// 세로 바 차트
+									            "type":"bar",
+									            
+									           /*  "background-color":"#fff",
+									            "border-color":"#dae5ec",
+									            "border-width":"1px",
+									            "height":"30%",
+									            "width":"96%",
+									            "x":"2%",
+									            "y":"3%", */
+									            "title":{
+									               /*  "margin-top":"7px",
+									                "margin-left":"9px",
+									                "font-family":"Arial", */
+									                "text":"월 연령별 상주인구",
+									                /* "background-color":"none",
+									                "shadow":0,
+									                "text-align":"left",
+									                "font-size":"11px",
+									                "font-weight":"bold",
+									                "font-color":"#707d94" */
+									            },
+									            "scale-y":{
+									                "values":"0:1000:250",
+									               // "max-ticks":4,
+									                "max-items":4,
+									                "line-color":"none",
+									                "tick":{
+									                    "visible":false
+									                },
+									                "item":{
+									                    "font-color":"#8391a5",
+									                    "font-family":"Arial",
+									                    "font-size":"10px",
+									                    "padding-right":"5px"
+									                },
+									                "guide":{
+									                    "rules":[
+									                        {
+									                          "rule":"%i == 0",
+									                          "line-width":0
+									                        },
+									                        {
+									                          "rule":"%i > 0",
+									                          "line-style":"solid",
+									                          "line-width":"1px",
+									                          "line-color":"#d2dae2",
+									                          "alpha":0.4 
+									                        }
+									                    
+									                    ]
+									                }
+									            },
+									            "scale-x":{
+									                "items-overlap":true,
+									                "max-items":9999,	// 세로 바 차트 라벨
+									                "values":settledDate1,
+									                "offset-y":"1px",
+									                "line-color":"#d2dae2",
+									                "item":{
+									                    "font-color":"#8391a5",
+									                    "font-family":"Arial",
+									                    "font-size":"11px",
+									                    "padding-top":"2px"
+									                },
+									                "tick":{
+									                    "visible":false,
+									                    "line-color":"#d2dae2"
+									                },
+									                "guide":{
+									                    "visible":false
+									                }
+									            },
+									            /*  "plotarea":{
+									                "margin":"45px 20px 38px 45px"
+									            },  */
+									            "plot":{
+									                "bar-width":"33px",
+									                
+									                "value-box":{
+									                	"text":"%v"
+									                },
+									                "hover-state":{
+									                    "visible":false
+									                },
+									                "animation":{
+									                    "delay":500,
+									                    "effect":"ANIMATION_SLIDE_BOTTOM"
+									                },
+									                "tooltip":{
+									                    "font-color":"#fff",
+									                    "font-family":"Arial",
+									                    "font-size":"11px",
+									                    "border-radius":"6px",
+									                    "shadow":false,
+									                    "padding":"5px 10px",
+									                    "background-color":"#707e94",
+									                    "text":"%t:%v"
+									                }
+									            },
+									            "legend":{
+									            	"toggle-action":"hide",
+									            	/* "header": {
+									            		"text":"Legend Header"
+									            	}, */
+									            	"item":{
+									            		"cursor":"pointer"
+									            	},
+									            	"draggable":true,
+									            	"drag-handler":"icon"
+									            },
+									            "series":[
+									                {
+									                    "values": settledTeen,// 세로 바 차트 데이터
+									                    "text":"10대"
+									                    
+									                },
+									                {
+									                	"values":settledTwenty,
+									                	"text":"20대"
+									                	
+									                	
+									                },
+									                {
+									                    "values": settledThirty,// 세로 바 차트 데이터
+									                    "text":"30대"
+									                    
+									                },
+									                {
+									                    "values":settledForty,// 세로 바 차트 데이터
+									                    "text":"40대"
+									                    
+									                },
+									                {
+									                    "values": settledFifty,// 세로 바 차트 데이터
+									                    "text":"50대"
+									                    
+									                },
+									                {
+									                    "values": settledSixty,// 세로 바 차트 데이터
+									                    "text":"60대"
+									                    
+									                }
+									            ]
+									        }
+									        
+									        
+									    ]
+									};
+
+									zingchart.render({ 
+										id : 'ageSettledChart', 
+										data : ageSettled, 
+										height: 500, 
+										width: 800 
+									});
+									
+									//평균소득 및 지출
+									var avgIncome = {
+									    "background-color":"#ecf2f6",
+									    "graphset":[
+									        {	// 세로 바 차트
+									            "type":"bar",
+									            
+									           /*  "background-color":"#fff",
+									            "border-color":"#dae5ec",
+									            "border-width":"1px",
+									            "height":"30%",
+									            "width":"96%",
+									            "x":"2%",
+									            "y":"3%", */
+									            "title":{
+									               /*  "margin-top":"7px",
+									                "margin-left":"9px",
+									                "font-family":"Arial", */
+									                "text":"평균소득금액 및 지출총금액",
+									                /* "background-color":"none",
+									                "shadow":0,
+									                "text-align":"left",
+									                "font-size":"11px",
+									                "font-weight":"bold",
+									                "font-color":"#707d94" */
+									            },
+									            "scale-y":{
+									                "values":"0:500000000:100000000",
+									               // "max-ticks":4,
+									                "max-items":5,
+									                "line-color":"none",
+									                "tick":{
+									                    "visible":false
+									                },
+									                "item":{
+									                    "font-color":"#8391a5",
+									                    "font-family":"Arial",
+									                    "font-size":"10px",
+									                    "padding-right":"5px"
+									                },
+									                "guide":{
+									                    "rules":[
+									                        {
+									                          "rule":"%i == 0",
+									                          "line-width":0
+									                        },
+									                        {
+									                          "rule":"%i > 0",
+									                          "line-style":"solid",
+									                          "line-width":"1px",
+									                          "line-color":"#d2dae2",
+									                          "alpha":0.4 
+									                        }
+									                    
+									                    ]
+									                }
+									            },
+									            "scale-x":{
+									                "items-overlap":true,
+									                "max-items":9999,	// 세로 바 차트 라벨
+									                "values":ioDate,
+									                "offset-y":"1px",
+									                "line-color":"#d2dae2",
+									                "item":{
+									                    "font-color":"#8391a5",
+									                    "font-family":"Arial",
+									                    "font-size":"11px",
+									                    "padding-top":"2px"
+									                },
+									                "tick":{
+									                    "visible":false,
+									                    "line-color":"#d2dae2"
+									                },
+									                "guide":{
+									                    "visible":false
+									                }
+									            },
+									            /*  "plotarea":{
+									                "margin":"45px 20px 38px 45px"
+									            },  */
+									            "plot":{
+									                "bar-width":"33px",
+									                
+									                "value-box":{
+									                	"text":"%v"
+									                },
+									                "hover-state":{
+									                    "visible":false
+									                },
+									                "animation":{
+									                    "delay":500,
+									                    "effect":"ANIMATION_SLIDE_BOTTOM"
+									                },
+									                "tooltip":{
+									                    "font-color":"#fff",
+									                    "font-family":"Arial",
+									                    "font-size":"11px",
+									                    "border-radius":"6px",
+									                    "shadow":false,
+									                    "padding":"5px 10px",
+									                    "background-color":"#707e94",
+									                    "text":"%t:%v"
+									                }
+									            },
+									            "legend":{
+									            	"toggle-action":"hide",
+									            	/* "header": {
+									            		"text":"Legend Header"
+									            	}, */
+									            	"item":{
+									            		"cursor":"pointer"
+									            	},
+									            	"draggable":true,
+									            	"drag-handler":"icon"
+									            },
+									            "series":[
+									                {
+									                    "values": ioAvgIncome,// 세로 바 차트 데이터
+									                    "text":"평균소득금액"
+									                    
+									                },
+									                {
+									                	"values":ioOutcome,
+									                	"text":"지출총금액"
+									                	
+									                }
+									               
+									            ]
+									        }
+									        
+									        
+									    ]
+									};
+
+									zingchart.render({ 
+										id : 'avgIncomeChart', 
+										data : avgIncome, 
+										height: 500, 
+										width: 800 
+									});
+									
+									//월 소비성향 
+									var outcomeAnal = {
+										    "background-color":"#ecf2f6",
+										    "graphset":[
+										        {	// 세로 바 차트
+										            "type":"bar",
+										            
+										           /*  "background-color":"#fff",
+										            "border-color":"#dae5ec",
+										            "border-width":"1px",
+										            "height":"30%",
+										            "width":"96%",
+										            "x":"2%",
+										            "y":"3%", */
+										            "title":{
+										               /*  "margin-top":"7px",
+										                "margin-left":"9px",
+										                "font-family":"Arial", */
+										                "text":"월 소비성향",
+										                /* "background-color":"none",
+										                "shadow":0,
+										                "text-align":"left",
+										                "font-size":"11px",
+										                "font-weight":"bold",
+										                "font-color":"#707d94" */
+										            },
+										            "scale-y":{
+										                "values":"0:150000000:30000000",
+										               // "max-ticks":4,
+										                "max-items":5,
+										                "line-color":"none",
+										                "tick":{
+										                    "visible":false
+										                },
+										                "item":{
+										                    "font-color":"#8391a5",
+										                    "font-family":"Arial",
+										                    "font-size":"10px",
+										                    "padding-right":"5px"
+										                },
+										                "guide":{
+										                    "rules":[
+										                        {
+										                          "rule":"%i == 0",
+										                          "line-width":0
+										                        },
+										                        {
+										                          "rule":"%i > 0",
+										                          "line-style":"solid",
+										                          "line-width":"1px",
+										                          "line-color":"#d2dae2",
+										                          "alpha":0.4 
+										                        }
+										                    
+										                    ]
+										                }
+										            },
+										            "scale-x":{
+										                "items-overlap":true,
+										                "max-items":9999,	// 세로 바 차트 라벨
+										                "values":ioDate1,
+										                "offset-y":"1px",
+										                "line-color":"#d2dae2",
+										                "item":{
+										                    "font-color":"#8391a5",
+										                    "font-family":"Arial",
+										                    "font-size":"11px",
+										                    "padding-top":"2px"
+										                },
+										                "tick":{
+										                    "visible":false,
+										                    "line-color":"#d2dae2"
+										                },
+										                "guide":{
+										                    "visible":false
+										                }
+										            },
+										            /*  "plotarea":{
+										                "margin":"45px 20px 38px 45px"
+										            },  */
+										            "plot":{
+										                "bar-width":"33px",
+										                
+										                "value-box":{
+										                	"text":"%v"
+										                },
+										                "hover-state":{
+										                    "visible":false
+										                },
+										                "animation":{
+										                    "delay":500,
+										                    "effect":"ANIMATION_SLIDE_BOTTOM"
+										                },
+										                "tooltip":{
+										                    "font-color":"#fff",
+										                    "font-family":"Arial",
+										                    "font-size":"11px",
+										                    "border-radius":"6px",
+										                    "shadow":false,
+										                    "padding":"5px 10px",
+										                    "background-color":"#707e94",
+										                    "text":"%t:%v"
+										                }
+										            },
+										            "legend":{
+										            	"toggle-action":"hide",
+										            	/* "header": {
+										            		"text":"Legend Header"
+										            	}, */
+										            	"item":{
+										            		"cursor":"pointer"
+										            	},
+										            	"draggable":true,
+										            	"drag-handler":"icon"
+										            },
+										            "series":[
+										                {
+										                    "values": ioGrocery,// 세로 바 차트 데이터
+										                    "text":"식료품"
+										                    
+										                },
+										                {
+										                	"values":ioGarment,
+										                	"text":"의류"
+										                	
+										                	
+										                },
+										                {
+										                    "values": ioNecessaries,// 세로 바 차트 데이터
+										                    "text":"생활용품"
+										                    
+										                },
+										                {
+										                    "values":ioMedical,// 세로 바 차트 데이터
+										                    "text":"의료비"
+										                    
+										                },
+										                {
+										                    "values": ioTransportation,// 세로 바 차트 데이터
+										                    "text":"교통비"
+										                    
+										                },
+										                {
+										                    "values": ioLeisure,// 세로 바 차트 데이터
+										                    "text":"여가"
+										                    
+										                },
+										                {
+										                    "values": ioCultural,// 세로 바 차트 데이터
+										                    "text":"문화"
+										                    
+										                },
+										                {
+										                    "values": ioEducation,// 세로 바 차트 데이터
+										                    "text":"교육"
+										                    
+										                },
+										                {
+										                    "values": ioEntertaining,// 세로 바 차트 데이터
+										                    "text":"유흥"
+										                    
+										                }
+										            ]
+										        }
+										        
+										        
+										    ]
+										};
+
+										zingchart.render({ 
+											id : 'outcomeChart', 
+											data : outcomeAnal, 
+											height: 500, 
+											width: 800 
+										});
+										//지도
+										var mapContainer = document.getElementById('map2'), // 지도를 표시할 div  
+									    mapOption = { 
+									        center: new daum.maps.LatLng(37.509525, 126.981482), // 지도의 중심좌표
+									        level: 9 // 지도의 확대 레벨
+									    };	
 		
 });
 </script>			
@@ -655,22 +2110,16 @@ $(function() {
 			<li role="presentation">
 			<a href="#population" aria-controls="population" role="tab" data-toggle="tab">인구분석</a>
 			</li>
-			
+			<li role="presentation">
+			<a href="#io" aria-controls="io" role="tab" data-toggle="tab">소득소비 분석</a>
+			</li>
 		</ul>
 		<!-- 개업률 폐업률 -->
 		<div class="tab-content">
 			<div role="tabpanel" class="tab-pane active" id="home">
 			<h2>-${bd_code_name }/${business_type }</h2>
 			<br/>
-			<div>
-			<script> 
-	var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
-    mapOption = { 
-        center: new daum.maps.LatLng(37.509525, 126.981482), // 지도의 중심좌표
-        level: 9 // 지도의 확대 레벨
-    };	
-	</script>
-	</div>
+			<div id="map2"></div>
 			<br/>
 			<h4>-개업률 및 폐업률</h4>
 			<div id="shopChart"></div>
@@ -808,6 +2257,8 @@ $(function() {
 				</table>
 				<br/>
 				<h4>-월 연령별 매출건수 추이 분석 / (단위:건)</h4>
+				<div id="ageNoChart"></div>
+				<br/>
 				<table id="ageTableNo">
 					<tr>
 						<th>년월&nbsp;&nbsp;</th>
@@ -843,6 +2294,8 @@ $(function() {
 			<h2>-${bd_code_name }/${business_type }</h2>
 			<br/>
 			<h4>-월별 총 유동인구 추이 / (단위:명)</h4>
+			<div id="totalPeopleChart"></div>
+			<br/>
 			<table id="totalTableFolating">
 				<tr>
 					<th>년월&nbsp;&nbsp;</th>
@@ -857,6 +2310,8 @@ $(function() {
 			</table>
 			<br/>
 			<h4>-월 성별 유동인구 추이 / (단위:명)</h4>
+			<div id="genderFloatChart"></div>
+			<br/>
 			<table id="genderFloating">
 				<tr>
 					<th>년월&nbsp;&nbsp;</th>
@@ -873,6 +2328,8 @@ $(function() {
 			</table>
 			<br/>
 			<h4>-월 연령별 유동인구 추이 / (단위:명)</h4>
+			<div id="ageFloatChart"></div>
+			<br/>
 			<table id="ageTableFloating">
 				<tr>
 					<th>년월&nbsp;&nbsp;</th>
@@ -897,6 +2354,8 @@ $(function() {
 			</table>
 			<br/>
 			<h4>-월별 총 상주인구 추이 / (단위:명)</h4>
+			<div id="totalSettledChart"></div>
+			<br/>
 			<table id="totalTableSettled">
 				<tr>
 					<th>년월&nbsp;&nbsp;</th>
@@ -911,6 +2370,8 @@ $(function() {
 			</table>
 			<br/>
 			<h4>-월 성별 상주인구 추이 / (단위:명)</h4>
+			<div id="genderSettledChart"></div>
+			<br/>
 			<table id="genderTableSettled">
 				<tr>
 					<th>년월&nbsp;&nbsp;</th>
@@ -927,6 +2388,8 @@ $(function() {
 			</table>
 			<br/>
 			<h4>-월 연령별 상주인구 추이 / (단위:명)</h4>
+			<div id="ageSettledChart"></div>
+			<br/>
 			<table id="ageTableSettled">
 			<tr>
 				<th>년월&nbsp;&nbsp;</th>
@@ -950,6 +2413,77 @@ $(function() {
 			</c:forEach>
 			</table>
 			<br/>
+		</div>
+		
+		<!-- 상세보기 소득소비 -->
+		<div role="tabpanel" class="tab-pane" id="io">
+			<h2>-${bd_code_name }/${business_type }</h2>
+			<br/>
+			<h4>-월 평균소득금액 및 지출총금액</h4>
+			<div id="avgIncomeChart"></div>
+			<br/>
+			<table id="avgIncomeTable">
+				<tr>
+					<th>년월&nbsp;&nbsp;</th>
+					<th>평균소득금액&nbsp;&nbsp;</th>
+					<th>지출총금액</th>
+				</tr>
+				<c:if test="${not empty io }">
+				<c:forEach var="io" items="${io }">
+				<tr>
+					<td>${io.bdDate }&nbsp;&nbsp;</td>
+					<td>${io.monthAvgIncome }&nbsp;&nbsp;</td>
+					<td>${io.totalOutcome }</td>
+				</tr>
+				</c:forEach>
+				</c:if>
+				<c:if test="${empty io }">
+					<tr>
+						<td colspan="3">자료가 없습니다.</td>
+					</tr>
+				</c:if>
+			</table>
+			<br/>
+			<h4>-월 지출소비성향</h4>
+			<div id="outcomeChart"></div>
+			<br/>
+			<table id="outcomeTable">
+				<tr>
+					<th>년월&nbsp;&nbsp;</th>
+					<th>식료품 지출 총 금액&nbsp;&nbsp;</th>
+					<th>의류 신발 지출 총 금액&nbsp;&nbsp;</th>
+					<th>생활용품 지출 총 금액&nbsp;&nbsp;</th>
+					<th>의료비 지출 총 금액&nbsp;&nbsp;</th>
+					<th>교통 지출 총 금액&nbsp;&nbsp;</th>
+					<th>여가 지출 총 금액&nbsp;&nbsp;</th>
+					<th>문화 지출 총 금액&nbsp;&nbsp;</th>
+					<th>교육 지출 총 금액&nbsp;&nbsp;</th>
+					<th>유흥 지출 총 금액</th>
+				</tr>
+				<c:if test="${not empty io }">
+				<c:forEach var="io" items="${io }">
+				<tr>
+					<td>${io.bdDate }</td>
+					<td>${io.groceryOutcome }</td>
+					<td>${io.garmentOutcome }</td>
+					<td>${io.necessariesOutcome }</td>
+					<td>${io.medicalOutcome }</td>
+					<td>${io.transportationOutcome }</td>
+					<td>${io.leisureOutcome }</td>
+					<td>${io.culturalOutcome }</td>
+					<td>${io.educationOutcome }</td>
+					<td>${io.entertainingOutcome }</td>
+				</tr>
+				</c:forEach>
+				</c:if>
+				<c:if test="${empty io }">
+				<tr>
+					<td colspan="10">
+					자료가 없습니다.
+					</td>
+				</tr>
+				</c:if>
+			</table>
 		</div>
 		
 		</div>
