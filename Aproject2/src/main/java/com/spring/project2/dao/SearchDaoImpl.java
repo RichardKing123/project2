@@ -65,6 +65,7 @@ public class SearchDaoImpl implements SearchDao {
 		return sqlSession.selectList(NAME_SPACE+".selectFloating", bd_code_name);
 	}
 
+	
 //상세보기시 상주인구
 	@Override
 	public List<BdSettledPopulation> searchSettled(String bd_code_name) {
