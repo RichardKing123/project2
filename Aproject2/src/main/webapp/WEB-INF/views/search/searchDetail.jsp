@@ -9,7 +9,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b1be91db11f8253de94c8895a7e92d8d"></script>
-<script src="resources/js/daum.js"></script>
+<script src="resources/js/daum.js"></script> 
 
 <script src= "https://cdn.zingchart.com/zingchart.min.js"></script>
 <script> zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
@@ -2085,12 +2085,12 @@ $(function() {
 											height: 500, 
 											width: 800 
 										});
-										//지도
+										 //지도
 										var mapContainer = document.getElementById('map2'), // 지도를 표시할 div  
 									    mapOption = { 
 									        center: new daum.maps.LatLng(37.509525, 126.981482), // 지도의 중심좌표
 									        level: 9 // 지도의 확대 레벨
-									    };	
+									    };	 
 		
 });
 </script>			

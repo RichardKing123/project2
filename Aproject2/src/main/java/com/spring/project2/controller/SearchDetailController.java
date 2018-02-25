@@ -39,6 +39,7 @@ public class SearchDetailController {
 		List<BdIo> Io = searchService.searchIo(bd_code_name);
 		
 		String shopData = mapper.writeValueAsString(shop);
+		
 		String salesData = mapper.writeValueAsString(sales);
 		String floatingData = mapper.writeValueAsString(floating);
 		String settledData = mapper.writeValueAsString(settled);

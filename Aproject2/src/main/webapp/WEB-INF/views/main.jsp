@@ -14,11 +14,7 @@
 <script> zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
 	ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9","ee6b7db5b51705a13dc2339db3edaf6d"];
 	var populationDates = ${bdSettledPopulation};
-	var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
-    mapOption = { 
-        center: new daum.maps.LatLng(37.509525, 126.981482), // 지도의 중심좌표
-        level: 9 // 지도의 확대 레벨
-    };	
+	
 </script>
 <script type="text/javascript" src="resources/js/chart.js"></script>
 <article>
@@ -70,7 +66,15 @@
     <div class="row">
       <div class="col-sm-6 well">
        
-        <div id="map" style="width: 100%; height: 400px;"></div>
+        <div id="map" style="width: 100%; height: 400px;">
+        <script>
+        var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+    mapOption = { 
+        center: new daum.maps.LatLng(37.509525, 126.981482), // 지도의 중심좌표
+        level: 9 // 지도의 확대 레벨
+    };	
+        </script>
+        </div>
         
       
         

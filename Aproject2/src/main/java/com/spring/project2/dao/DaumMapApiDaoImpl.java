@@ -16,11 +16,18 @@ public class DaumMapApiDaoImpl implements DaumMapApiDao {
 	
 	private final static String NAME_SPACE = "com.daum.api.mapper.DaumMapper";
 	
-	@Autowired
+	
 	private SqlSessionTemplate SqlSession;
+	
+	
+@Autowired
+	public void setSqlSession(SqlSessionTemplate sqlSession) {
+		SqlSession = sqlSession;
+	}
 
 	@Override
-	public List<PolygonPoint> getGuPloygon(String guName) {		
+	public List<PolygonPoint> getGuPloygon(String guName) {
+		System.out.println("daumDao : "+guName);
 		return SqlSession.selectList(NAME_SPACE + ".getGuPolygon", guName);
 	}
 
@@ -33,6 +40,7 @@ public class DaumMapApiDaoImpl implements DaumMapApiDao {
 			PolygonArea polygonArea = new PolygonArea();
 			System.out.println("guName : " + guName);
 			List<PolygonPoint> pointList = getGuPloygon(guName);
+			System.out.println("daumDao pointList : "+pointList);
 			polygonArea.setName(guName);
 			polygonArea.setPointList(pointList);
 			
