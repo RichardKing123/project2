@@ -1,5 +1,6 @@
 package com.spring.project2.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,8 @@ import com.spring.project2.domain.BdFloatingPopulation;
 import com.spring.project2.domain.BdIo;
 import com.spring.project2.domain.BdSettledPopulation;
 import com.spring.project2.domain.Bd_Shop;
+import com.spring.project2.domain.PolygonArea;
+import com.spring.project2.domain.PolygonPoint;
 import com.spring.project2.service.SearchService;
 
 @Controller
@@ -28,7 +31,7 @@ public class SearchDetailController {
 
 	//상세보기
 	@RequestMapping("searchDetail")
-	public String searchDetail(Model model, String bd_code_name, String business_type) throws Exception {
+	public String searchDetail(Model model, String bd_code_name, String business_type, String district) throws Exception {
 		System.out.println(bd_code_name);
 		System.out.println(business_type);
 		ObjectMapper mapper = new ObjectMapper();
@@ -38,6 +41,19 @@ public class SearchDetailController {
 		List<BdSettledPopulation> settled = searchService.searchSettled(bd_code_name);
 		List<BdIo> Io = searchService.searchIo(bd_code_name);
 		
+
+		List<PolygonArea> polygonAreaList = new ArrayList<PolygonArea>();
+		
+		List<PolygonPoint> pointList = searchService.getGuPloygon(district);
+		PolygonArea polygonArea = new PolygonArea();
+		
+		polygonArea.setName(district);
+		polygonArea.setPointList(pointList);
+		polygonAreaList.add(polygonArea);
+		String polygonList = mapper.writeValueAsString(polygonAreaList);
+		model.addAttribute("polygonList", polygonList);
+		System.out.println(polygonList);
+
 		
 		String shopData = mapper.writeValueAsString(shop);
 		
@@ -50,6 +66,7 @@ public class SearchDetailController {
 		model.addAttribute("floatingData", floatingData);
 		model.addAttribute("settledData", settledData);
 		model.addAttribute("ioData", ioData);
+		
 		
 		
 		model.addAttribute("shop", shop);

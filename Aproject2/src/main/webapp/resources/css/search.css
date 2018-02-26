@@ -7,4 +7,6 @@ a{text-decoration:none !important;color:black;}
 #myButton{margin-top:3%;}
 .DG{margin-top: 3%;}
 .workKind li{margin-right: 2%;margin-bottom: 2%;}
-.searchDetailDG{margin-top: 3%;margin-left: 20%;margin-right: 23%;margin-bottom: 4%;}
+.searchDetailDG{margin-top: 3%;margin-left: 20%;margin-right: 20%;margin-bottom: 4%;}
+#resultTable th{padding: 1%;font-size: 18px;}
+#resultTable td{padding: 1%;}

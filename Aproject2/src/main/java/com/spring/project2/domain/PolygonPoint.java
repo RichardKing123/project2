@@ -1,8 +1,11 @@
 package com.spring.project2.domain;
 
 public class PolygonPoint {
+	
 	private float lat;
 	private float lng;
+	
+	
 	
 	public float getLat() {
 		return lat;

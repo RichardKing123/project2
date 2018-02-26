@@ -12,6 +12,7 @@ import com.spring.project2.domain.BdIo;
 import com.spring.project2.domain.BdSettledPopulation;
 import com.spring.project2.domain.Bd_Index;
 import com.spring.project2.domain.Bd_Shop;
+import com.spring.project2.domain.PolygonPoint;
 @Service
 public class SearchServiceImpl implements SearchService {
 
@@ -65,6 +66,13 @@ public class SearchServiceImpl implements SearchService {
 	public List<BdIo> searchIo(String bd_code_name) {
 		
 		return searchDao.searchIo(bd_code_name);
+	}
+
+
+	@Override
+	public List<PolygonPoint> getGuPloygon(String district) {
+		
+		return searchDao.getGuPloygon(district);
 	}
 
 }

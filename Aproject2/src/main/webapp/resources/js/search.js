@@ -509,6 +509,12 @@ $(document).ready(function(){
 					$("#resultTable").empty();
 					var header = "<tr>"
 						+"<td colspan='4'><h3>검색결과</h3></td>"
+						+"</tr>"
+						+"<tr>"
+						+"<th>길이름</th>"
+						+"<th>업종</th>"
+						+"<th>점포수</th>"
+						+"<th></th>"
 						+"</tr>";
 					$("#resultTable").append(header);
 					$.each(data, function(index, value){
@@ -527,12 +533,12 @@ $(document).ready(function(){
 							+"</td>"
 							+"<td>"
 							
-							+value.overcrowding_index_level
+							+value.no_of_shop
 							
 							+"</td>"
 							+"<td>"
 						
-							+'<a href="searchDetail?bd_code_name='+encodeURI(value.bd_code_name)+'&business_type='+encodeURI(value.business_type)+'" target="_blank" class="btn btn-primary btn-xs" role="button">상세보기</a>'
+							+'<a href="searchDetail?bd_code_name='+encodeURI(value.bd_code_name)+'&business_type='+encodeURI(value.business_type)+'&district='+encodeURI(value.district)+'" target="_blank" class="btn btn-primary btn-xs" role="button">상세보기</a>'
 							
 							+"</td>"
 							+"</tr>";

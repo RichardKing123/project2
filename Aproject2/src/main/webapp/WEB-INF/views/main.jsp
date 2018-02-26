@@ -13,8 +13,13 @@
 </script>
 <script> zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
 	ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9","ee6b7db5b51705a13dc2339db3edaf6d"];
+
+	var populationDates = ${bdSettledPopulation};
+	  
+
 	var populationDates = ${bdSettledPopulation}
 	var indexData = ${indexData};
+
 </script>
 <link rel="stylesheet" type="text/css" href="resources/css/chart.css" />
 <script type="text/javascript" src="resources/js/chart.js"></script>
@@ -68,14 +73,7 @@
       <div class="col-sm-6 well">
        
         <div id="map" style="width: 100%; height: 400px;">
-        <script>
-        var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
-    mapOption = { 
-        center: new daum.maps.LatLng(37.509525, 126.981482), // 지도의 중심좌표
-        level: 9 // 지도의 확대 레벨
-    };	
-        </script>
-        </div>
+       </div>
         
       </div>
       <div class="col-sm-6">
