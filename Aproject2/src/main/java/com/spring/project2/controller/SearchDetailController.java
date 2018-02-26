@@ -36,6 +36,7 @@ public class SearchDetailController {
 		List<BdFloatingPopulation> floating = searchService.searchFloating(bd_code_name);
 		List<BdSettledPopulation> settled = searchService.searchSettled(bd_code_name);
 		
+		
 		String shopData = mapper.writeValueAsString(shop);
 		String salesData = mapper.writeValueAsString(sales);
 		model.addAttribute("shopData", shopData);
@@ -49,7 +50,6 @@ public class SearchDetailController {
 		
 		model.addAttribute("bd_code_name",bd_code_name);
 		model.addAttribute("business_type",business_type);
-		
 		
 		return "forward:WEB-INF/views/search/searchDetail.jsp";
 	}

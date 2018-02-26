@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.spring.project2.domain.BdApartment;
+import com.spring.project2.domain.BdIndex;
 import com.spring.project2.domain.BdSettledPopulation;
 import com.spring.project2.domain.FoundationRiskIndex;
 
@@ -23,13 +24,6 @@ public class ChartDaoImpl implements ChartDao {
 	public void setSqlSession(SqlSessionTemplate sqlSession) {
 		this.sqlSession = sqlSession;
 	}
-	
-	
-	@Override
-	public BdApartment bdApartmentData() {
-		
-		return null;
-	}
 
 	@Override
 	public double riskIndex() {		
@@ -40,9 +34,33 @@ public class ChartDaoImpl implements ChartDao {
 
 	@Override
 	public List<Integer> bdSettledPopulation(int[] bdDate) {
+		
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("bdDate", bdDate);
 		return sqlSession.selectList(NAME_SPACE + ".bdSettledPopulation", params);
+	}
+
+
+	@Override
+	public List<BdIndex> bdIndex(int bdDate) {
+		
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("bdDate", bdDate);
+		
+		return sqlSession.selectList(NAME_SPACE + ".bdIndex",params);
+	}
+
+
+	@Override
+	public List<Object> bdApt() {
+		
+		return sqlSession.selectList(NAME_SPACE + ".bdApt");
+	}
+
+	@Override
+	public List<Object> bdFacilities() {
+		
+		return sqlSession.selectList(NAME_SPACE + ".bdFacilities");
 	}
 
 }
