@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.spring.project2.domain.BdEstimatedSales;
 import com.spring.project2.domain.BdFloatingPopulation;
+import com.spring.project2.domain.BdIo;
 import com.spring.project2.domain.BdSettledPopulation;
 import com.spring.project2.domain.Bd_Index;
 import com.spring.project2.domain.Bd_Shop;
@@ -19,5 +20,7 @@ public interface SearchService {
 	public abstract List<BdFloatingPopulation> searchFloating(String bd_code_name);
 	//상세보기 상주인구 분석
 	public abstract List<BdSettledPopulation> searchSettled(String bd_code_name);
+	//상세보기 소득소비 분석
+	public abstract List<BdIo> searchIo(String bd_code_name);
 
 }

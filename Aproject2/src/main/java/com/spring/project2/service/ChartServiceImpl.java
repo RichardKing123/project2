@@ -89,4 +89,10 @@ public class ChartServiceImpl implements ChartService {
 		List<Object> list = chartDao.bdFacilities();
 		return list;
 	}
+
+	@Override
+	public List<Object> bdFloatingPopulation() {
+		List<Object> list= chartDao.bdFloatingPopulation();
+		return list;
+	}
 }

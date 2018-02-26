@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.spring.project2.domain.BdEstimatedSales;
 import com.spring.project2.domain.BdFloatingPopulation;
+import com.spring.project2.domain.BdIo;
 import com.spring.project2.domain.BdSettledPopulation;
 import com.spring.project2.domain.Bd_Index;
 import com.spring.project2.domain.Bd_Shop;
@@ -64,11 +65,19 @@ public class SearchDaoImpl implements SearchDao {
 		return sqlSession.selectList(NAME_SPACE+".selectFloating", bd_code_name);
 	}
 
+	
 //상세보기시 상주인구
 	@Override
 	public List<BdSettledPopulation> searchSettled(String bd_code_name) {
 		
 		return sqlSession.selectList(NAME_SPACE+".selectSettled", bd_code_name);
+	}
+
+//상세보기 소득소비
+	@Override
+	public List<BdIo> searchIo(String bd_code_name) {
+		
+		return sqlSession.selectList(NAME_SPACE+".selectIo",bd_code_name);
 	}
 
 }

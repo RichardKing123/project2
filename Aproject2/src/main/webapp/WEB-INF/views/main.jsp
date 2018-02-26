@@ -65,9 +65,18 @@
 
   <div class="container text-center">
     <div class="row">
-      <div class="col-sm-6">
-        <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-        <p>서울 전역 지도</p>
+      <div class="col-sm-6 well">
+       
+        <div id="map" style="width: 100%; height: 400px;">
+        <script>
+        var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+    mapOption = { 
+        center: new daum.maps.LatLng(37.509525, 126.981482), // 지도의 중심좌표
+        level: 9 // 지도의 확대 레벨
+    };	
+        </script>
+        </div>
+        
       </div>
       <div class="col-sm-6">
         <div id="bdSettledPopulation"><a class="zc-ref" href="https://www.zingchart.com">Powered by ZingChart</a></div>

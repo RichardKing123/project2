@@ -63,4 +63,10 @@ public class ChartDaoImpl implements ChartDao {
 		return sqlSession.selectList(NAME_SPACE + ".bdFacilities");
 	}
 
+	@Override
+	public List<Object> bdFloatingPopulation() {
+
+		return sqlSession.selectList(NAME_SPACE + ".bdFloatingPopulation");
+	}
+
 }

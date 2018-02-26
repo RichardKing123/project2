@@ -16,11 +16,13 @@
 <script type="text/javascript">
 var bdApt = ${bdApt};
 var bdFacilities = ${bdFacilities};
+var bdFloatingPopulation = ${bdFloatingPopulation};
 </script>
 <title>동향지표</title>
 </head>
 <body>
 <div id='bdApt'><a class="zc-ref" href="https://www.zingchart.com/"></a></div>
 <div id='bdFacilities'><a class="zc-ref" href="https://www.zingchart.com/"></a></div>
+<div id='bdFloatingPopulation'><a class="zc-ref" href="https://www.zingchart.com/"></a></div>
 </body>
 </html>

@@ -46,8 +46,18 @@
 			avg(bus_stop) busstop 
 		from bd_facilities where bd_date = 201708 group by district;
 	</select>
+	
+	<select id="bdFloatingPopulation" resultType="hashmap">
+		select 
+			bd_date, 
+			avg(total_floating_population) total, 
+			avg(total_male) male, 
+			avg(total_female) female 
+		from bd_floating_population group by bd_date;
+	</select>
 
 </mapper>	
+
 
 
 

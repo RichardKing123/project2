@@ -4,7 +4,6 @@ import java.io.PrintWriter;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.spring.project2.domain.Board;
-import com.spring.project2.domain.Member;
 import com.spring.project2.service.BoardService;
 
 //스프링 MVC의 컨트롤러임을 선언하고 있다.

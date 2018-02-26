@@ -40,9 +40,9 @@ public class FaqServiceImpl implements FaqService {
 	}
 	
 	@Override
-	public boolean isAdminCheck(String adminId) {
+	public boolean isAdminCheck(String id) {
 		
-		return faqDao.isAdminCheck(adminId);
+		return faqDao.isAdminCheck(id);
 	}
 
 	@Override

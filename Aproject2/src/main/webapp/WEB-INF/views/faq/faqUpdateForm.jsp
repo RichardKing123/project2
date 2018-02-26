@@ -3,9 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <article>
-	<form action="faqUpdate" name="faqUpdateForm" id="faqUpdateForm" method="post">
+	<form action="updateFaq" name="faqUpdateForm" id="faqUpdateForm" method="post">
 		
-		<input type="hidden" name="no" value="${faq.faqNo }"/>
+		<input type="hidden" name="faqNo" value="${faq.faqNo }"/>
 			
 	<table class="readTable"	>
 		<tr>
@@ -14,8 +14,7 @@
 	    <tr>
 				<td class="questionTh">질문글</td>
 				<td class="questionTd">
-					<input type="text" name="faqTitle" size="16" id="faqTitle"	
-					maxlength="100" value="${faq.faqTitle }"/> 		
+					<textarea rows="5" cols="50" name="faqTitle"  id="faqTitle">${faq.faqTitle }</textarea>
 				</td>	
 			</tr>
 			<tr>
@@ -31,11 +30,9 @@
 			<tr>
 			<td colspan="2" class="tdSpan">
 				<input type="submit" id="updateFaq" value="수정하기" />
-				&nbsp;&nbsp;
-				<input type="button" id="deleteFaq" value="삭제하기" />
-				&nbsp;&nbsp;
+				&nbsp;&nbsp;				
 				<input type="button" value="목록보기" 
-					onclick="javascript:window.location.href='faq/faqList'"/></td>
+					onclick="javascript:window.location.href='faqList'"/></td>
 		</tr>
 	</table>	
 		

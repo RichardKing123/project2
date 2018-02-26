@@ -8,7 +8,7 @@
       <li><a href="#" data-toggle="tab" id="location_analyse">입지분석</a></li>
       <li><a href="trendIndex" id="trend_index" target="_black">동향지표</a></li>
       <li><a href="boardList" id="board">자유게시판</a></li>
-      <li><a href="#" data-toggle="tab" id="faq">FAQ</a></li>
+      <li><a href="faqList" data-toggle="tab" id="faq">FAQ</a></li>
     </ul>
   </div>
 </header>

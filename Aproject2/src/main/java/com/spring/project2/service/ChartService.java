@@ -20,4 +20,6 @@ public interface ChartService {
 	public List<Object> bdApt();
 	
 	public List<Object> bdFacilities();
+	
+	public List<Object> bdFloatingPopulation();
 }
