@@ -16,7 +16,10 @@
 <script type="text/javascript">
 var bdApt = ${bdApt};
 var bdFacilities = ${bdFacilities};
-var bdFloatingPopulation = ${bdFloatingPopulation};
+var floatingPopulation = ${bdFloatingPopulation};
+var oneBdSettled = ${oneBdSettled};
+var totalIndex = ${totalIndex};
+var estimatedSales = ${estimatedSales};
 </script>
 <title>동향지표</title>
 </head>
@@ -24,5 +27,7 @@ var bdFloatingPopulation = ${bdFloatingPopulation};
 <div id='bdApt'><a class="zc-ref" href="https://www.zingchart.com/"></a></div>
 <div id='bdFacilities'><a class="zc-ref" href="https://www.zingchart.com/"></a></div>
 <div id='bdFloatingPopulation'><a class="zc-ref" href="https://www.zingchart.com/"></a></div>
+<div id='totalIndex'><a class="zc-ref" href="https://www.zingchart.com/"></a></div>
+<div id='estimatedSales'><a class="zc-ref" href="https://www.zingchart.com/"></a></div>
 </body>
 </html>

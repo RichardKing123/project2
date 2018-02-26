@@ -37,9 +37,9 @@ public class DaumMapApiDaoImpl implements DaumMapApiDao {
 		
 		for(String guName : guNames) {
 			PolygonArea polygonArea = new PolygonArea();
-			System.out.println("guName : " + guName);
+			//System.out.println("guName : " + guName);
 			List<PolygonPoint> pointList = getGuPloygon(guName);
-			System.out.println("daumDao pointList : "+pointList);
+			//System.out.println("daumDao pointList : "+pointList);
 			polygonArea.setName(guName);
 			polygonArea.setPointList(pointList);
 			

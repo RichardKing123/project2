@@ -95,4 +95,22 @@ public class ChartServiceImpl implements ChartService {
 		List<Object> list= chartDao.bdFloatingPopulation();
 		return list;
 	}
+
+	@Override
+	public List<Object> oneBdSettled() {
+		List<Object> list = chartDao.oneBdSettled();
+		return list;
+	}
+
+	@Override
+	public List<Object> totalIndex() {
+		List<Object> list = chartDao.totalIndex();
+		return list;
+	}
+
+	@Override
+	public List<Object> estimatedSales() {
+		List<Object> list = chartDao.estimatedSales();
+		return list;
+	}
 }

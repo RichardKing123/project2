@@ -22,4 +22,10 @@ public interface ChartService {
 	public List<Object> bdFacilities();
 	
 	public List<Object> bdFloatingPopulation();
+	
+	public List<Object> oneBdSettled();
+	
+	public List<Object> totalIndex();
+	
+	public List<Object> estimatedSales();
 }

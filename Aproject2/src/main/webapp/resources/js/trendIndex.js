@@ -9,7 +9,7 @@ $(function() {
 	});
 	var bdApt1 = {
 		"type" : "bullet",
-		"background-color" : "#F2F2F0",
+		"background-color" : "white",
 		"title" : {
 			"text" : "서울 아파트 평균 가격　변화",
 			"background-color" : "none",
@@ -554,17 +554,17 @@ $(function() {
 	var totalFloatingPopulation = [];
 	var floatingMale = [];
 	var floatingFemale = [];
-	$(bdFloatingPopulation).each(function(index, value){
+	$(floatingPopulation).each(function(index, value){
 		fpBdDate.push(value.bd_date);
 		totalFloatingPopulation.push(value.total);
 		floatingMale.push(value.male);
 		floatingFemale.push(value.female);
 	});
-	console.log(bdFloatingPopulation);
-	console.log(fpBdDate);
-	console.log(totalFloatingPopulation);
-	console.log(floatingMale);
-	console.log(floatingFemale);
+	
+	//서울 가장 최근의 상주인구(총합, 남자, 여자)
+	var settledTotal = oneBdSettled[0].total;
+	var settledMale = oneBdSettled[0].male;
+	var settledFemale = oneBdSettled[0].female;	
 	var bdFloatingPopulation = {
 	"background-color":"white",
 	"globals": {
@@ -607,7 +607,7 @@ $(function() {
 	        "background-color":"#ffffff",
 	        "border-radius":4,
 	        "title":{
-	            "text":"Steps",
+	            "text":"<strong>전체유동인구</strong>",
 	            "text-align":"left",
 	            "background-color":"none",
 	            "font-color":"#000000",
@@ -634,30 +634,8 @@ $(function() {
 	                "connected":false,
 	                "placement":"center",
 	                "text":"%v",
-	                "rules":[
-	                    {
-	                        "rule":"%v < 3850",
-	                        "visible":false
-	                    }
-	                ],
 	                "font-color":"#000000",
 	                "font-size":"20px"
-	            },
-	            "tooltip":{
-	                "rules":[
-	                    {
-	                        "rule":"%i == 0",
-	                        "text":"%v %t Completed",
-	                        "shadow":false,
-	                        "border-radius":4
-	                    },
-	                    {
-	                        "rule":"%i == 1",
-	                        "text":"%v Remaining",
-	                        "shadow":false,
-	                        "border-radius":4
-	                    }
-	                ]
 	            },
 	            "animation":{
 	                "delay":0,
@@ -669,18 +647,10 @@ $(function() {
 	        },
 	        "series":[
 	            {
-	                "values":[3852],
+	                "values":[settledTotal],
 	                "text":"Steps",
 	                "background-color":"#00baf0",
 	                "border-width":"0px",
-	                "shadow":0
-	            },
-	            {
-	                "values":[1148],
-	                "background-color":"#dadada",
-	                "alpha":"0.5",
-	                "border-color":"#dadada",
-	                "border-width":"1px",
 	                "shadow":0
 	            }
 	        ]
@@ -694,7 +664,7 @@ $(function() {
 	        "background-color":"#ffffff",
 	        "border-radius":4,
 	        "title":{
-	            "text":"<strong>Distance</strong> / Miles",
+	            "text":"<strong>남성유동인구</strong>",
 	            "text-align":"left",
 	            "background-color":"none",
 	            "font-color":"#000000",
@@ -721,25 +691,25 @@ $(function() {
 	                "connected":false,
 	                "placement":"center",
 	                "text":"%v",
+	                "font-color":"#000000",
+	                "font-size":"20px",
 	                "rules":[
 	                    {
-	                        "rule":"%v < 5.6",
+	                        "rule":"%v > 567.8447",
 	                        "visible":false
 	                    }
 	                ],
-	                "font-color":"#000000",
-	                "font-size":"20px"
 	            },
 	            "tooltip":{
 	                "rules":[
 	                    {
-	                        "rule":"%v == 5.6",
-	                        "text":"%v %t Completed",
+	                        "rule":"%v == 1153.4064",
+	                        "text":"%v %t Burned",
 	                        "shadow":false,
 	                        "border-radius":4
 	                    },
 	                    {
-	                        "rule":"%v == 4.4",
+	                        "rule":"%v == 567.8446",
 	                        "text":"%v Remaining",
 	                        "shadow":false,
 	                        "border-radius":4
@@ -756,14 +726,14 @@ $(function() {
 	        },
 	        "series":[
 	            {
-	                "values":[5.6],
+	                "values":[settledMale],
 	                "text":"Miles",
 	                "background-color":"#8AB839",
 	                "border-width":"0px",
 	                "shadow":0
 	            },
 	            {
-	                "values":[4.4],
+	                "values":[settledTotal - settledMale],
 	                "background-color":"#dadada",
 	                "alpha":"0.5",
 	                "border-color":"#dadada",
@@ -781,7 +751,7 @@ $(function() {
 	        "background-color":"#ffffff",
 	        "border-radius":4,
 	        "title":{
-	            "text":"Calories",
+	            "text":"<strong>여성유동인구</strong>",
 	            "text-align":"left",
 	            "background-color":"none",
 	            "font-color":"#000000",
@@ -810,7 +780,7 @@ $(function() {
 	                "text":"%v",
 	                "rules":[
 	                    {
-	                        "rule":"%v < 2078",
+	                        "rule":"%v < 585.5618",
 	                        "visible":false
 	                    }
 	                ],
@@ -820,13 +790,13 @@ $(function() {
 	            "tooltip":{
 	                "rules":[
 	                    {
-	                        "rule":"%v == 2078",
+	                        "rule":"%v == 585.5618",
 	                        "text":"%v %t Burned",
 	                        "shadow":false,
 	                        "border-radius":4
 	                    },
 	                    {
-	                        "rule":"%v == 422",
+	                        "rule":"%v == 567.8446",
 	                        "text":"%v Remaining",
 	                        "shadow":false,
 	                        "border-radius":4
@@ -843,14 +813,14 @@ $(function() {
 	        },
 	        "series":[
 	            {
-	                "values":[2078],
+	                "values":[settledFemale],
 	                "text":"Calories",
 	                "background-color":"#FABE28",
 	                "border-width":"0px",
 	                "shadow":0
 	            },
 	            {
-	                "values":[422],
+	                "values":[settledTotal - settledFemale],
 	                "background-color":"#dadada",
 	                "alpha":"0.5",
 	                "border-color":"#dadada",
@@ -868,7 +838,7 @@ $(function() {
 	        "background-color":"#ffffff",
 	        "border-radius":4,
 	        "title":{
-	            "text":"Step Tracker",
+	            "text":"서울시 상주인구",
 	            "text-align":"left",
 	            "font-size":"13px",
 	            "font-color":"#000000",
@@ -889,10 +859,7 @@ $(function() {
 	            "marker":{
 	                "type":"circle",
 	                "border-width":0
-	            },
-	            "tooltip":{
-	                "text":"%plot-description"
-	                }
+	            }
 	        },
 	        "tooltip":{
 	            "text":"%t<br><strong>%v</strong>",
@@ -912,7 +879,7 @@ $(function() {
 	            "margin":"35% 3.5% 20% 7.5%"
 	        },
 	        "scale-x":{
-	            "values":["12AM","2AM","4AM","6AM","8AM","10AM","<strong>NOON</strong>","2PM","4PM","6PM","8PM","10PM","12AM"],
+	            "values": fpBdDate,
 	            "line-color":"#adadad",
 	            "line-width":"1px",
 	            "item":{
@@ -927,7 +894,7 @@ $(function() {
 	            }
 	        },
 	        "scale-y":{
-	            "values":"0:300:100",
+	            "values":"0:7000:1000",
 	            "line-color":"none",
 	            "item":{
 	                "font-size":"10px",
@@ -943,28 +910,25 @@ $(function() {
 	        },
 	        "series":[
 	            {
-	                "text":"Light",
+	                "text":"총 유동인구",
 	                "background-color":"#FABE28",
-	                "description":"< 3 Miles / Hour",
 	                "hover-state":{
 	                    "background-color":"#FFC942"
 	                },
-	                "values":[null,null,null,170,220,240,260,250,20,10,5]
+	                "values": totalFloatingPopulation
 	            },
 	            {
-	                "text":"Moderate",
-	                "values":[null,null,null,30,50,40,104,34,8,15,5,0],
+	                "text":"남성 유동인구",
+	                "values":floatingMale,
 	                "background-color":"#FF8A00",
-	                "description":"> 3 Miles / Hour < 5 Miles / Hour",
 	                "hover-state":{
 	                    "background-color":"#FF9619"
 	                }
 	            },
 	            {
-	                "text":"Intense",
-	                "values":[null,null,null,33,22,17,11,8,200,100,50],
+	                "text":"여성 유동인구",
+	                "values":floatingFemale,
 	                "background-color":"#88C100",
-	                "description":"> 5 Miles / Hour",
 	                "hover-state":{
 	                    "background-color":"#91CE00"
 	                }
@@ -981,7 +945,334 @@ $(function() {
 		width: 725 
 	});
 	
-	
-	
-	
+	//서울시 지수지표
+	var indexDate = [];
+	var activity = [];
+	var growth = [];
+	var overcrowding = [];
+	$(totalIndex).each(function(index, value) {
+		indexDate.push(value.bd_date);
+		activity.push(value.activity);
+		growth.push(value.growth);
+		overcrowding.push(value.overcrowding);
+	});
+	var avgIndex = {
+		 	type: 'line',
+		 	backgroundColor:'white',
+		 	title:{
+		 	  text:'서울시 날짜별 지수지표',
+		 	  backgroundColor:"white",
+		 	  adjustLayout: true,
+		 	  fontColor:"black",
+		 	  marginTop: 7
+		 	},
+		 	legend:{
+		 	  align: 'center',
+		 	  verticalAlign: 'top',
+		 	  backgroundColor:'none',
+		 	  borderWidth: 0,
+		 	  item:{
+		 	    fontColor:'black',
+		 	    cursor: 'hand'
+		 	  },
+		 	  marker:{
+		 	    type:'circle',
+		 	    borderWidth: 0,
+		 	    cursor: 'hand'
+		 	  }
+		 	},
+		 	plotarea:{
+		 	  margin:'dynamic 70'
+		 	},
+		 	plot:{
+		 	  aspect: 'spline',
+		 	  lineWidth: 2,
+		 	  marker:{
+		 	    borderWidth: 0,
+		 	    size: 5
+		 	  }
+		 	},
+		 	scaleX:{
+		 	  lineColor: 'black',
+		 	  zooming: true,
+		 	  values: indexDate,
+		 	  item:{
+		 	    fontColor:'black'
+		 	  }
+		 	},
+		 	scaleY:{
+		 	  values:"30:55:5",
+		 	  minorTicks: 1,
+		 	  lineColor: 'black',
+		 	  tick:{
+		 	    lineColor: 'black'
+		 	  },
+		 	  minorTick:{
+		 	    lineColor: 'black'
+		 	  },
+		 	  minorGuide:{
+		 	    visible: true,
+		 	    lineWidth: 1,
+		 	    lineColor: '#E3E3E5',
+		 	    alpha: 0.7,
+		 	    lineStyle: 'dashed'
+		 	  },
+		 	  guide:{
+		 	    lineStyle: 'dashed'
+		 	  },
+		 	  item:{
+		 	    fontColor:'black'
+		 	  }
+		 	},
+		 	tooltip:{
+		 	  borderWidth: 0,
+		 	  borderRadius: 3
+		 	},
+		 	preview:{
+		 	  adjustLayout: true,
+		 	  borderColor:'black',
+		 	  mask:{
+		 	    backgroundColor:'black'
+		 	  }
+		 	},
+		 	crosshairX:{
+		 	  plotLabel:{
+		 	    multiple: true,
+		 	    borderRadius: 3
+		 	  },
+		 	  scaleLabel:{
+		 	    backgroundColor:'#53535e',
+		 	    borderRadius: 3
+		 	  },
+		 	  marker:{
+		 	    size: 7,
+		 	    alpha: 0.5
+		 	  }
+		 	},
+		 	crosshairY:{
+		 	  lineColor:'#E3E3E5',
+		 	  type:'multiple',
+		 	  scaleLabel:{
+		 	    decimals: 2,
+		 	    borderRadius: 3,
+		 	    offsetX: -5,
+		 	    fontColor:"#2C2C39",
+		 	    bold: true
+		 	  }
+		 	},
+		 	shapes:[
+		              {
+		                type:'rectangle',
+		                id:'view_all',
+		                height:'20px',
+		                width:'75px',
+		                borderColor:'#E3E3E5',
+		                borderWidth:1,
+		                borderRadius: 3,
+		                x:'85%',
+		                y:'11%',
+		                backgroundColor:'#53535e',
+		                cursor:'hand',
+		                label:{
+		                  text:'View All',
+		                  fontColor:'#E3E3E5',
+		                  fontSize:12,
+		                  bold:true
+		                }
+		              }
+		            ],
+			series: [
+				{
+					values: overcrowding,
+					lineColor:'#E34247',
+					text:"<strong>상권과밀지수</strong>",
+					marker:{
+					  backgroundColor:'#E34247'
+					}
+				},
+				{
+				  values:activity,
+				  lineColor: '#FEB32E',
+				  text:"<strong>상권활성도지수</strong>",
+				  marker:{
+				    backgroundColor:'#FEB32E'
+				  }
+				},
+				{
+				  values: growth,
+				  lineColor:'#31A59A',
+				  text:"<strong>상권성장성지수</strong>",
+				  marker:{
+				    backgroundColor:'#31A59A'
+				  }
+				}
+			]
+		};
+
+		zingchart.render({ 
+			id: 'totalIndex', 
+			data: avgIndex, 
+			height: '500', 
+			width: '725' 
+		});
+
+		zingchart.shape_click = function(p){
+		  if(p.shapeid == "view_all"){
+		    zingchart.exec(p.id,'viewall');
+		  }
+		}
+		
+		
+		//서울상권 주중,주말,요일별 추정매출 정보
+		var salesDate = [];
+		var weekend = [];
+		var weekday = [];
+		var mon = []; var tue = []; var wed = []; var thu = []; var fri = []; var sat = []; var sun = [];
+		$(estimatedSales).each(function(index, value) {
+			salesDate.push(value.bd_date);
+			weekend.push(value.weekend);
+			weekday.push(value.weekday);
+			mon.push(value.mon);
+			tue.push(value.tue);
+			wed.push(value.wed);
+			thu.push(value.thu);
+			fri.push(value.fri);
+			sat.push(value.sat);
+			sun.push(value.sun);
+		});
+		var sales = {
+		    "type": "bar",
+		    "background-color": "#ffffff",
+		    "title": {
+		        "text": "요일별 추정매출",
+		        "background-color": "#ffffff",
+		        "color": "#a6a6a6"
+		    },
+		    "scroll-x": {
+		        "handle": {
+		            "background-color": "white",
+		            "border-left": "1px solid #a6a6a6",
+		            "border-right": "1px solid #a6a6a6",
+		            "border-top": "1px solid #a6a6a6",
+		            "border-bottom": "1px solid #a6a6a6",
+		            "border-radius": "5px"
+		        },
+		        "bar": {
+		            "background-color": "#a6a6a6",
+		            "alpha": 0.5,
+		            "border-radius": "5px"
+		        }
+		    },
+		    "scaleX": {
+		        "line-color": "#a6a6a6",
+		        "line-width": 0,
+		        "guide": {
+		            "line-color": "#a6a6a6",
+		            "line-style": "solid"
+		        },
+		        "tick": {
+		            "line-color": "#a6a6a6",
+		            "line-width": 1,
+		            "visible": 0
+		        },
+		        "item": {
+		            "color": "#a6a6a6"
+		        },
+		        "labels": salesDate,
+		        "zooming": true,
+		        "zoom-to": [
+		            0,
+		            3
+		        ]
+		    },
+		    "scaleY": {
+		        "line-color": "#a6a6a6",
+		        "line-width": 1,
+		        "guide": {
+		            "line-style": "solid",
+		            "line-color": "#a6a6a6"
+		        },
+		        "tick": {
+		            "line-color": "#a6a6a6",
+		            "line-width": 1
+		        },
+		        "item": {
+		            "color": "#a6a6a6"
+		        },
+		        "label": {
+		            "text": "Sales Rate",
+		            "color": "#a6a6a6"
+		        }
+		    },
+		    "tooltip": {
+		            "text":"%t sales Rate = <br>%v<br>in %kt",
+		            "text-align":"left",
+		            "shadow": 0,
+		            "border-radius": 5
+		        },
+		    "plot": {
+		        "alpha":0.6,
+		        "border-radius-top-right": 5,
+		        "border-radius-top-left": 5,
+		        "scroll-step-multiplier": 1,
+		        "animation":{
+		          "sequence":2 // takes zoomTo animation by default
+		        }
+		    },
+		    "series": [
+		        {
+		            "values": weekday,
+		            "background-color": "#f7846a",
+		            "text":"weekday"
+		        },
+		        {
+		            "values": weekend,
+		            "background-color": "#ffc94e",
+		            "text":"weekend"
+		        },
+		        {
+		            "values": mon,
+		            "background-color": "#f1f14e",
+		            	"text" : "monday"
+		        },
+		        {
+		            "values": tue,
+		            "background-color": "#c9ea5d",
+		            "text":"tuesday"
+		        },
+		        {
+		            "values": wed,
+		            "background-color": "#92e4c9",
+		            "text":"wednesday"
+		        },
+		        {
+		            "values": thu,
+		            "background-color": "#85d6e4",
+		            "text":"thursday"
+		        },
+		        {
+		            "values": fri,
+		            "background-color": "#C12DFF",
+		            "text":"friday"
+		        },
+		        {
+		            "values": sat,
+		            "background-color": "#EB4646",
+		            "text":"saturday"
+		        },
+		        {
+		            "values": sun,
+		            "background-color": "#828282",
+		            "text":"sunday"
+		        },
+		    ]
+		};
+
+		zingchart.render({ 
+			id : 'estimatedSales', 
+			data : sales, 
+			height: 500, 
+			width: 725 
+		});
+		
 });
