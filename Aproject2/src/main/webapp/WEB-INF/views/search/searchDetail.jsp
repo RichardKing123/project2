@@ -20,6 +20,7 @@
 			"ee6b7db5b51705a13dc2339db3edaf6d"];</script>
 <script>
 $(function() {
+	//지도
 var datas = ${polygonList};
 	
 	var mapContainer = document.getElementById('map2'), // 지도를 표시할 div  

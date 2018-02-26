@@ -41,6 +41,7 @@ public class SearchDetailController {
 		List<BdSettledPopulation> settled = searchService.searchSettled(bd_code_name);
 		List<BdIo> Io = searchService.searchIo(bd_code_name);
 		
+
 		List<PolygonArea> polygonAreaList = new ArrayList<PolygonArea>();
 		
 		List<PolygonPoint> pointList = searchService.getGuPloygon(district);
@@ -52,6 +53,7 @@ public class SearchDetailController {
 		String polygonList = mapper.writeValueAsString(polygonAreaList);
 		model.addAttribute("polygonList", polygonList);
 		System.out.println(polygonList);
+
 		
 		String shopData = mapper.writeValueAsString(shop);
 		
@@ -75,7 +77,6 @@ public class SearchDetailController {
 		
 		model.addAttribute("bd_code_name",bd_code_name);
 		model.addAttribute("business_type",business_type);
-		
 		
 		return "forward:WEB-INF/views/search/searchDetail.jsp";
 	}

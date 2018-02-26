@@ -13,9 +13,15 @@
 </script>
 <script> zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
 	ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9","ee6b7db5b51705a13dc2339db3edaf6d"];
+
 	var populationDates = ${bdSettledPopulation};
 	  
+
+	var populationDates = ${bdSettledPopulation}
+	var indexData = ${indexData};
+
 </script>
+<link rel="stylesheet" type="text/css" href="resources/css/chart.css" />
 <script type="text/javascript" src="resources/js/chart.js"></script>
 <article>
 <div class="body">
@@ -69,20 +75,18 @@
         <div id="map" style="width: 100%; height: 400px;">
        </div>
         
-      
-        
       </div>
-      <div class="col-sm-6 well">
-        <!-- <div id="bdSettledPopulation"><a class="zc-ref" href="https://www.zingchart.com">Powered by ZingChart</a></div>-->
+      <div class="col-sm-6">
+        <div id="bdSettledPopulation"><a class="zc-ref" href="https://www.zingchart.com">Powered by ZingChart</a></div>
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-6 well">
+      <div class="col-sm-6">
         <div id='dangerChart' data-avg="${riskIndex}"><a class="zc-ref" href="https://www.zingchart.com/">Charts by ZingChart</a></div>
       </div>
-      <div class="col-sm-6 well">
-        <div id='pieChart'><a class="zc-ref" href="https://www.zingchart.com/">Charts by ZingChart</a></div>
-      </div><br>
+      <div class="col-sm-6">
+        <div id='totalIndex'><a class="zc-ref" href="https://www.zingchart.com/">Charts by ZingChart</a></div>
+      </div>
     </div>
   </div>
 </div>

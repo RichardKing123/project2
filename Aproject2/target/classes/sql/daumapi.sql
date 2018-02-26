@@ -1,4 +1,4 @@
-﻿use spring;
+﻿use project2;
 drop table sh1;
 create table sh1(
 guname varchar(10),
