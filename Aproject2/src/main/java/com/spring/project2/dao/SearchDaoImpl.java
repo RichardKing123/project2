@@ -14,6 +14,7 @@ import com.spring.project2.domain.BdIo;
 import com.spring.project2.domain.BdSettledPopulation;
 import com.spring.project2.domain.Bd_Index;
 import com.spring.project2.domain.Bd_Shop;
+import com.spring.project2.domain.PolygonPoint;
 @Repository
 public class SearchDaoImpl implements SearchDao {
 
@@ -78,6 +79,13 @@ public class SearchDaoImpl implements SearchDao {
 	public List<BdIo> searchIo(String bd_code_name) {
 		
 		return sqlSession.selectList(NAME_SPACE+".selectIo",bd_code_name);
+	}
+
+
+	@Override
+	public List<PolygonPoint> getGuPloygon(String district) {
+		
+		return sqlSession.selectList(NAME_SPACE+".getGuPolygon", district);
 	}
 
 }

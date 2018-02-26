@@ -1,11 +1,11 @@
 $(document).ready(function(){	
-/*
+
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
     mapOption = { 
         center: new daum.maps.LatLng(37.509525, 126.981482), // 지도의 중심좌표
         level: 9 // 지도의 확대 레벨
     };	
-	*/
+	
 	var areas = []
 	console.log("datas : " + datas);
 	$.each(datas, function(index, values) {
