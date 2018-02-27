@@ -1,6 +1,7 @@
 package com.spring.project2.controller;
 
 import java.io.PrintWriter;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.spring.project2.domain.Board;
+import com.spring.project2.domain.Reply;
 import com.spring.project2.domain.Member;
 import com.spring.project2.service.BoardService;
 
@@ -53,10 +55,15 @@ public class BoardController {
 			int pageNum) {
 		
 		Board board = boardService.getBoard(board_no, true);
+		
+		List<Reply>  replyList  =  boardService.replyList(board_no);
 
 		
 		model.addAttribute("board", board);
+		model.addAttribute("replyList",  replyList);
 		model.addAttribute("pageNum", pageNum);
+		
+		
 		
 		return "board/boardDetail";
 	}
@@ -106,10 +113,6 @@ public class BoardController {
 			RedirectAttributes reAttrs, 
 			@RequestParam(value="pageNum", required=false, defaultValue="1") 
 			int pageNum) {
-		
-		// BoardService 클래스를 이용해 게시판 테이블에서 비밀번호가 맞는지 체크한다. 
-
-		// BoardService 클래스를 이용해 게시판 테이블에서 게시 글을 수정한다.
 		boardService.deleteBoard(board_no);
 	
 		reAttrs.addAttribute("pageNum", pageNum);		

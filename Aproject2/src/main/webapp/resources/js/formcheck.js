@@ -4,20 +4,24 @@ $(function() {
 	 * 아래와 같이 hidden 폼을 통해 post 방식으로 처리 할 수 있다.
 	 **/
 	$("#detailUpdate").on("click", function() {
-	
-		$("#checkForm").attr("action", "update");
-		$("#checkForm").submit();
-	});
+		if (confirm("정말 수정하시겠습니까??") == true){    //확인
+			$("#checkForm").attr("action", "update");
+			$("#checkForm").submit();
+		}else{   //취소
+		    return;		
+	}});
+
 	
 	/* 게시 글 상세보기에서 게시 글 삭제 요청 처리
 	 * 아래와 같이 hidden 폼을 통해 post 방식으로 처리 할 수 있다.
 	 **/
 	$("#detailDelete").on("click", function() {
-			
-
-		$("#checkForm").attr("action", "delete");
-		$("#checkForm").submit();
-	});
+		if (confirm("정말 삭제하시겠습니까??") == true){    //확인
+			$("#checkForm").attr("action", "delete");
+			$("#checkForm").submit();
+		}else{   //취소
+		    return;		
+	}});
 	
 	// 게시 글쓰기 폼 유효성 검사
 	$("#writeForm").on("submit", function() {

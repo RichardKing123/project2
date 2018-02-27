@@ -10,7 +10,21 @@ public class Board {
 	private String writer;
 	private Timestamp regDate;
 	private int readCount;
+	private int recommend;
+	private int thank;
 	
+	public int getRecommend() {
+		return recommend;
+	}
+	public void setRecommend(int recommend) {
+		this.recommend = recommend;
+	}
+	public int getThank() {
+		return thank;
+	}
+	public void setThank(int thank) {
+		this.thank = thank;
+	}
 	public Board() { }
 	public Board(int board_no, String title, String content, String writer,
 			Timestamp regDate, int readCount) {

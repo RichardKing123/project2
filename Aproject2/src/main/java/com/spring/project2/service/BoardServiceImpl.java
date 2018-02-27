@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.spring.project2.dao.BoardDao;
 import com.spring.project2.domain.Board;
+import com.spring.project2.domain.Reply;
 
 // 이 클래스가 서비스 계층(비즈니스 로직)의 컴포넌트(Bean) 임을 선언하고 있다.
 @Service
@@ -27,6 +28,20 @@ public class BoardServiceImpl implements BoardService {
 	public void setBoardDao(BoardDao boardDao) {
 		this.boardDao = boardDao;
 	}
+	
+	@Override
+	public  void  updateReply(Reply  reply)  {
+		boardDao.updateReply(reply);
+		}
+	@Override
+	public  void  deleteReply(int  reply_no)  {
+		boardDao.deleteReply(reply_no);
+		}
+	
+	@Override
+	public  void  addReply(Reply  reply)  {
+		boardDao.addReply(reply);
+		}
 	
 	@Override
 	public Map<String, Object> boardList(int pageNum,  String  type,  String  keyword) {
@@ -85,7 +100,11 @@ public class BoardServiceImpl implements BoardService {
 			return null;
 		}
 	}
-
+	@Override
+	public  List<Reply>  replyList(int  reply_no)  {
+		return  boardDao.replyList(reply_no);
+		}
+	
 	@Override
 	public Board getBoard(int board_no, boolean isCount) {
 		return boardDao.getBoard(board_no, isCount);
@@ -102,10 +121,21 @@ public class BoardServiceImpl implements BoardService {
 	public void updateBoard(Board board) {
 		boardDao.updateBoard(board);
 	}
-
+	
 	// BoardDao를 이용해 no에 해당하는 게시 글을 삭제하는 메서드
 	@Override
 	public void deleteBoard(int board_no) {
 		boardDao.deleteBoard(board_no);
 	}
+	
+	@Override
+	public Map<String,  Integer>  recommend(int  board_no,  String  recommend)  {
+		boardDao.updateRecommend(board_no,  recommend);
+		Board  board  =  boardDao.getRecommend(board_no);
+		System.out.println("recommend : " + board.getRecommend());
+		Map<String,  Integer> map  =  new  HashMap<String,  Integer>(); 
+		map.put("recommend",  board.getRecommend());
+		map.put("thank",  board.getThank());
+		return map;
+		}
 }
