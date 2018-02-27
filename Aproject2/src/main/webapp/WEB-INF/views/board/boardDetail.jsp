@@ -87,7 +87,7 @@
 							<tr id="reply_${  reply.reply_no  }">
 								<td>
 									<div class="replyUser">
-										<span class="member">${  reply.writer  }</span>
+										<span class="member">${reply.writer}</span>
 									</div>
 									<div class="replyModify">
 										<span class="reply_date"> 
@@ -114,12 +114,12 @@
 				</td>
 			</tr>
 		</c:if>
-	</table>
+	</table>	
 	<div id="replyForm">
 		<form name="replyWriteForm" id="replyWriteForm">
-			<input type="hidden" name="board_no" value="${  board.board_no  }" />
+			<input type="hidden" name="bbs_no" value="${  board.board_no  }" />
 			 <input
-				type="hidden" name="replyWriter"
+				type="hidden" name="writer"
 				value="${ sessionScope.member.id }" />
 			<table id="replyWriteTable">
 				<tr>
@@ -127,7 +127,7 @@
 							없이 삭제될 수 있으며 글쓰기 제한과 아이 디 삭제 처리됩니다.</span></td>
 				</tr>
 				<tr>
-					<td id="replyWriteContent"><textarea name="replyContent"
+					<td id="replyWriteContent"><textarea name="reply"
 							id="replyContent" rows="4"></textarea></td>
 					<td id="replyWriteImage"><input type="image"
 						src="resources/images/reply_btn_write.gif" id="replyWriteButton"

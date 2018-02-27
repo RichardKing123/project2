@@ -30,16 +30,16 @@ public Map<String,  Integer>  recommend(int board_no,  String recommend)  {
 @ResponseBody
 public  List<Reply>  updateReply(Reply  reply)  {
 
-boardService.updateReply(reply);
+	boardService.updateReply(reply);
 
-return  boardService.replyList(reply.getBbs_no());
+	return  boardService.replyList(reply.getBbs_no());
 }
 
 @RequestMapping("/replyDelete.ajax")
 @ResponseBody
 public  List<Reply>  deleteReply(int  reply_no,  int  bbs_no)  {
-boardService.deleteReply(bbs_no);
-return  boardService.replyList(bbs_no);
+	boardService.deleteReply(bbs_no);
+	return  boardService.replyList(bbs_no);
 }
 
 @RequestMapping("/replyWrite.ajax")

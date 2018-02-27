@@ -4,7 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <article>
-	<table class="listTable">
+	<table class="table table-striped">
 		<tr>
 			<td class="boardTitle" colspan="5">
 			
@@ -20,7 +20,7 @@
 						<option value="title">제목</option>
 						<option value="writer">아이디</option>
 						<option value="content">내용</option>
-					</select> <input type="text" name="keyword" /> <input type="submit"
+					</select> <input type="text" name="keyword" /> <input type="submit" class="btn btn-default"
 						value="검색" />
 				</form>
 			</td>
@@ -55,12 +55,12 @@
 		<c:if test="${searchOption  and not empty boardList }">
 			<c:forEach var="b" items="${ boardList }" varStatus="status">
 				<tr class="listTr">
-					<td class="listTdNo">${ b.board_no  }</td>
+					<td class="listTdNo" >${ b.board_no  }</td>
 					<td class="listTdTitle"><a
 						href="boardDetail?board_no=${  b.board_no  }&pageNum=${  currentPage  }
 					&type=${  type  }&keyword=${  keyword  }">${  b.title  }</a>
 					</td>
-					<td class="listTdWriter">${  b.writer  }</td>
+					<td class="listTdWriter" >${  b.writer  }</td>
 					<td class="listTdRegDate"><fmt:formatDate
 							value="${  b.regDate  }" pattern="yyyy-MM-dd  HH:mm:ss" /></td>
 					<td class="listTdReadCount">${  b.readCount  }</td>

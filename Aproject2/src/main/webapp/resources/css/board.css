@@ -26,26 +26,31 @@ table {
 	height: 30px;	
 	border: 1px solid #787878; 
 	background: #EAEAEA; 
+	text-align: center;
 }
 .listThTitle { 
 	width: 400px;	  
 	border: 1px solid #787878;  
 	background: #EAEAEA; 
+	text-align: center;
 }
 .listThWriter { 
 	width: 110px;	  
 	border: 1px solid #787878; 
 	background: #EAEAEA; 
+	text-align: center;
 }
 .listThRegDate { 
 	width: 120px;
 	border: 1px solid #787878;  
 	background: #EAEAEA; 
+	text-align: center;
 }
 .listThReadCount {
 	width: 60px;	
 	border: 1px solid #787878;
 	background: #EAEAEA;
+	text-align: center;
 }
 .listTdSpan { 
 	height: 30px; 
