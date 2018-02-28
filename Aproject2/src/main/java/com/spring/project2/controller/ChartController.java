@@ -47,11 +47,6 @@ public class ChartController {
 		String indexData = map.writeValueAsString(index);
 		String polygonList = map.writeValueAsString(polygonAreaList);
 		
-		System.out.println("bdpopulation :" + bdSettledPopulationData);
-		System.out.println("bdIndex : " + indexData);
-		System.out.println(polygonList);
-		
-		
 		model.addAttribute("polygonList", polygonList);
 		model.addAttribute("indexData", indexData);
 		model.addAttribute("bdSettledPopulation", bdSettledPopulationData);
@@ -78,14 +73,7 @@ public class ChartController {
 		String totalIndexData = map.writeValueAsString(totalIndex);
 		String estimatedSalesData = map.writeValueAsString(estimatedSales);
 		
-		System.out.println(bdAptData);
-		System.out.println(bdFacilitiesData);
-		System.out.println(bdFloatingPopulationData);
-		System.out.println(oneBdSettledData);
-		System.out.println(totalIndexData);
-		System.out.println(estimatedSalesData);
-		
-		
+
 		model.addAttribute("bdApt", bdAptData);
 		model.addAttribute("bdFacilities", bdFacilitiesData);
 		model.addAttribute("bdFloatingPopulation", bdFloatingPopulationData);

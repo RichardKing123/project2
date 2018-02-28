@@ -488,7 +488,7 @@ $(document).ready(function(){
 		
 		//검색시
 		$('#myButton').on('click',function(){
-			var $btn = $(this).button('loading')
+			
 			
 			var selectWork = $("#selWork").val();
 			var selectGu = $("#gu").val();
@@ -500,6 +500,7 @@ $(document).ready(function(){
 				alert("지역구를 선택해주세요");
 				return false;
 			}
+			var $btn = $(this).button('loading')
 			$.ajax({
 				url:"search.ajax",
 				type:"post",

@@ -26,7 +26,7 @@ public class DaumMapApiDaoImpl implements DaumMapApiDao {
 
 	@Override
 	public List<PolygonPoint> getGuPloygon(String guName) {
-		System.out.println("daumDao : "+guName);
+		//System.out.println("daumDao : "+guName);
 		return SqlSession.selectList(NAME_SPACE + ".getGuPolygon", guName);
 	}
 
