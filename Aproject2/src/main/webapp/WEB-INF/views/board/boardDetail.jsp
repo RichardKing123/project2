@@ -72,14 +72,14 @@
 				</div>
 			</td>
 		</tr>
-		<c:if test="${  empty  replyList  }">
+<%-- 		<c:if test="${  empty  replyList  }">
 			<tr id="replyList">
 				<td colspan="6">
 					<div id="notReply">이 게시 글에 대한 댓글이 존재하지 않습니다.</div>
 				</td>
 			</tr>
 		</c:if>
-		<c:if test="${  not  empty  replyList  }">
+		<c:if test="${  not  empty  replyList  }"> --%>
 			<tr id="replyList">
 				<td colspan="6">
 					<table id="replyTable">
@@ -123,7 +123,7 @@
 					</table>
 				</td>
 			</tr>
-		</c:if>
+<%-- 		</c:if> --%>
 	</table>	
 	<div id="replyForm" >
 		<form name="replyWriteForm" id="replyWriteForm">
