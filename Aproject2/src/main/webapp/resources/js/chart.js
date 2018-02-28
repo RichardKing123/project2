@@ -28,7 +28,6 @@ $(function() {
 		}
 		return list;
 	}
-	var ab = [1,2,3,4,5,6,7,8,9,0];
 	var totalIndex = {
 	    "background-color":"white",
 	    "type":"line",
@@ -247,7 +246,7 @@ $(function() {
 		id : 'totalIndex', 
 		data : totalIndex, 
 		height: 540, 
-		width: 545 
+		width: 555
 	});
 	
 
@@ -395,7 +394,7 @@ $(function() {
 		id : 'dangerChart',
 		data : dangerChart,
 		height : 540,
-		width : 545
+		width : 555
 	});
 	
 	
@@ -591,7 +590,7 @@ $(function() {
 		id : 'bdSettledPopulation', 
 		data : bdSettledPopulationChart, 
 		height: 540, 
-		width: 545 
+		width: 555
 	}); 
 	
 	

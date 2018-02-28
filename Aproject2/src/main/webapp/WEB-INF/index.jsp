@@ -3,11 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1"/>
 <title>proeject2</title>
-<script>
-var datas = ${polygonList};
-</script>
+
 <!-- 부트스트랩 + 구현용 기타 library -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -20,13 +18,7 @@ var datas = ${polygonList};
 <link rel="stylesheet" type="text/css" href="resources/css/board.css" />
 <script src="resources/js/formcheck.js"></script>
 <script type="text/javascript" src="resources/js/member.js"></script>
-<script type="text/javascript" src="resources/js/search.js"></script>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b1be91db11f8253de94c8895a7e92d8d"></script>
-<script src="resources/js/daum.js"></script>
 
-
-<!-- zingChart js -->
-<script src= "https://cdn.zingchart.com/zingchart.min.js"></script>
 
 </head>
 <body>

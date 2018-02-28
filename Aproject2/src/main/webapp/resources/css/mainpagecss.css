@@ -5,15 +5,24 @@ article{
     min-height: 100%;
     z-index: -1;
     margin-bottom:15%;
+    width : 100%;
+    overflow : auto;
+    margin : 0 auto;
 }
-
+nav {
+	margin : 0 auto;
+}
+header {
+	margin : 0 auto;
+}
 footer {
 	bottom: 0;
-	width: 100%;
 	background-color: silver;
 	padding: 25px;
 	position: fixed;
 	z-index: 4;
+	margin : 0 auto;
+	width: 100%;
 }
 
 .navbar {
@@ -23,13 +32,15 @@ footer {
 
 /* Add a gray background color and some padding to the footer */
 .col-sm-6 {
-	margin: 10px, 10px, 10px, 10px;
 	height: 600px;
 	margin-bottom: 15px;
 	background-color: rgba( 255, 255, 255, 0.5 );
 }
 
 .body {
-	witth : 1000px;
 	overflow: auto;
+}
+
+.mainBox {
+	border-radius : 5px;
 }

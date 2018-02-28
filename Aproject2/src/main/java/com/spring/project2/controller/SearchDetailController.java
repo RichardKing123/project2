@@ -52,7 +52,7 @@ public class SearchDetailController {
 		polygonAreaList.add(polygonArea);
 		String polygonList = mapper.writeValueAsString(polygonAreaList);
 		model.addAttribute("polygonList", polygonList);
-		System.out.println(polygonList);
+		//System.out.println(polygonList);
 
 		
 		String shopData = mapper.writeValueAsString(shop);
