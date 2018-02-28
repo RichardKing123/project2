@@ -10,7 +10,7 @@
 			value="${ board.board_no }" /> <input type="hidden" name="pageNum"
 			value="${ pageNum }" />
 	</form>
-	<table class="contentTable">
+	<table class="contentTable" style="table-layout: fixed width: 770px;" >
 		<tr>
 			<td colspan="4" class="boardTitle">
 
@@ -44,14 +44,14 @@
 			<td colspan="6">&nbsp;</td>
 		</tr>
 		<tr>
-			<td colspan="6" class="tdSpan"><c:if
-					test="${sessionScope.member.id == board.writer}">
-					<input type="button" id="detailUpdate" value="수정하기" />
-				&nbsp;&nbsp;<input type="button" id="detailDelete" value="삭제하기" />
-						&nbsp;&nbsp;<input type="button" value="목록보기"
+			<td colspan="6" class="tdSpan">
+				<c:if	test="${sessionScope.member.id == board.writer}">
+					<input type="button" class="btn btn-default" id="detailUpdate" value="수정하기" />
+				&nbsp;&nbsp;<input type="button" class="btn btn-default" id="detailDelete" value="삭제하기" />
+						&nbsp;&nbsp;<input type="button" class="btn btn-default" value="목록보기"
 						onclick="javascript:window.location.href='boardList?pageNum=${pageNum}'" />
 				</c:if> <c:if test="${ sessionScope.member.id ne board.writer }">			
-			&nbsp;&nbsp;<input type="button" value="목록보기"
+			&nbsp;&nbsp;<input type="button" class="btn btn-default"  value="목록보기"
 						onclick="javascript:window.location.href='boardList?pageNum=${pageNum}'" />
 				</c:if></td>
 		</tr>
@@ -85,7 +85,7 @@
 					<table id="replyTable">
 						<c:forEach var="reply" items="${  replyList  }">
 							<tr id="reply_${  reply.reply_no  }">
-								<td>
+								<td width=750>
 									<div class="replyUser">
 										<span class="member">${reply.writer}</span>
 									</div>
@@ -93,19 +93,29 @@
 										<span class="reply_date"> 
 										<fmt:formatDate
 												value="${  reply.reg_date}" pattern="yyyy-MM-dd  HH:mm:ss" /></span>
+												<c:if	test="${sessionScope.member.id == reply.writer}">
 										<a href="#" class="modifyReply" data-no="${  reply.reply_no  }">
+										
 											<img src="resources/images/reply_btn_modify.gif"
 											alt="댓글  수정하기" />
 										</a> <a href="#" class=deleteReply data-no="${  reply.reply_no  }">
 											<img src="resources/images/reply_btn_delete.gif"
 											alt="댓글  삭제하기" />
-										</a> <a href="javascript:reportReply('${  reply.reply_no  }')"> <img
-											src="resources/images/reply_btn_notify.gif" alt="신고하기" /></a>
+											
+										</a> 
+										
+										</c:if>
+										<c:if test="${ sessionScope.member.id ne reply.writer }">
+										
+										<a href="javascript:reportReply('${  reply.reply_no  }')"> 
+										
+										<img src="resources/images/reply_btn_notify.gif" alt="신고하기" /></a>
+										</c:if>
 									</div>
-									<div class="replyContent" id="div_${  reply.reply_no  }">
-										<pre>
+									<div class="replyContent" id="div_${  reply.reply_no  }" >
+										
 											<span>${reply.reply}</span>
-										</pre>
+										
 									</div>
 								</td>
 							</tr>
@@ -115,13 +125,13 @@
 			</tr>
 		</c:if>
 	</table>	
-	<div id="replyForm">
+	<div id="replyForm" >
 		<form name="replyWriteForm" id="replyWriteForm">
 			<input type="hidden" name="bbs_no" value="${  board.board_no  }" />
 			 <input
 				type="hidden" name="writer"
 				value="${ sessionScope.member.id }" />
-			<table id="replyWriteTable">
+			<table id="replyWriteTable" >
 				<tr>
 					<td id="replyWriteTitle" colspan="2"><span>악의적인 댓글은 예고
 							없이 삭제될 수 있으며 글쓰기 제한과 아이 디 삭제 처리됩니다.</span></td>

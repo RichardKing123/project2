@@ -1,11 +1,18 @@
 @CHARSET "UTF-8";
 /*  게시판 전체 적용 */
+element.style {
+    table-layout: fixed;
+    width: 770px;
+}
+
 table {
 	width: 760px;
 	margin: 0 auto;
 	padding: 5px 5px;
 	border-collapse: collapse;	
 	line-height: 160%;	
+	  border-collapse: separate;
+  border-spacing: 0 5px;
 }
 
 .boardTitle{
@@ -214,6 +221,7 @@ padding:  0px;
 word-break:  break-all;
 }
 #replyWriteButton  {
+	
 width:  85px;
 height:  54px;
 border:  0px;

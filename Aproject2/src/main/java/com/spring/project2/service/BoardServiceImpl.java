@@ -83,7 +83,7 @@ public class BoardServiceImpl implements BoardService {
 			modelMap.put("endPage", endPage);
 			modelMap.put("currentPage", currentPage);
 			modelMap.put("listCount", listCount);
-			modelMap.put("PAGE_GROUP", PAGE_GROUP);
+			modelMap.put("pageGroup", PAGE_GROUP);
 			modelMap.put("searchOption",  searchOption);
 			
 			if(searchOption) {

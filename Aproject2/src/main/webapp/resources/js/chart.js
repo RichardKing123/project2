@@ -1,110 +1,278 @@
 $(function() {
-	//파이차트
-	var pieChart = {
-		type : "pie",
-		backgroundColor : "#2B313B",
-		plot : {
-			borderColor : "#2B313B",
-			borderWidth : 5,
-			// slice: 90,
-			valueBox : {
-				placement : 'out',
-				text : '%t\n%npv%',
-				fontFamily : "Open Sans"
-			},
-			tooltip : {
-				fontSize : '18',
-				fontFamily : "Open Sans",
-				padding : "5 10",
-				text : "%npv%"
-			},
-			animation : {
-				effect : 2,
-				method : 5,
-				speed : 500,
-				sequence : 1
+	//서울 상권 인덱스
+	zingchart.THEME="classic";
+	var bdIndexDates =  [];
+	var overcrowdingAvg = [];
+	var indexDistrict = [];
+	var bdIndex = [];
+	$(indexData).each(function(index, value){
+		$(indexData.bdIndex).each(function(index, value) {
+			bdIndexDates.push(value.yearMonth);
+			bdIndex.push(value.bdIndexList);
+			for(var i in bdIndex) {
+				var list = [];
+				list = bdIndex[i];
+				$(list).each(function(index, value) {
+					//bdIndexDates.push(value.bdDate);
+					overcrowdingAvg.push(value.overcrowdingAvg);
+					indexDistrict.push(value.district);
+				});
 			}
-		},
-		source : {
-			text : 'gs.statcounter.com',
-			fontColor : "#8e99a9",
-			fontFamily : "Open Sans"
-		},
-		// 차트의 title 정보
-		title : {
-			fontColor : "#fff",
-			text : '상권 아파트 정보',
-			align : "left",
-			offsetX : 10,
-			fontFamily : "Open Sans",
-			fontSize : 25
-		},
-		// 차트의 subtitle 정보(text쪽에서 부제목 동적으로 변하게?)
-		subtitle : {
-			offsetX : 10,
-			offsetY : 10,
-			fontColor : "#8e99a9",
-			fontFamily : "Open Sans",
-			fontSize : "16",
-			text : 'May 2016',
-			align : "left"
-		},
-		plotarea : {
-			margin : "20 0 0 0"
-		},
-		// 각 데이터의 정보를 json방식으로 받는 곳(반복문으로 돌려서 정보 받아야 할 듯)
-		series : [ {
-			values : [ 11.38 ],
-			text : "Internet Explorer",
-			backgroundColor : '#50ADF5',
-		}, {
-			values : [ 56.94 ],
-			text : "Chrome",
-			backgroundColor : '#FF7965'
-		}, {
-			values : [ 14.52 ],
-			text : 'Firefox',
-			backgroundColor : '#FFCB45'
-		}, {
-			text : 'Safari',
-			values : [ 9.69 ],
-			backgroundColor : '#6877e5'
-		}, {
-			text : 'Other',
-			values : [ 7.48 ],
-			backgroundColor : '#6FB07F'
-		} ]
-	};
-	// chart 사이즈 조설하는 곳
-	zingchart.render({
-		id : 'pieChart',
-		data : pieChart,
-		height : 410,
-		width : 545
+		});
 	});
+	
+	var func = function(a, b) {
+		var list = []
+		for(i=b;i<a.length;i=i+23){
+			list.push(a[i]);
+		}
+		return list;
+	}
+	var ab = [1,2,3,4,5,6,7,8,9,0];
+	var totalIndex = {
+	    "background-color":"white",
+	    "type":"line",
+	    "title":{
+	        "text":"서울 상권 과밀지수",
+	        "fontSize": "16px",
+	        "color":"#333",
+	        "background-color":"white",
+	        "width":"60%",
+	        "text-align":"left",
+	    },
+		"legend":{
+	        "layout":"x1",
+	        "margin-top":"5%",
+	        "border-width":"0",
+	        "shadow":false,
+	        "marker":{
+	            "cursor":"hand",
+	            "border-width":"0"
+	        },
+	        "background-color":"white",
+	        "item":{
+	            "cursor":"hand"
+	        },
+	        "toggle-action":"remove"
+	    },
+		"scaleX":{
+	        "values":bdIndexDates,
+	        "step":1,
+	        "max-items":8
+		},
+		"scaleY":{
+			"values": "47:54:0.5",
+	        "line-color":"#333"
+		},
+	    "tooltip":{
+	        "text":"%t: %v outbreaks in %k"
+	    },
+		"plot":{
+	        "line-width":3,
+	        "marker":{
+	            "size":2
+	        },
+	        "selection-mode":"multiple",
+	        "background-mode":"graph",
+	        "selected-state":{
+	            "line-width":4
+	        },
+	        "background-state":{
+	            "line-color":"#eee",
+	            "marker":{
+	                "background-color":"none"
+	            }
+	        }
+		},
+	    "plotarea":{
+	        "margin":"15% 25% 10% 7%"
+	    },
+		"series":[
+	        {
+	            "values":func(overcrowdingAvg, 0),
+	            "text":indexDistrict[0],
+	            "line-color":"#a6cee3",
+	            "marker":{
+	                "background-color":"#a6cee3",
+	                "border-color":"#a6cee3"
+	            }
+	        },
+	        {
+	            "values":func(overcrowdingAvg, 1),
+	            "text":indexDistrict[1],
+	            "line-color":"#1f78b4",
+	            "marker":{
+	                "background-color":"#1f78b4",
+	                "border-color":"#1f78b4"
+	            }
+	        },
+	        {
+	            "values":func(overcrowdingAvg, 2),
+	            "text":indexDistrict[2],
+	            "line-color":"#b2df8a",
+	            "marker":{
+	                "background-color":"#b2df8a",
+	                "border-color":"#b2df8a"
+	            }
+	        },
+	        {
+	            "values":func(overcrowdingAvg, 3),
+	            "text":indexDistrict[3],
+	            "line-color":"#33a02c",
+	            "marker":{
+	                "background-color":"#33a02c",
+	                "border-color":"#33a02c"
+	            }
+	        },
+	        {
+	            "values":func(overcrowdingAvg, 4),
+	            "text":indexDistrict[4],
+	            "line-color":"#fb9a99",
+	            "marker":{
+	                "background-color":"#fb9a99",
+	                "border-color":"#fb9a99"
+	            }
+	        },
+	        {
+	            "values":func(overcrowdingAvg, 5),
+	            "text":indexDistrict[5],
+	            "line-color":"#e31a1c",
+	            "marker":{
+	                "background-color":"#e31a1c",
+	                "border-color":"#e31a1c"
+	            }
+	        },
+	        {
+	            "values":func(overcrowdingAvg, 6),
+	            "text":indexDistrict[6],
+	            "line-color":"#fdbf6f",
+	            "marker":{
+	                "background-color":"#fdbf6f",
+	                "border-color":"#fdbf6f"
+	            }
+	        },
+	        {
+	            "values":func(overcrowdingAvg, 7),
+	            "text":indexDistrict[7],
+	            "line-color":"#ff7f00",
+	            "marker":{
+	                "background-color":"#ff7f00",
+	                "border-color":"#ff7f00"
+	            }
+	        },
+	        {
+	            "values":func(overcrowdingAvg, 8),
+	            "text":indexDistrict[8],
+	            "line-color":"#cab2d6",
+	            "marker":{
+	                "background-color":"#cab2d6",
+	                "border-color":"#cab2d6"
+	            }
+	        },
+	        {
+	            "values":func(overcrowdingAvg, 9),
+	            "text":indexDistrict[9],
+	            "line-color":"#ffff99",
+	            "marker":{
+	                "background-color":"#ffff99",
+	                "border-color":"#ffff99"
+	            }
+	        },
+	        {
+	            "values":func(overcrowdingAvg, 10),
+	            "text":indexDistrict[10],
+	            "line-color":"#6a3d9a",
+	            "marker":{
+	                "background-color":"#6a3d9a",
+	                "border-color":"#6a3d9a"
+	            }
+	        },
+	        {
+	            "values":func(overcrowdingAvg, 11),
+	            "text":indexDistrict[11],
+	            "line-color":"#b15928",
+	            "marker":{
+	                "background-color":"#b15928",
+	                "border-color":"#b15928"
+	            }
+	        },
+	        {
+	            "values":func(overcrowdingAvg, 12),
+	            "text":indexDistrict[12]
+	        },
+	        {
+	            "values":func(overcrowdingAvg, 13),
+	            "text":indexDistrict[13]
+	        },
+	        {
+	            "values":func(overcrowdingAvg, 14),
+	            "text":indexDistrict[14]
+	        },
+	        {
+	            "values":func(overcrowdingAvg, 15),
+	            "text":indexDistrict[15]
+	        },
+	        {
+	            "values":func(overcrowdingAvg, 16),
+	            "text":indexDistrict[16]
+	        },
+	        {
+	            "values":func(overcrowdingAvg, 17),
+	            "text":indexDistrict[17]
+	        },
+	        {
+	            "values":func(overcrowdingAvg, 18),
+	            "text":indexDistrict[18]
+	        },
+	        {
+	            "values":func(overcrowdingAvg, 19),
+	            "text":indexDistrict[19]
+	        },
+	        {
+	            "values":func(overcrowdingAvg, 20),
+	            "text":indexDistrict[20]
+	        },
+	        {
+	            "values":func(overcrowdingAvg, 21),
+	            "text":indexDistrict[21]
+	        },
+	        {
+	            "values":func(overcrowdingAvg, 22),
+	            "text":indexDistrict[22]
+	        }
+		]
+	};
+
+	zingchart.render({ 
+		id : 'totalIndex', 
+		data : totalIndex, 
+		height: 540, 
+		width: 545 
+	});
+	
 
 	
-	//위험도 차트
-	zingchart.THEME = "classic";
+	//서울 상권 위험도 차트
 	var avgRiskIndex = $("#dangerChart").data("avg");
 	var dangerChart = {
 		"graphset" : [ {
 			"type" : "gauge",
-			"background-color" : "#fff #eee",
+			"background-color" : "white",
 			"plot" : {
 				"background-color" : "#666"
 			},
 			// 차트의 title 정보
 			"title" : {
-				"fontColor" : "#fff",
+				"fontColor" : "black",
 				"text" :'서울 전체 상권 위험지수',
 				"align" : "left",
 				"offsetX" : 10,
 				"fontFamily" : "Open Sans",
 				"fontSize" : 20,
+				"background-color" :"white"
 			},
 			"plotarea" : {
-				"margin" : "0 0 0 0"
+				"margin" : "60 80 30 80"
 			},
 			"scale" : {
 				"size-factor" : 1.25,
@@ -226,22 +394,31 @@ $(function() {
 	zingchart.render({
 		id : 'dangerChart',
 		data : dangerChart,
-		height : 410,
+		height : 540,
 		width : 545
 	});
 	
 	
 	//상권 상주인구 차트
-	zingchart.THEME="classic";
-	var population = $("#bdSettledPopulation").data("bdSettledPopulation");
-	var bdSettledPopulation = 
+	var bdSettledPopulationDates =  $(populationDates.bdDate);
+	var totalpopulations = [];
+	var malepopulations = [];
+	var femalepopulations = [];
+	$(populationDates).each(function(index, value) {
+		$(populationDates.bdSettledPopulation).each(function(index, value) {
+			totalpopulations.push(value.totalpopulation);
+			malepopulations.push(value.totalmale);
+			femalepopulations.push(value.totalfemale);
+		});
+	});
+	var bdSettledPopulationChart = 
 	        {
 	            "type": "line",
 	            "background-color": "#003849",
 	            "utc": true,
 	            "title": {
 	                "y": "7px",
-	                "text": "상권 상주인구",
+	                "text": "서울 상권 상주인구",
 	                "background-color": "#003849",
 	                "font-size": "24px",
 	                "font-color": "white",
@@ -266,15 +443,8 @@ $(function() {
 	                }
 	            },
 	            "scale-x": {
-	                "values": [
-	                	201401,201402,201403,201404,
-	                    201405,201406,201407,201408,201409,201410,
-	                    201411,201412,201501,201502,201503,201504,201505,
-	                    201506,201507,201508,201509,201510,201511,201512,
-	                    201601,201602,201603,201604,201605,201606,201607,
-	                    201608,201609,201610,201611,201612,201701,201702,
-	                    201703,201704,201705,201706,201707,201708
-	                ],
+	                "values": 
+	                		bdSettledPopulationDates,
 	                "shadow": 0,
 	                "step": 1,
 	                "line-color": "#f6f7f8",
@@ -301,7 +471,7 @@ $(function() {
 	                "minor-ticks": 0
 	            },
 	            "scale-y": {
-	                "values": "0:9000:3000",
+	                "values": "0:2000000:300000",
 	                "line-color": "#f6f7f8",
 	                "shadow": 0,
 	                "tick": {
@@ -355,49 +525,9 @@ $(function() {
 	            },
 	            "series": [
 	                {
-	                    "values": [
-	                        149.2,
-	                        174.3,
-	                        187.7,
-	                        147.1,
-	                        129.6,
-	                        189.6,
-	                        230,
-	                        164.5,
-	                        171.7,
-	                        163.4,
-	                        194.5,
-	                        200.1,
-	                        193.4,
-	                        254.4,
-	                        287.8,
-	                        246,
-	                        199.9,
-	                        218.3,
-	                        244,
-	                        312.2,
-	                        284.5,
-	                        249.2,
-	                        305.2,
-	                        286.1,
-	                        347.7,
-	                        278,
-	                        240.3,
-	                        212.4,
-	                        237.1,
-	                        253.2,
-	                        186.1,
-	                        153.6,
-	                        168.5,
-	                        140.9,
-	                        86.9,
-	                        49.4,
-	                        24.7,
-	                        64.8,
-	                        114.4,
-	                        137.4
-	                    ],
-	                    "text": "total population",
+	                    "values": 
+	                    		totalpopulations,
+	                    "text": "Total Population",
 	                    "line-color": "#007790",
 	                    "legend-marker": {
 	                        "type": "circle",
@@ -415,49 +545,9 @@ $(function() {
 	                    }
 	                },
 	                {
-	                    "values": [
-	                        714.6,
-	                        656.3,
-	                        660.6,
-	                        729.8,
-	                        731.6,
-	                        682.3,
-	                        654.6,
-	                        673.5,
-	                        700.6,
-	                        755.2,
-	                        817.8,
-	                        809.1,
-	                        815.2,
-	                        836.6,
-	                        897.3,
-	                        896.9,
-	                        866.5,
-	                        835.8,
-	                        797.9,
-	                        784.7,
-	                        802.8,
-	                        749.3,
-	                        722.1,
-	                        688.1,
-	                        730.4,
-	                        661.5,
-	                        609.7,
-	                        630.2,
-	                        633,
-	                        604.2,
-	                        558.1,
-	                        581.4,
-	                        511.5,
-	                        556.5,
-	                        542.1,
-	                        599.7,
-	                        664.8,
-	                        725.3,
-	                        694.2,
-	                        690.5
-	                    ],
-	                    "text": "Male",
+	                    "values": 
+	                       malepopulations,
+	                    "text": "Total Male",
 	                    "line-color": "#009872",
 	                    "legend-marker": {
 	                        "type": "circle",
@@ -475,49 +565,9 @@ $(function() {
 	                    }
 	                },
 	                {
-	                    "values": [
-	                        536.9,
-	                        576.4,
-	                        639.3,
-	                        669.4,
-	                        708.7,
-	                        691.5,
-	                        681.7,
-	                        673,
-	                        701.8,
-	                        636.4,
-	                        637.8,
-	                        640.5,
-	                        653.1,
-	                        613.7,
-	                        583.4,
-	                        538,
-	                        506.7,
-	                        563.1,
-	                        541.4,
-	                        489.3,
-	                        434.7,
-	                        442.1,
-	                        482.3,
-	                        495.4,
-	                        556.1,
-	                        505.4,
-	                        463.8,
-	                        434.7,
-	                        377.4,
-	                        325.4,
-	                        351.7,
-	                        343.5,
-	                        333.2,
-	                        332,
-	                        378.9,
-	                        415.4,
-	                        385,
-	                        412.6,
-	                        445.9,
-	                        441.5
-	                    ],
-	                    "text": "Female",
+	                    "values": 
+	                    		femalepopulations,
+	                    "text": "Total Female",
 	                    "line-color": "#da534d",
 	                    "legend-marker": {
 	                        "type": "circle",
@@ -539,11 +589,12 @@ $(function() {
 
 	zingchart.render({ 
 		id : 'bdSettledPopulation', 
-		data : bdSettledPopulation, 
-		height: 410, 
+		data : bdSettledPopulationChart, 
+		height: 540, 
 		width: 545 
-	});
+	}); 
 	
 	
 })
 
+	

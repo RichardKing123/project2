@@ -41,7 +41,7 @@ public class BoardDaoImpl implements BoardDao {
 	@Override
 	public  void  deleteReply(int  reply_no)  {
 		sqlSession.delete(NAME_SPACE  +  ".deleteReply",  reply_no);
-		}
+	}
 	
 	@Override
 	public  void  updateRecommend(int  board_no,  String  recommend)  {

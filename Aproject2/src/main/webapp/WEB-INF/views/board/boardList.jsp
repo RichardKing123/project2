@@ -4,7 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <article>
-	<table class="table table-striped">
+	<table class="table table-striped" style=" width : 1000px;" >
 		<tr>
 			<td class="boardTitle" colspan="5">
 			
@@ -16,7 +16,7 @@
 		<tr>
 			<td colspan="5">
 				<form name="searchForm" id="searchForm" action="#">
-					<select name="type">
+					<select name="type"  style="height: 26px;">
 						<option value="title">제목</option>
 						<option value="writer">아이디</option>
 						<option value="content">내용</option>

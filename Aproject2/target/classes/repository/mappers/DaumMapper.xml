@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC  "-//mybatis.org//DTD Mapper  3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.daum.api.mapper.DaumMapper">
+	
+	<!-- 구별 지도를 가져오는 맵핑 구문  --> 
+ 	<select id="getGuPolygon" resultType="PolygonPoint">
+ 	 SELECT * FROM sh1 
+ 	 WHERE guname = #{guName}
+ 	</select>
+	
+	
+	
+	<!-- 
+	<resultMap type="daum" id="daumResultMap">
+	
+	
+	</resultMap>
+ -->
+
+ </mapper>

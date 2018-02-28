@@ -15,7 +15,7 @@ public interface FaqDao {
 	public abstract void insertFaq(Faq faq);
 	
 	
-	public boolean isAdminCheck(String adminId);
+	public boolean isAdminCheck(String id);
 	
 	
 	public abstract void updateFaq(Faq faq);

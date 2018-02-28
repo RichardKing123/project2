@@ -38,7 +38,7 @@ public  List<Reply>  updateReply(Reply  reply)  {
 @RequestMapping("/replyDelete.ajax")
 @ResponseBody
 public  List<Reply>  deleteReply(int  reply_no,  int  bbs_no)  {
-	boardService.deleteReply(bbs_no);
+	boardService.deleteReply(reply_no);
 	return  boardService.replyList(bbs_no);
 }
 

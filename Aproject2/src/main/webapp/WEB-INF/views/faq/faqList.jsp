@@ -2,24 +2,25 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%> 
-   
-<!-- 합쳐지고 최소화된 최신 CSS -->
-<link rel="stylesheet" href=
-"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<!-- 부가적인 테마 -->
-<link rel="stylesheet" href=
-"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-
-<script src="js/jquery-1.11.3.min.js"></script>
-<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-<script src=
-"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-
+<script>
+	$(function() { 
+		
+		
+		$(".btnDelete").click(function() {
+			var result = confirm("현재 FAQ를 삭제 하시겠습니까?");
+			if(result) {
+				var faqNo = $(this).attr("data-no");
+				window.location.href="deleteFaq?faqNo=" + faqNo;
+			}
+		});
+		
+	});
+</script>
 <article>
-<table style="width:80%", align="center">
+<table style="width:980px; margin: 0 auto;">
 <tr>
 	<td>
-		<h1  style="width:100%", align="left">FAQ 게시판</h1>
+		<h1  style="width:100%;" align="left" >FAQ 게시판</h1>
 	</td>
 </tr>
 <tr>
@@ -31,7 +32,7 @@
       <h4 class="panel-title">
         <a data-toggle="collapse" 
         data-parent="#accordion" 
-        href="#collapse0${ status.count }" aria-expanded="false" 
+           href="#collapse0${ status.count }" aria-expanded="false" 
         aria-controls="collapse0${ status.count }">
           ${ faq.faqTitle }
         </a>
@@ -40,7 +41,13 @@
       <div id="collapse0${ status.count }" class="panel-collapse collapse" 
     role="tabpanel" aria-labelledby="heading0${ status.count }">
        <div class="panel-body">
-        ${ faq.content }
+        	<span style="display: inline-block; width: 820px;">${ faq.faqContent }</span>
+        	<c:if test="${sessionScope.isAdmin}">
+        	<span><input type="button" value="수정" 
+ 	  onclick="javascript:window.location.href='faqUpdateForm?faqNo=${faq.faqNo}'"/>
+ 	  		&nbsp;&nbsp;&nbsp;
+ 	  		<input type="button" value="삭제" class="btnDelete" data-no="${ faq.faqNo}"/></span>
+ 	        </c:if>
        </div>
     </div>
   </div>
@@ -48,12 +55,12 @@
  	</div>
  	</td>
  </tr>
- <c:if test="${sessionScope.isAdminCheck}">
+ <c:if test="${sessionScope.isAdmin}">
  <tr>
- 	<td>
+ 	<td colspan="2">
  	<input type="button" value="FAQ 등록" 
- 	  onclick="javascript:window.location.href='faqWriteForm.jsp'"/>
- 	</td>
+ 	  onclick="javascript:window.location.href='faqWriteForm'"/>
+ 	</td> 	
  </tr>
  </c:if>
  </table>

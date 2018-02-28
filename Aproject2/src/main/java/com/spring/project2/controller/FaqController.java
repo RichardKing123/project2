@@ -4,6 +4,7 @@ import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,49 +28,40 @@ public class FaqController {
 	}
 	
 	@RequestMapping(value= {"/faqList"}, method=RequestMethod.GET)
-	public String faqList(Model model, String adminId) {
+	public String faqList(Model model) {
 		
 		List<Faq> faqList = faqService.faqList();
 		
+		System.out.println("faqList : " + faqList);		
 		model.addAttribute("faqList", faqList);
 		
-		boolean result = faqService.isAdminCheck(adminId);
 		
 		
-		
-		return "faqList";
+		return "faq/faqList";
 		
 	}
 	
-	@RequestMapping("/faqDetail")
-	public String faqDetail(Model model, int faqNo) {
-		
-		Faq faq = faqService.getFaq(faqNo);
-		
-		model.addAttribute("faq", faq);
-		
-		return "faqDetail";
-	}
 	
 	@RequestMapping(value="/faqWrite", method=RequestMethod.POST)
 	public String insertFaq(Faq faq) {
+		
 		faqService.insertFaq(faq);
 		
 		return "redirect:faqList";
 	}
 	
-	@RequestMapping(value="/faqUpdate")
-	public String updateBoard(Model model, HttpServletResponse response,
+	@RequestMapping(value="/faqUpdateForm")
+	public String updateFaq(Model model, HttpServletResponse response,
 			PrintWriter out, int faqNo) {
 		
 		Faq faq = faqService.getFaq(faqNo);
 		
 		model.addAttribute("faq", faq);
 		
-		return "faqUpdateForm";
+		return "faq/faqUpdateForm";
 	}
 	
-	@RequestMapping(value="faqUpdate", method=RequestMethod.POST)
+	@RequestMapping(value="updateFaq", method=RequestMethod.POST)
 	public String updateFaq(HttpServletResponse response,
 			PrintWriter out, Faq faq) {
 		

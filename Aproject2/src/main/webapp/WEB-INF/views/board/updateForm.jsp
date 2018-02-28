@@ -41,10 +41,10 @@
 	<tr>
 	<tr>		
 		<td class="tdSpan" colspan="4">
-			<input type="reset" value="다시쓰기" />
+			<input type="reset" class="btn btn-default" value="다시쓰기" />
 			
-			&nbsp;&nbsp;<input type="submit" value="수정하기" />
-			&nbsp;&nbsp;<input type="button" value="목록보기" onclick=
+			&nbsp;&nbsp;<input type="submit" class="btn btn-default" value="수정하기" />
+			&nbsp;&nbsp;<input type="button" class="btn btn-default" value="목록보기" onclick=
 				"javascript:window.location.href='boardList?pageNum=${pageNum}'"/>			
 		</td>
 	</tr>
