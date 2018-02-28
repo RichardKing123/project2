@@ -36,9 +36,9 @@
 			<td colspan="4">&nbsp;</td>
 		</tr>
 		<tr>
-			<td colspan="4" class="tdSpan"><input type="reset" value="다시쓰기"/>
-				&nbsp;&nbsp;<input type="submit" value="등록하기" />
-				&nbsp;&nbsp;<input type="button" value="목록보기" 
+			<td colspan="4" class="tdSpan"><input type="reset" class="btn btn-default" value="다시쓰기"/>
+				&nbsp;&nbsp;<input type="submit" class="btn btn-default" value="등록하기" />
+				&nbsp;&nbsp;<input type="button" class="btn btn-default" value="목록보기" 
 					onclick="javascript:window.location.href='board/boardList'"/></td>
 		</tr>
 	</table>

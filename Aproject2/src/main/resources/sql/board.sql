@@ -1,18 +1,23 @@
 
 ## DATABASE 생성 및 선택
-CREATE DATABASE IF NOT EXISTS spring;
-use spring;
+CREATE DATABASE IF NOT EXISTS project2;
+use project2;
 
 -- 게시글 번호, 제목, 이메일, 내용, 글쓴이, 날짜, 조회수, 비밀번호, 파일정보,
 -- no, title, email, content, writer, reg_date, read_count, pass, file
 DROP TABLE IF EXISTS springbbs;
+
+DROP TABLE IF EXISTS reply;
+
 CREATE TABLE IF NOT EXISTS springbbs(
   board_no INTEGER AUTO_INCREMENT PRIMARY KEY,
   title VARCHAR(50) NOT NULL,
   writer VARCHAR(20) NOT NULL,  
   content VARCHAR(1000) NOT NULL,
   reg_date TIMESTAMP NOT NULL,
-  read_count INTEGER(5) NOT NULL
+  read_count INTEGER(5) NOT NULL,
+  recommend INTEGER DEFAULT 0,
+  thank INTEGER DEFAULT 0
 );
 
 INSERT INTO springbbs (title,writer,content,reg_date, read_count) VALUES ('공지 사항 입니다.','관리자','안녕하세요\r\n이번에 어쩌구 저쩌구 해서리...\r\n\r\n\r\r\n\n이렇게 운영계획과 약관을 바꾸게 되었습니다.\r\n\r\n회원님들의 양해를 구하며 사이트 이용해 참고 하시기 바랍니다.\r\n\r\n','2017-12-01 01:44:58', 15);
@@ -40,3 +45,25 @@ COMMIT;
 SELECT * FROM springbbs ORDER BY board_no DESC;
 
 INSERT INTO springbbs (title,writer,content,reg_date, read_count) VALUES('안녕하세요', 'midas', '안녕하세요...', SYSDATE(), 0);
+
+
+CREATE TABLE IF NOT EXISTS reply(
+	reply_no INTEGER AUTO_INCREMENT PRIMARY KEY,
+	writer VARCHAR(20) NOT NULL,
+    reply VARCHAR(500) NOT NULL,
+  	reg_date TIMESTAMP NOT NULL,
+	bbs_no INTEGER NOT NULL,
+	CONSTRAINT reply_fk FOREIGN KEY(bbs_no) REFERENCES springbbs(board_no)
+);
+
+
+select * FROM springbbs WHERE board_no=22;
+
+UPDATE springbbs
+		SET
+		
+			recommend=recommend + 1
+		WHERE board_no = 22
+		ORDER BY board_no DESC;
+
+select * from reply;

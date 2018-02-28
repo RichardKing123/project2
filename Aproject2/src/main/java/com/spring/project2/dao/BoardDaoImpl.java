@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.spring.project2.domain.Board;
+import com.spring.project2.domain.Reply;
 
 @Repository
 public class BoardDaoImpl implements BoardDao {
@@ -23,9 +24,43 @@ public class BoardDaoImpl implements BoardDao {
 	}	
 	
 	@Override
+	public List<Reply> replyList(int board_no){
+		return  sqlSession.selectList(NAME_SPACE  +  ".replyList",  board_no);
+	}
+	
+	@Override
+	public  void  updateReply(Reply  reply)  {
+		sqlSession.update(NAME_SPACE  +  ".updateReply",  reply);
+		}
+	
+	@Override
+	public  void  addReply(Reply  reply)  {
+		sqlSession.insert(NAME_SPACE  +  ".addReply",  reply);
+		}
+	
+	@Override
+	public  void  deleteReply(int  reply_no)  {
+		sqlSession.delete(NAME_SPACE  +  ".deleteReply",  reply_no);
+	}
+	
+	@Override
+	public  void  updateRecommend(int  board_no,  String  recommend)  {
+		System.out.println("boardDao"+board_no);
+		System.out.println("boardDao"+recommend);
+	Map<String,  Object>  params  =  new  HashMap<String,  Object>();
+	params.put("borad_no",  board_no);
+	params.put("recommend",  recommend);
+	sqlSession.update(NAME_SPACE  +  ".updateRecommend",  params);
+	}
+	
+	@Override
+	public  Board  getRecommend(int  board_no)  {
+		return  sqlSession.selectOne(NAME_SPACE  +  ".getRecommend",  board_no);
+	}
+	
+	@Override
 	public List<Board> boardList(int startRow, int num) {
 		
-		// SQL 파라미터가 여러 개일 경우 Map을 이용하여 지정한다.
 		Map<String, Integer> params = new HashMap<String, Integer>();
 		params.put("startRow", startRow);
 		params.put("num", num);
