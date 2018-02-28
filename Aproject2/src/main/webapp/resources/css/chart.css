@@ -1,3 +1,151 @@
 .zc-ref {
-  display: none;
+	display: none;
+}
+body {
+	background-color: #eaeaea;
+}
+* {
+	margin: 0px;
+	padding: 0px;
+	line-height: 1;
+}
+.map > h2 {
+	font-size: 30px;
+    font-weight: bold;
+    color: #5a6a71;
+    margin-top: 10px;
+    margin-left: 40px;
+}
+.center {
+	width: 1080px;
+	margin: 0 auto;
+}
+
+.left {
+	width: 591px;
+	margin-top: 10px;
+}
+
+.left .map {
+	width: 500px;
+	height: 525px;
+	border: 1px solid #ccc;
+	background-color: #fff;
+	position: relative;
+}
+
+.sales {
+	width: 498px;
+	height: 520px;
+	border: 1px solid #ccc;
+	background-color: #fff;
+	position: relative;
+	margin-top: 10px;
+}
+
+.floating {
+	width: 498px;
+	height: 520;
+	border: 1px solid #ccc;
+	background-color: #fff;
+	position: relative;
+	margin-top: 10px;
+}
+
+.right {
+	margin-top: -1590px;
+	margin-left: 510px;
+}
+
+.title_1 {
+	font-size: 20px;
+	font-weight: bold;
+	color: #5a6a71;
+	padding-top: 11px;
+	margin-left: 30px;
+	margin-bottom: 10px;
+}
+
+.apt {
+	float: left;
+	width: 523px;
+	height: 520px;
+	border: 1px solid #ccc;
+	background-color: #fff;
+	position: relative;
+	margin-top: 10px;
+}
+
+.facilities {
+	float: left;
+	width: 523px;
+	height: 520px;
+	border: 1px solid #ccc;
+	background-color: #fff;
+	position: relative;
+	margin-top: 10px;
+}
+
+.totalIndex {
+	float: left;
+	width: 523px;
+	height: 520px;
+	border: 1px solid #ccc;
+	background-color: #fff;
+	position: relative;
+	margin-top: 10px;
+	margin-bottom: 30px;
+}
+
+.first {
+	color: #5a6a71;
+	font-weight: bold;
+	font-size: 17px;
+	margin-left: 40px;
+	line-height: 35px;
+}
+
+.line_2 {
+	width: 438px;
+	height: 1px;
+	background-color: #636363;
+	margin-left: 30px;
+	margin-top: 10px;
+}
+
+.line_3 {
+	width: 463px;
+	height: 1px;
+	background-color: #636363;
+	margin-left: 30px;
+	margin-top: 0px;
+}
+
+.m_contain {
+	height: 159px;
+	text-align: center;
+	line-height: 140px;
+	margin-top: 10px;
+}
+
+.chart_2>div {
+	width: 523px;
+	height: 473px;
+	border: 1px solid #ccc;
+	background-color: #fff;
+	position: relative;
+	margin-top: 10px;
+}
+
+.chart_wrap2>li {
+	float: left;
+}
+
+.chart_3>div {
+	width: 523px;
+	height: 473px;
+	border: 1px solid #ccc;
+	background-color: #fff;
+	position: relative;
+	margin-top: 10px;
 }

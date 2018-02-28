@@ -16,6 +16,7 @@
 	var datas = ${polygonList};
 </script>
 <article>
+	
 	<div id="container" class="searchDetailDG">
 		<div role="tabpanel">
 			<!-- 개업률 폐업률 -->
