@@ -17,9 +17,9 @@
 		values(#{id},#{name},#{password},#{email},#{emailGet}, SYSDATE()) 
 	</insert>
 	
-	<update id="updateMember">
-		update member set id = #{id},
-		password = #{password}, email = #{email}, name = #{name}, email_get=#{emailGet} 
+	<update id="updateMember" parameterType="Member">
+		update member set 
+		password = #{password}, email = #{email}, name = #{name}, email_get=#{emailGet} where id = #{id}
 	</update>
 	
 	<select id="memberPassCheck" resultType="String">
@@ -27,6 +27,18 @@
 			password
 		FROM member
 		WHERE id = #{id}
+	</select>
+	
+	<select id="passFind" resultType="String" parameterType="hashmap">
+		select password from member where id = #{id} and email = #{email}
+	</select>
+	
+	<select id="idCheckForPass" resultType="String">
+		select id from member where id = #{id}
+	</select>
+	
+	<select id="emailCheckForPass" resultType="String">
+		select email from member where email = #{email}
 	</select>
 </mapper>	
 

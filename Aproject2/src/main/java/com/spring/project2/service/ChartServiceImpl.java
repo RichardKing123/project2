@@ -113,4 +113,10 @@ public class ChartServiceImpl implements ChartService {
 		List<Object> list = chartDao.estimatedSales();
 		return list;
 	}
+
+	@Override
+	public List<Object> dataCrawled() {
+		List<Object> list = chartDao.dataCrawled();
+		return list;
+	}
 }

@@ -87,4 +87,9 @@ public class ChartDaoImpl implements ChartDao {
 		return sqlSession.selectList(NAME_SPACE + ".estimatedSales");
 	}
 
+	@Override
+	public List<Object> dataCrawled() {
+		return sqlSession.selectList(NAME_SPACE + ".dataCrawled");
+	}
+
 }

@@ -1,5 +1,8 @@
 package com.spring.project2.dao;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -56,7 +59,7 @@ public class MemberDaoImpl implements MemberDao {
 	public boolean memberPassCheck(String id, String password) {
 		boolean result = false;
 		
-		//디비에서 해당 아이디에 상응하는 비밀번호 대
+		//디비에서 해당 아이디에 상응하는 비밀번호 대응
 		String dbPass = sqlSession.selectOne(NAME_SPACE + ".memberPassCheck", id);
 		if (dbPass.equals(password)) {
 			//맞으면 true 반환 
@@ -70,6 +73,25 @@ public class MemberDaoImpl implements MemberDao {
 	public void updateMember(Member member) {
 		sqlSession.update(NAME_SPACE + ".updateMember", member);
 
+	}
+
+	@Override
+	public String passFind(String id, String email) {
+		
+		Map<String, Object> params = new HashMap<String, Object>();
+		return sqlSession.selectOne(NAME_SPACE + ".passFind", params);
+	}
+
+	@Override
+	public String idCheckForPass(String id) {
+		
+		return sqlSession.selectOne(NAME_SPACE + ".idCheckForPass", id);
+	}
+
+	@Override
+	public String emailCheckForPass(String email) {
+		
+		return sqlSession.selectOne(NAME_SPACE +".emailCheckForPass", email);
 	}
 
 }

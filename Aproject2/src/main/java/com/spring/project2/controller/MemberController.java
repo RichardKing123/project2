@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -158,11 +159,46 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/memberUpdateResult")
-	public String updateResult(Model model, Member member) {
+	public String updateResult(Model model, HttpSession session, SessionStatus sessionStatus, 
+			@ModelAttribute("member") Member member) {
 		
 		System.out.println("updateResult : " + member.getId());
 		memberService.updateMember(member);
 		
 		return "redirect:main";
+	}
+	
+	@RequestMapping("/passFind.ajax")
+	public String passFind(Model model, String id, String email, HttpServletResponse response) throws IOException {
+		
+		String idCheckForPass = memberService.idCheckForPass(id);
+		String emailCheckForPass = memberService.emailCheckForPass(email);
+		
+		if(idCheckForPass != id) {
+			response.setContentType("text/html; charset=utf-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("	alert('존재하지 않는 아이디 입니다.');");
+			out.println("	history.back();");
+			out.println("</script>");
+
+			return null;
+		} else if(emailCheckForPass != email) {
+			response.setContentType("text/html; charset=utf-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("	alert('존재하지 않는 이메일 입니다.');");
+			out.println("	history.back();");
+			out.println("</script>");
+
+			return null;
+		}
+		
+		
+		
+		model.addAttribute("id", idCheckForPass);
+		model.addAttribute("email", emailCheckForPass);
+		
+		return memberService.passFind(id, email);
 	}
 }

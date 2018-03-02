@@ -27,7 +27,7 @@
 				<c:if test="${ sessionScope.isLogin }" >
 					<a href="memberUpdateForm?id=${ sessionScope.member.id }">정보수정</a>
 				</c:if></li>
-            <li><a href="#">비밀번호 찾기</a></li>
+            <li><a href="passFind">비밀번호 찾기</a></li>
           </ul>
         </li>
       </ul>

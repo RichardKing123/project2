@@ -93,11 +93,70 @@ $(document).ready(function() {
 			$("#emailDomain").prop("readonly", true);
 		}
 	});
+	
+	//회원정보 변경 시 비밀번호 체크
+	$("#btnPassCheck").click(function() {
+		var oldId = $("#userId").val();
+		var oldPass = $("#oldPass").val();
+		if($.trim(oldPass).length == 0) {
+			alert("기존 비밀번호가 입력되지 않았습니다. \n기본 비밀번호를 입력해주세요");
+			return false;
+		}
+		var data = "id=" + oldId + "&password=" + oldPass;
+		$.post("passCheck.ajax", data, function(resultData, status, xhr) {
+			console.log(resultData.result + (Boolean(resultData.result) == true));
+			if(resultData.result) {
+				alert("비밀번호가 확인되었습니다 \n비밀번호를 수정해주세요");
+				$("#btnPassCheck").prop("disabled", true);
+				$("#password1").focus();
+			} else {
+				alert("비밀번호가 일치하지 않습니다");
+			}
+		});
+		
+	});
+	
+	//비밀번호 찾기
+	$("#passFindForm").on("submit", passFind);
+	
+	//비밀번호 출력
+	
+	
 });
 
 
 
-
+function passFind() {
+	var id = $("#id").val();
+	var email = $("#email").val();
+	
+	
+	if(id.length == 0) {		
+		alert("아이디가 입력되지 않았습니다.\n아이디를 입력해주세요");
+		return false;
+	}		
+	if(email.length == 0) {		
+		alert("이메일이 입력되지 않았습니다.\n이메일을 입력해주세요");
+		return false;
+	}
+	$.ajax({
+		url:"passFind.ajax",
+		type:"post",
+		data: {"id":id, "email":email},
+		dataType: "json",
+		success: function(resultData, status, xhr) {
+			var passbox =  
+				"<div id='passBox' class='passBox'>"
+					+ "<span class='innerPassBox' id='innerPassBox'>" + id
+					+ "님의 비밀번호는 [" + resultData.password + "]입니다</span>"
+				+ "</div>";
+			$("#passFind").append(passbox);
+		},
+		error: function(xhr, status, error) {
+			alert("error: " + xhr.statusText + ", " + status + ", " + error);
+		}
+	});
+}
 
 
 

@@ -18,6 +18,8 @@
 					<div class="col-sm-10">
 						<input type="password" class="form-control" id="oldPass"
 							placeholder="Enter password" name="oldPass" pattern="[A-Za-z0-9]*">
+						<div style="height:10px"></div>
+						<input type="button" class="form-control" id="btnPassCheck" value="check Password">
 					</div>
 				</div>
 				<div class="form-group">

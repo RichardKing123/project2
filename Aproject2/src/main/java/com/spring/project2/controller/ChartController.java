@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.spring.project2.dao.DaumMapApiDao;
 import com.spring.project2.domain.PolygonArea;
@@ -86,7 +87,16 @@ public class ChartController {
 		return "forward:WEB-INF/views/chart/trendIndex.jsp";
 	}
 
-	
+	@RequestMapping("/dataCrawled")
+	public String dataCrawled(Model model) throws Exception {
+		
+		List<Object> list = chartService.dataCrawled();
+		
+		ObjectMapper map = new ObjectMapper();
+		String data = map.writeValueAsString(list);
+		model.addAttribute("wordData", data);
+		return "chart/dataCrawled";
+	}
 	
 	
 }

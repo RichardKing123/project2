@@ -28,4 +28,6 @@ public interface ChartService {
 	public List<Object> totalIndex();
 	
 	public List<Object> estimatedSales();
+	
+	public List<Object> dataCrawled();
 }

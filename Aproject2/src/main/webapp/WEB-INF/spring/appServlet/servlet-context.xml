@@ -35,7 +35,7 @@
 	<view-controller path="/writeForm" view-name="board/writeForm" />
 	<view-controller path="/faqWriteForm" view-name="faq/faqWriteForm"/>
 	<view-controller path="locationAnalysis" view-name="chart/locationAnalysis"/>
-	
+	<view-controller path="passFind" view-name="member/passFind"/>
 
 
 	

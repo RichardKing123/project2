@@ -87,6 +87,10 @@
 			avg(sun_sales_rate) sun 
 		from bd_estimated_sales group by bd_date;
 	</select>
+	
+	<select id="dataCrawled" resultType="hashmap">
+		select * from datacrawled;
+	</select>
 
 </mapper>	
 
