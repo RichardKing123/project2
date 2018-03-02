@@ -81,7 +81,7 @@ public class SearchDaoImpl implements SearchDao {
 		return sqlSession.selectList(NAME_SPACE+".selectIo",bd_code_name);
 	}
 
-
+//상세보기 지도 위도경도
 	@Override
 	public List<PolygonPoint> getGuPloygon(String district) {
 		
