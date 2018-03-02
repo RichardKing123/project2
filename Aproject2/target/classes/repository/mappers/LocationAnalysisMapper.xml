@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spring.project2.mapper.LocationMapper">
+	<!-- 검색목록 출력 쿼리문 -->
+	<select id="search2" resultType="hashmap">
+		select district, bd_code_name, business_type, no_of_shop, similar_shop, open_rate, no_of_open, close_rate, no_of_close 
+		from bd_shop
+		where district = #{district} order by bd_code_name
+	</select>
+	
+	<select id="stabilityIndex" resultType="int" parameterType="hashmap">
+		select 
+			stability_index 
+		from bd_index 
+		where 
+			bd_code_name = #{bdCodeName} and 
+			business_type = #{businessType} and bd_date = 201708
+	</select>
+	
+	<select id="shopNo" resultType="hashmap" parameterType="hashmap">
+		select 
+			business_type, no_of_shop, similar_shop, no_of_open, no_of_close 
+		from bd_shop where 
+			bd_code_name = #{bdCodeName} and 
+			business_type = #{businessType}
+	</select>
+	
+	<select id="shopRadar" resultType="hashmap" parameterType="hashmap">
+		select 
+			business_type, 
+			sum(no_of_shop) noOfShop
+		from bd_shop where district = #{district} 
+			and bd_code_name = #{bdCodeName} group by business_type;
+	</select>
+	
+</mapper>	
+
+
+

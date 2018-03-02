@@ -1,0 +1,40 @@
+div {
+  display: block;
+}
+.innerbox {
+  width: 500px;
+  height: 600px;
+  margin: 10px, 10px, 10px, 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+.first {
+  color: #5a6a71;
+  font-weight: bold;
+  font-size: 17px;
+  margin-left: 40px;
+  line-height: 35px;
+}
+.line_1 {
+  width: 438px;
+  height: 1px;
+  background-color: #636363;
+  margin-left: 30px;
+  margin-top: 10px;
+  margin-bottom : 40px;
+}
+.container_1 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+.emptybox {
+  height: 63px;
+}
+.row2{
+	margin-left: 50px;
+}
+.topbox {
+	margin-bottom: 60px;
+}

@@ -47,11 +47,6 @@ public class ChartController {
 		String indexData = map.writeValueAsString(index);
 		String polygonList = map.writeValueAsString(polygonAreaList);
 		
-		System.out.println("bdpopulation :" + bdSettledPopulationData);
-		System.out.println("bdIndex : " + indexData);
-		System.out.println(polygonList);
-		
-		
 		model.addAttribute("polygonList", polygonList);
 		model.addAttribute("indexData", indexData);
 		model.addAttribute("bdSettledPopulation", bdSettledPopulationData);
@@ -65,21 +60,28 @@ public class ChartController {
 		List<Object> bdApt = chartService.bdApt();
 		List<Object> bdFacilities = chartService.bdFacilities();
 		List<Object> bdFloatingPopulation = chartService.bdFloatingPopulation();
+		List<Object> oneBdSettled = chartService.oneBdSettled();
+		List<Object> totalIndex = chartService.totalIndex();
+		List<Object> estimatedSales = chartService.estimatedSales();
+		List<PolygonArea> polygonAreaList = dao.getPolygoAreaList(guNames);
 		
 		ObjectMapper map = new ObjectMapper();
 		
 		String bdFacilitiesData = map.writeValueAsString(bdFacilities);
 		String bdAptData = map.writeValueAsString(bdApt);
 		String bdFloatingPopulationData = map.writeValueAsString(bdFloatingPopulation);
-		
-		
-		System.out.println(bdAptData);
-		System.out.println(bdFacilitiesData);
-		System.out.println(bdFloatingPopulationData);
-		
+		String oneBdSettledData = map.writeValueAsString(oneBdSettled);
+		String totalIndexData = map.writeValueAsString(totalIndex);
+		String estimatedSalesData = map.writeValueAsString(estimatedSales);
+		String polygonList = map.writeValueAsString(polygonAreaList);
+
 		model.addAttribute("bdApt", bdAptData);
 		model.addAttribute("bdFacilities", bdFacilitiesData);
 		model.addAttribute("bdFloatingPopulation", bdFloatingPopulationData);
+		model.addAttribute("oneBdSettled", oneBdSettledData);
+		model.addAttribute("totalIndex", totalIndexData);
+		model.addAttribute("estimatedSales", estimatedSalesData);
+		model.addAttribute("polygonList", polygonList);
 		
 		return "forward:WEB-INF/views/chart/trendIndex.jsp";
 	}

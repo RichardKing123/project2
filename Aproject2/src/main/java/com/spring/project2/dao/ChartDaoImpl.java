@@ -69,4 +69,22 @@ public class ChartDaoImpl implements ChartDao {
 		return sqlSession.selectList(NAME_SPACE + ".bdFloatingPopulation");
 	}
 
+	@Override
+	public List<Object> oneBdSettled() {
+
+		return sqlSession.selectList(NAME_SPACE + ".oneBdSettled");
+	}
+
+	@Override
+	public List<Object> totalIndex() {
+
+		return sqlSession.selectList(NAME_SPACE + ".totalIndex");
+	}
+
+	@Override
+	public List<Object> estimatedSales() {
+		
+		return sqlSession.selectList(NAME_SPACE + ".estimatedSales");
+	}
+
 }
