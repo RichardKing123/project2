@@ -47,10 +47,11 @@ public class BoardDaoImpl implements BoardDao {
 	public  void  updateRecommend(int  board_no,  String  recommend)  {
 		System.out.println("boardDao"+board_no);
 		System.out.println("boardDao"+recommend);
-	Map<String,  Object>  params  =  new  HashMap<String,  Object>();
-	params.put("borad_no",  board_no);
-	params.put("recommend",  recommend);
-	sqlSession.update(NAME_SPACE  +  ".updateRecommend",  params);
+		
+		Map<String,  Object>  params  =  new  HashMap<String,  Object>();
+		params.put("board_no",  board_no);
+		params.put("recommend",  recommend);
+		sqlSession.update(NAME_SPACE  +  ".updateRecommend",  params);
 	}
 	
 	@Override

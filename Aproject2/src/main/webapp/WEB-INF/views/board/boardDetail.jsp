@@ -63,9 +63,10 @@
 					<span id="commend"> <img
 						src="resources/images/recommend.png" alt="추천하기" />&nbsp;추천 <span
 						class="recommend">(${board.recommend })</span>
-					</span> | <span id="thank"> <img src="resources/images/smile.png"
-						alt="땡큐" />&nbsp;땡큐 <span class="recommend">(${  board.thank  })</span>
-					</span> | <span id="replyWrite"> &nbsp;댓글쓰기 </span>
+					</span> | <span id="thank"> <img src="resources/images/recommend2.png"
+						alt="땡큐" />&nbsp; 비추천 <span class="recommend">(${  board.thank  })</span>
+					</span> 
+					|	 <span id="replyWrite"> &nbsp;댓글쓰기 </span>
 				</div>
 				<div id="replyTitle">
 					<h3>이 글에 대한 댓글 리스트</h3>
