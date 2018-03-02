@@ -63,23 +63,24 @@
 					<span id="commend"> <img
 						src="resources/images/recommend.png" alt="추천하기" />&nbsp;추천 <span
 						class="recommend">(${board.recommend })</span>
-					</span> | <span id="thank"> <img src="resources/images/smile.png"
-						alt="땡큐" />&nbsp;땡큐 <span class="recommend">(${  board.thank  })</span>
-					</span> | <span id="replyWrite"> &nbsp;댓글쓰기 </span>
+					</span> | <span id="thank"> <img src="resources/images/recommend2.png"
+						alt="땡큐" />&nbsp; 비추천 <span class="recommend">(${  board.thank  })</span>
+					</span> 
+					|	 <span id="replyWrite"> &nbsp;댓글쓰기 </span>
 				</div>
 				<div id="replyTitle">
 					<h3>이 글에 대한 댓글 리스트</h3>
 				</div>
 			</td>
 		</tr>
-		<c:if test="${  empty  replyList  }">
+<%-- 		<c:if test="${  empty  replyList  }">
 			<tr id="replyList">
 				<td colspan="6">
 					<div id="notReply">이 게시 글에 대한 댓글이 존재하지 않습니다.</div>
 				</td>
 			</tr>
 		</c:if>
-		<c:if test="${  not  empty  replyList  }">
+		<c:if test="${  not  empty  replyList  }"> --%>
 			<tr id="replyList">
 				<td colspan="6">
 					<table id="replyTable">
@@ -123,7 +124,7 @@
 					</table>
 				</td>
 			</tr>
-		</c:if>
+<%-- 		</c:if> --%>
 	</table>	
 	<div id="replyForm" >
 		<form name="replyWriteForm" id="replyWriteForm">

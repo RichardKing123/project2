@@ -13,7 +13,7 @@ $(document).ready(function() {
 			dataType: "json",
 			success: function(data) {	
 				
-				alert("추천하기가 반영 되었습니다.");
+				alert("추천이 반영 되었습니다.");
 				$("#commend > .recommend").text(" (" + data.recommend + ")");
 				$("#thank > .recommend").text(" (" + data.thank + ")");				
 			},
@@ -37,7 +37,7 @@ $(document).ready(function() {
 			dataType: "json",
 			success: function(data, status, xhr) {
 				
-				alert("땡큐가 반영 되었습니다.");
+				alert("비추천이 반영 되었습니다.");
 				$("#commend > .recommend").text(" (" + data.recommend + ")");
 				$("#thank > .recommend").text(" (" + data.thank + ")");				
 			},			
@@ -207,34 +207,34 @@ $(document).ready(function() {
 			
 				$.each(resultData, function(index, value) {
 					// 날짜 데이터를 출력 포맷에 맞게 수정
-					var date = new Date(value.reg_Date);
+					var date = new Date(value.reg_date);
 					var strDate = date.getFullYear() + "-" + ((date.getMonth() + 1 < 10) 
 							? "0" + (date.getMonth() + 1) : (date.getMonth() + 1)) + "-"  
 							+ date.getDate() + "-" + ((date.getHours() < 10) 
 							? "0" + date.getHours() : date.getHours()) + ":" 
 							+ (date.getMinutes() < 10 ? "0" + date.getMinutes() 
 							: date.getMinutes()) + ":" + (date.getSeconds() < 10 
-							? "0" + date.getSeconds() : date.getSeconds());			
-										
+							? "0" + date.getSeconds() : date.getSeconds());	
+					
 					var result = 
 						"<tr class='reply_" + value.reply_no + "'>" 
 						+ "<td>"
 						+ "	<div class='replyUser'>"
-						+ "		<span class='member'>" + value.writer+ "</span>"
+						+ "		<span class='member'>" + value.writer + "</span>"
 						+ "	</div>"
 						+ "	<div class='replyModify'>"
 						+ "		<span class='replyDate'>" + strDate + "</span>"
-						+ "		<a href='#' class='modifyReply' data-no='" + value.reply_no+ "'>"
+						+ "		<a href='#' class='modifyReply' data-no='" + value.reply_no + "'>"
 						+ "			<img src='resources/images/reply_btn_modify.gif' alt='댓글 수정하기'/>"
 						+ "		</a>"
 						+ "		<a href='#' class='deleteReply' data-no='" + value.reply_no + "'>"
 						+ "			<img src='resources/images/reply_btn_delete.gif' alt='댓글 삭제하기'/>"
 						+ "		</a>"
-						+ "		<a href='javascript:reportReply('div_" + value.reply_no+ "');'>"
+						+ "		<a href='javascript:reportReply('div_" + value.reply_no + "');'>"
 						+ "			<img src='resources/images/reply_btn_notify.gif' alt='신고하기'/>"
 						+ "		</a>"
 						+ "	</div>"
-						+ "	<div class='replyContent' id='div_" + value.reply_no+ "'>"
+						+ "	<div class='replyContent' id='div_" + value.reply_no + "'>"
 						+ "		<pre><span>" + value.reply + "</span></pre>"
 						+ "	</div>"
 						+ "</td>"

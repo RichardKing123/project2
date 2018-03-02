@@ -20,7 +20,6 @@
 <script type="text/javascript" src="resources/js/member.js"></script>
 
 
-
 </head>
 <body>
 	<%@ include file="template/nav.jsp" %>
