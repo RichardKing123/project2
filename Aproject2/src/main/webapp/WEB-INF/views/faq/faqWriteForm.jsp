@@ -13,7 +13,7 @@
 			<tr>
 				<td class="questionTh">질문글</td>
 				<td class="questionTd">
-					<input type="text" name="faqTitle" size="16" id="faqTitle"	maxlength="100"/> 		
+					<input type="text" name="faqTitle" size="51" id="faqTitle"	maxlength="100"/> 		
 				</td>	
 			</tr>
 			<tr>

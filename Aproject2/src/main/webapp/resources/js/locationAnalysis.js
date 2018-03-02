@@ -219,7 +219,7 @@ $(function() {
 			// 차트의 title 정보
 			"title" : {
 				"fontColor" : "black",
-				"text" :'상권 안정도 지수',
+				"text" :'staibility',
 				"align" : "left",
 				"offsetX" : 10,
 				"fontFamily" : "Open Sans",
@@ -350,8 +350,8 @@ $(function() {
 	zingchart.render({
 		id : 'stability',
 		data : stabilityChart,
-		height : 400,
-		width : 420
+		height : 512,
+		width : 498
 	});
 	
 	//상권 점포수
@@ -450,8 +450,8 @@ $(function() {
 	zingchart.render({ 
 		id : 'noOfShop', 
 		data : shop, 
-		height: 500, 
-		width: 725 
+		height: 512, 
+		width: 498
 	});
 	
 	//해당 지역구의 비지니스 타입에 따른 점포 수
@@ -509,8 +509,8 @@ $(function() {
 		zingchart.render({ 
 			id : 'shopRadar', 
 			data : shopCircle, 
-			height: 700, 
-			width: 540
+			height: 512, 
+			width: 498
 		});
 		
 		//지도 출력하는 코드문

@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1"/>
 <title>proeject2</title>
+<!-- 부트스트랩 + 구현용 기타 library -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -14,11 +15,10 @@
 <link rel="stylesheet" type="text/css" href="resources/css/member.css" />
 <link rel="stylesheet" type="text/css" href="resources/css/search.css">
 <link rel="stylesheet" type="text/css" href="resources/css/board.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/locationAnalysis.css" />
 <script src="resources/js/formcheck.js"></script>
 <script type="text/javascript" src="resources/js/member.js"></script>
 
-<script type="text/javascript" src="resources/js/search.js"></script>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b1be91db11f8253de94c8895a7e92d8d"></script>
 
 </head>
 <body>

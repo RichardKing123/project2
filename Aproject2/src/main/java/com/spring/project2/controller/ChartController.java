@@ -63,6 +63,7 @@ public class ChartController {
 		List<Object> oneBdSettled = chartService.oneBdSettled();
 		List<Object> totalIndex = chartService.totalIndex();
 		List<Object> estimatedSales = chartService.estimatedSales();
+		List<PolygonArea> polygonAreaList = dao.getPolygoAreaList(guNames);
 		
 		ObjectMapper map = new ObjectMapper();
 		
@@ -72,7 +73,7 @@ public class ChartController {
 		String oneBdSettledData = map.writeValueAsString(oneBdSettled);
 		String totalIndexData = map.writeValueAsString(totalIndex);
 		String estimatedSalesData = map.writeValueAsString(estimatedSales);
-		
+		String polygonList = map.writeValueAsString(polygonAreaList);
 
 		model.addAttribute("bdApt", bdAptData);
 		model.addAttribute("bdFacilities", bdFacilitiesData);
@@ -80,6 +81,7 @@ public class ChartController {
 		model.addAttribute("oneBdSettled", oneBdSettledData);
 		model.addAttribute("totalIndex", totalIndexData);
 		model.addAttribute("estimatedSales", estimatedSalesData);
+		model.addAttribute("polygonList", polygonList);
 		
 		return "forward:WEB-INF/views/chart/trendIndex.jsp";
 	}

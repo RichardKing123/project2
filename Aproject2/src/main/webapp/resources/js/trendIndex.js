@@ -327,8 +327,8 @@ $(function() {
 	zingchart.render({
 		id : 'bdApt',
 		data : bdApt1,
-		height : 500,
-		width : 725
+		height : 472,
+		width : 521
 	});
 	
 	
@@ -358,7 +358,6 @@ $(function() {
 	            "type": "bar",
 	            "background-color": "white",
 	            "title": {
-	                "text": "상권 집객시설",
 	                "font-color": "#7E7E7E",
 	                "backgroundColor": "none",
 	                "font-size": "22px",
@@ -435,7 +434,7 @@ $(function() {
 	                    "visible": true
 	                },
 	                "label": {
-	                  "text": "평균 집객시설 수",
+	                  "text": "no",
 	                  "font-family": "arial",
 	                  "font-angle":0,
 	                  "bold": true,
@@ -544,8 +543,8 @@ $(function() {
 	zingchart.render({ 
 		id : 'bdFacilities', 
 		data : bdFacilities1, 
-		height: 500, 
-		width: 725 
+		height: 472, 
+		width: 521 
 	});
 	
 	
@@ -849,7 +848,7 @@ $(function() {
 	        "legend":{
 	            "toggle-action":"remove",
 	            "layout":"x3",
-	            "x":"52.5%",
+	            "x":"32.5%",
 	            "shadow":false,
 	            "border-color":"none",
 	            "background-color":"none",
@@ -941,8 +940,8 @@ $(function() {
 	zingchart.render({ 
 		id : 'bdFloatingPopulation', 
 		data : bdFloatingPopulation, 
-		height: 500, 
-		width: 725 
+		height: 472, 
+		width: 498 
 	});
 	
 	//서울시 지수지표
@@ -1069,8 +1068,8 @@ $(function() {
 		                borderColor:'#E3E3E5',
 		                borderWidth:1,
 		                borderRadius: 3,
-		                x:'85%',
-		                y:'11%',
+		                x:'87%',
+		                y:'8%',
 		                backgroundColor:'#53535e',
 		                cursor:'hand',
 		                label:{
@@ -1112,8 +1111,8 @@ $(function() {
 		zingchart.render({ 
 			id: 'totalIndex', 
 			data: avgIndex, 
-			height: '500', 
-			width: '725' 
+			height: 472, 
+			width: 521 
 		});
 
 		zingchart.shape_click = function(p){
@@ -1271,8 +1270,9 @@ $(function() {
 		zingchart.render({ 
 			id : 'estimatedSales', 
 			data : sales, 
-			height: 500, 
-			width: 725 
+			height: 473, 
+			width: 498
 		});
+		
 		
 });
