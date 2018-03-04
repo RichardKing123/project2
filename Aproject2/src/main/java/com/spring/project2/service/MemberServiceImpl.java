@@ -65,21 +65,11 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public String passFind(String id, String email) {
+	public Member passFind(String id) {
 		
-		return memberDao.passFind(id, email);
+		return memberDao.passFind(id);
 	}
 
-	@Override
-	public String idCheckForPass(String id) {
-		
-		return memberDao.idCheckForPass(id);
-	}
-
-	@Override
-	public String emailCheckForPass(String email) {
 	
-		return memberDao.emailCheckForPass(email);
-	}
 
 }

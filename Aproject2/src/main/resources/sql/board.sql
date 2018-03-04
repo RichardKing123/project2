@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS reply(
 	bbs_no INTEGER NOT NULL,
 	CONSTRAINT reply_fk FOREIGN KEY(bbs_no) REFERENCES springbbs(board_no)
 );
-
+commit;
 
 select * FROM springbbs WHERE board_no=22;
 

@@ -23,11 +23,6 @@ public interface MemberService {
 	public void updateMember(Member member);
 	
 	//비밀번호 찾기 메소드
-	public String passFind(String id, String email);
+	public Member passFind(String id);
 	
-	//비밀번호 찾기 시 아이디 체크 메소드
-	public String idCheckForPass(String id);
-	
-	//비밀번호 찾기 시 이메일 체크 메소드
-	public String emailCheckForPass(String email);
 }

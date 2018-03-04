@@ -168,37 +168,5 @@ public class MemberController {
 		return "redirect:main";
 	}
 	
-	@RequestMapping("/passFind.ajax")
-	public String passFind(Model model, String id, String email, HttpServletResponse response) throws IOException {
-		
-		String idCheckForPass = memberService.idCheckForPass(id);
-		String emailCheckForPass = memberService.emailCheckForPass(email);
-		
-		if(idCheckForPass != id) {
-			response.setContentType("text/html; charset=utf-8");
-			PrintWriter out = response.getWriter();
-			out.println("<script>");
-			out.println("	alert('존재하지 않는 아이디 입니다.');");
-			out.println("	history.back();");
-			out.println("</script>");
-
-			return null;
-		} else if(emailCheckForPass != email) {
-			response.setContentType("text/html; charset=utf-8");
-			PrintWriter out = response.getWriter();
-			out.println("<script>");
-			out.println("	alert('존재하지 않는 이메일 입니다.');");
-			out.println("	history.back();");
-			out.println("</script>");
-
-			return null;
-		}
-		
-		
-		
-		model.addAttribute("id", idCheckForPass);
-		model.addAttribute("email", emailCheckForPass);
-		
-		return memberService.passFind(id, email);
-	}
+	
 }

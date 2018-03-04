@@ -20,11 +20,7 @@ public interface MemberDao {
 	public void updateMember(Member member);
 	
 	//비밀번호 잊어버렸을 시 찾는 메소드
-	public String passFind(String id, String email);
+	public Member passFind(String id);
 	
-	//비밀번호 찾기 시 아이디 반환 메소드
-	public String idCheckForPass(String id);
 	
-	//비밀번호 찾기 시 이메일 반환 메소드
-	public String emailCheckForPass(String email);
 }

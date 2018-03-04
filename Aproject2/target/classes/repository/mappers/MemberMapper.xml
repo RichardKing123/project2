@@ -29,17 +29,10 @@
 		WHERE id = #{id}
 	</select>
 	
-	<select id="passFind" resultType="String" parameterType="hashmap">
-		select password from member where id = #{id} and email = #{email}
+	<select id="passFind" resultType="Member">
+		select id, password, email from member where id = #{id}
 	</select>
-	
-	<select id="idCheckForPass" resultType="String">
-		select id from member where id = #{id}
-	</select>
-	
-	<select id="emailCheckForPass" resultType="String">
-		select email from member where email = #{email}
-	</select>
+
 </mapper>	
 
 

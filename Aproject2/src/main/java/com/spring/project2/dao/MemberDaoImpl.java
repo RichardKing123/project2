@@ -76,22 +76,11 @@ public class MemberDaoImpl implements MemberDao {
 	}
 
 	@Override
-	public String passFind(String id, String email) {
+	public Member passFind(String id) {
 		
-		Map<String, Object> params = new HashMap<String, Object>();
-		return sqlSession.selectOne(NAME_SPACE + ".passFind", params);
+		return sqlSession.selectOne(NAME_SPACE + ".passFind", id);
 	}
 
-	@Override
-	public String idCheckForPass(String id) {
-		
-		return sqlSession.selectOne(NAME_SPACE + ".idCheckForPass", id);
-	}
-
-	@Override
-	public String emailCheckForPass(String email) {
-		
-		return sqlSession.selectOne(NAME_SPACE +".emailCheckForPass", email);
-	}
+	
 
 }

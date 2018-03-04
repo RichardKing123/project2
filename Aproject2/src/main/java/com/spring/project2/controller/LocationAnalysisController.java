@@ -76,7 +76,8 @@ public class LocationAnalysisController {
 	
 	@ExceptionHandler(NullPointerException.class)
 	public String nullPointException(Model model) {
-		model.addAttribute("title", "해당하는 데이터에 맞는 상권이 없습니다");
+		model.addAttribute("title", "OOPS! There is no data for this business area.<br>"
+				+ "Plz click image to select again");
 		return "errors/nullPointException";
 	}
 	

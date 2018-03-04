@@ -42,6 +42,9 @@
 	<beans:bean id="loginCheckInterceptor" class="com.spring.project2.interceptor.LoginCheckInterceptor"/>
 	<interceptors>
 		<interceptor>
+			<mapping path="/dataCrawled"/>
+			<mapping path="/trendIndex"/>
+			<mapping path="/locationAnalysis"/>
 			<mapping path="/search00"/>
 			<beans:ref bean="loginCheckInterceptor"/>
 		</interceptor>

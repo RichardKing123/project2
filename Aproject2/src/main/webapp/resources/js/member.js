@@ -148,7 +148,7 @@ function passFind() {
 			var passbox =  
 				"<div id='passBox' class='passBox'>"
 					+ "<span class='innerPassBox' id='innerPassBox'>" + id
-					+ "님의 비밀번호는 [" + resultData.password + "]입니다</span>"
+					+ "님의 비밀번호는 [" + resultData.pass + "]입니다</span>"
 				+ "</div>";
 			$("#passFind").append(passbox);
 		},
