@@ -126,11 +126,11 @@ $(document).ready(function() {
 
 
 
-function passFind() {
+function passFind(e) {
 	var id = $("#id").val();
 	var email = $("#email").val();
 	
-	
+	e.preventDefault();
 	if(id.length == 0) {		
 		alert("아이디가 입력되지 않았습니다.\n아이디를 입력해주세요");
 		return false;
@@ -146,16 +146,18 @@ function passFind() {
 		dataType: "json",
 		success: function(resultData, status, xhr) {
 			var passbox =  
-				"<div id='passBox' class='passBox'>"
-					+ "<span class='innerPassBox' id='innerPassBox'>" + id
-					+ "님의 비밀번호는 [" + resultData.pass + "]입니다</span>"
+				"<div id='passBox' class='form-group'>"
+					+"<div class='col-sm-10' style='float: none;'>"
+					+"<input type='text' class='form-control' value='" +id + "님의 비밀번호는 [" + resultData.pass + "]입니다' readonly>"
+					+"</div>"
 				+ "</div>";
-			$("#passFind").append(passbox);
+			$("#passFindForm").append(passbox);
 		},
 		error: function(xhr, status, error) {
 			alert("error: " + xhr.statusText + ", " + status + ", " + error);
 		}
 	});
+	//return false;
 }
 
 

@@ -92,4 +92,22 @@ public class ChartDaoImpl implements ChartDao {
 		return sqlSession.selectList(NAME_SPACE + ".dataCrawled");
 	}
 
+	@Override
+	public List<Object> syarosu() {
+		
+		return sqlSession.selectList(NAME_SPACE + ".syarosu");
+	}
+
+	@Override
+	public List<Object> gyunglidan() {
+		
+		return sqlSession.selectList(NAME_SPACE + ".gyunglidan");
+	}
+
+	@Override
+	public List<Object> hongdae() {
+		
+		return sqlSession.selectList(NAME_SPACE + ".hongdae");
+	}
+
 }

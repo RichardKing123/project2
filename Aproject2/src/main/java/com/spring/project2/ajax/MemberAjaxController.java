@@ -37,6 +37,7 @@ public class MemberAjaxController {
 	}
 	
 	@RequestMapping("/passFind.ajax")
+	@ResponseBody
 	public Map<String, String> passFind(Model model, String id, String email, HttpServletResponse response) throws IOException {
 		Map<String, String> map = new HashMap<String, String>(); 
 		

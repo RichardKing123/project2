@@ -90,11 +90,22 @@ public class ChartController {
 	@RequestMapping("/dataCrawled")
 	public String dataCrawled(Model model) throws Exception {
 		
-		List<Object> list = chartService.dataCrawled();
+		List<Object> garosu = chartService.dataCrawled();
+		List<Object> syarosu = chartService.syarosu();
+		/*List<Object> hongdae = chartService.hongdae();
+		List<Object> gyunglidan = chartService.gyunglidan();*/
 		
 		ObjectMapper map = new ObjectMapper();
-		String data = map.writeValueAsString(list);
-		model.addAttribute("wordData", data);
+		
+		String garosuData = map.writeValueAsString(garosu);
+		String syarosuData = map.writeValueAsString(syarosu);
+		/*String hongdaeData = map.writeValueAsString(hongdae);
+		String gyunglidanData = map.writeValueAsString(gyunglidan);*/
+		
+		model.addAttribute("garosu", garosuData);
+		model.addAttribute("syarosu", syarosuData);
+		/*model.addAttribute("hongdae", hongdaeData);
+		model.addAttribute("gyunglidan", gyunglidanData);*/
 		return "chart/dataCrawled";
 	}
 	

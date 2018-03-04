@@ -16,16 +16,12 @@
 							placeholder="Enter email" name="email">
 					</div>
 				</div>
-				<div class="form-group">
+				<div class="form-group" id="lastone">
 					<div class="col-sm-10" style="float: none;">
 						<input type="submit" class="form-control" value="find password" />
 					</div>
 				</div>
 			</form>
 		</div>
-		<!-- 비밀번호가 출력되는 폼 -->
-		<%-- <div id="passBox" class="passBox">
-			<span class="innerPassBox" id="innerPassBox">${id }님의 비밀번호는 [${ passFind}]입니다</span>
-		</div> --%>
 	</div>
 </article>

@@ -30,4 +30,10 @@ public interface ChartService {
 	public List<Object> estimatedSales();
 	
 	public List<Object> dataCrawled();
+	
+	public List<Object> syarosu();
+	
+	public List<Object> gyunglidan();
+	
+	public List<Object> hongdae();
 }

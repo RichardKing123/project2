@@ -119,4 +119,22 @@ public class ChartServiceImpl implements ChartService {
 		List<Object> list = chartDao.dataCrawled();
 		return list;
 	}
+
+	@Override
+	public List<Object> syarosu() {
+		List<Object> list = chartDao.syarosu();
+		return list;
+	}
+
+	@Override
+	public List<Object> gyunglidan() {
+		List<Object> list = chartDao.gyunglidan();
+		return list;
+	}
+
+	@Override
+	public List<Object> hongdae() {
+		List<Object> list = chartDao.hongdae();
+		return list;
+	}
 }
