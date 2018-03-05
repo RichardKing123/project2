@@ -124,4 +124,87 @@ $(function() {
 	});
 	
 	
+	var hongdaeData = [];
+	var gyunglidanData = [];
+	$(hongdae).each(function(index, value) {
+		hongdaeData.push(value.x);
+	});
+	$(gyunglidan).each(function(index, value) {
+		gyunglidanData.push(value.x);
+	});
+	var hongdaelist = hongdaeData.join(", ");
+	var gyunglidanlist = gyunglidanData.join(", ");
+	var myConfig1 = {
+	    "background-color":"#ffffff",
+	    "graphset":[
+	        {
+	            "type":"wordcloud",
+	            "x":"0%",
+	            "y":"0%",
+	            "width":"50%",
+	            "height":"100%",
+	            "background-color":"#F2F3F8",
+	            "title":{
+	                "text":"홍대",
+	                "y":"5%",
+	                "background-color":"none",
+	                "font-size":"24px",
+	                "font-color":"#000000"
+	            },
+	            "plotarea":{
+	                "margin":"50 auto auto auto"
+	            },
+	            "options":{
+	                "max-items":20,
+	                "font-family":"Arial",
+	                "rotate":true,
+	                "min-length":4,
+	                "min-font-size":"12px",
+	                "max-font-size":"35px",
+	                "color-type":"palette",
+	                "palette":["#57aa83","#c13f43","#2c497d","#8965ad","#686d7b","#fd625e","#d7d7d9","#2e67c6"],
+	                "text": hongdaelist
+	            }
+	        },
+	        {
+	            "type":"wordcloud",
+	            "x":"51%",
+	            "y":"0%",
+	            "width":"50%",
+	            "height":"100%",
+	            "background-color":"#F2F3F8",
+	            "title":{
+	                "text":"경리단길",
+	                "y":"5%",
+	                "background-color":"none",
+	                "font-size":"24px",
+	                "font-color":"#000000"
+	            },
+	            "plotarea":{
+	                "margin":"50 auto auto auto"
+	            },
+	            "options":{
+	                "max-items":20,
+	                "font-family":"Arial",
+	                "rotate":true,
+	                "min-length":4,
+	                "min-font-size":"12px",
+	                "max-font-size":"35px",
+	                "color-type":"palette",
+	                "palette":["#57aa83","#c13f43","#2c497d","#8965ad","#686d7b","#fd625e","#d7d7d9","#2e67c6"],
+	                "text": gyunglidanlist
+	            }
+	        }
+	    ]
+	}
+
+	;
+
+	zingchart.render({ 
+		id : 'second', 
+		data : myConfig1, 
+		height: 450, 
+		width: 725 
+	});
+	
 });

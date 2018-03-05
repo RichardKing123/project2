@@ -96,13 +96,13 @@
 		select * from syarosu
 	</select>
 	
-	<!-- <select id="gyunglidan" resultType="hashmap">
+	<select id="gyunglidan" resultType="hashmap">
 		select * from gyunglidan
 	</select>
 	
 	<select id="hongdae" resultType="hashmap">
 		select * from hongdae
-	</select> -->
+	</select>
 </mapper>	
 
 
